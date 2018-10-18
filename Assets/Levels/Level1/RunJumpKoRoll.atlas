@@ -1,0 +1,1081 @@
+
+RunJumpKoRoll.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Roll jump/rolj
+  rotate: false
+  xy: 1, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 35
+Roll jump/rolj
+  rotate: false
+  xy: 1, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 36
+Roll jump/rolj
+  rotate: false
+  xy: 1, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 34
+Roll jump/rolj
+  rotate: false
+  xy: 1, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 0
+Roll jump/rolj
+  rotate: false
+  xy: 254, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 11
+Roll jump/rolj
+  rotate: false
+  xy: 1, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 9
+Roll jump/rolj
+  rotate: false
+  xy: 254, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 2
+Roll jump/rolj
+  rotate: false
+  xy: 507, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 26
+Roll jump/rolj
+  rotate: false
+  xy: 1, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 29
+Roll jump/rolj
+  rotate: false
+  xy: 254, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 27
+Roll jump/rolj
+  rotate: false
+  xy: 507, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 20
+Roll jump/rolj
+  rotate: false
+  xy: 760, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 22
+Roll jump/rolj
+  rotate: false
+  xy: 254, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 7
+Roll jump/rolj
+  rotate: false
+  xy: 507, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 16
+Roll jump/rolj
+  rotate: false
+  xy: 760, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 1
+Roll jump/rolj
+  rotate: false
+  xy: 507, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 23
+Roll jump/rolj
+  rotate: false
+  xy: 760, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 14
+Roll jump/rolj
+  rotate: false
+  xy: 760, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 6
+
+RunJumpKoRoll2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Roll jump/rolj
+  rotate: false
+  xy: 1, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 4
+Roll jump/rolj
+  rotate: false
+  xy: 1, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 30
+Roll jump/rolj
+  rotate: false
+  xy: 254, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 19
+Roll jump/rolj
+  rotate: false
+  xy: 1, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 24
+Roll jump/rolj
+  rotate: false
+  xy: 254, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 17
+Roll jump/rolj
+  rotate: false
+  xy: 507, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 3
+Roll jump/rolj
+  rotate: false
+  xy: 1, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 31
+Roll jump/rolj
+  rotate: false
+  xy: 254, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 13
+Roll jump/rolj
+  rotate: false
+  xy: 507, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 18
+Roll jump/rolj
+  rotate: false
+  xy: 760, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 8
+Roll jump/rolj
+  rotate: false
+  xy: 254, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 28
+Roll jump/rolj
+  rotate: false
+  xy: 507, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 12
+Roll jump/rolj
+  rotate: false
+  xy: 760, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 25
+Roll jump/rolj
+  rotate: false
+  xy: 507, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 21
+Roll jump/rolj
+  rotate: false
+  xy: 760, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 10
+Roll jump/rolj
+  rotate: false
+  xy: 760, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 5
+
+RunJumpKoRoll3.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Roll jump/rolj
+  rotate: false
+  xy: 1, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 33
+Roll jump/rolj
+  rotate: false
+  xy: 254, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 32
+Roll jump/rolj
+  rotate: false
+  xy: 507, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 15
+
+RunJumpKoRoll4.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+run/run
+  rotate: false
+  xy: 1, 709
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 15
+run/run
+  rotate: false
+  xy: 1, 532
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 26
+run/run
+  rotate: false
+  xy: 116, 709
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 10
+run/run
+  rotate: false
+  xy: 1, 355
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 30
+run/run
+  rotate: false
+  xy: 116, 532
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 6
+run/run
+  rotate: false
+  xy: 231, 709
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 28
+run/run
+  rotate: false
+  xy: 1, 178
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 34
+run/run
+  rotate: false
+  xy: 116, 355
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 13
+run/run
+  rotate: false
+  xy: 231, 532
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 8
+run/run
+  rotate: false
+  xy: 346, 709
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 18
+run/run
+  rotate: false
+  xy: 1, 1
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 29
+run/run
+  rotate: false
+  xy: 116, 178
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 7
+run/run
+  rotate: false
+  xy: 231, 355
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 36
+run/run
+  rotate: false
+  xy: 346, 532
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 14
+run/run
+  rotate: false
+  xy: 461, 709
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 5
+run/run
+  rotate: false
+  xy: 116, 1
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 0
+run/run
+  rotate: false
+  xy: 231, 178
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 32
+run/run
+  rotate: false
+  xy: 346, 355
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 37
+run/run
+  rotate: false
+  xy: 461, 532
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 24
+run/run
+  rotate: false
+  xy: 576, 709
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 21
+run/run
+  rotate: false
+  xy: 231, 1
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 4
+run/run
+  rotate: false
+  xy: 346, 178
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 2
+run/run
+  rotate: false
+  xy: 461, 355
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 39
+run/run
+  rotate: false
+  xy: 576, 532
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 25
+run/run
+  rotate: false
+  xy: 691, 709
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 20
+run/run
+  rotate: false
+  xy: 346, 1
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 11
+run/run
+  rotate: false
+  xy: 461, 178
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 38
+run/run
+  rotate: false
+  xy: 576, 355
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 9
+run/run
+  rotate: false
+  xy: 691, 532
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 41
+run/run
+  rotate: false
+  xy: 806, 709
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 3
+run/run
+  rotate: false
+  xy: 461, 1
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 1
+run/run
+  rotate: false
+  xy: 576, 178
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 33
+run/run
+  rotate: false
+  xy: 691, 355
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 40
+run/run
+  rotate: false
+  xy: 806, 532
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 23
+run/run
+  rotate: false
+  xy: 576, 1
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 42
+run/run
+  rotate: false
+  xy: 691, 178
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 17
+run/run
+  rotate: false
+  xy: 806, 355
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 16
+run/run
+  rotate: false
+  xy: 691, 1
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 19
+run/run
+  rotate: false
+  xy: 806, 178
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 22
+run/run
+  rotate: false
+  xy: 806, 1
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 12
+
+RunJumpKoRoll5.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+run/run
+  rotate: false
+  xy: 1, 1
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 35
+run/run
+  rotate: false
+  xy: 116, 1
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 27
+run/run
+  rotate: false
+  xy: 231, 1
+  size: 113, 175
+  orig: 113, 175
+  offset: 0, 0
+  index: 31
+
+RunJumpKoRoll6.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+jump/j
+  rotate: false
+  xy: 1, 709
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 3
+jump/j
+  rotate: false
+  xy: 1, 532
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 17
+jump/j
+  rotate: false
+  xy: 99, 709
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 2
+jump/j
+  rotate: false
+  xy: 1, 355
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 9
+jump/j
+  rotate: false
+  xy: 99, 532
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 8
+jump/j
+  rotate: false
+  xy: 197, 709
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 6
+jump/j
+  rotate: false
+  xy: 1, 178
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 14
+jump/j
+  rotate: false
+  xy: 99, 355
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 1
+jump/j
+  rotate: false
+  xy: 197, 532
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 21
+jump/j
+  rotate: false
+  xy: 295, 709
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 22
+jump/j
+  rotate: false
+  xy: 1, 1
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 19
+jump/j
+  rotate: false
+  xy: 99, 178
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 11
+jump/j
+  rotate: false
+  xy: 197, 355
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 5
+jump/j
+  rotate: false
+  xy: 295, 532
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 13
+jump/j
+  rotate: false
+  xy: 393, 709
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 7
+jump/j
+  rotate: false
+  xy: 99, 1
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 24
+jump/j
+  rotate: false
+  xy: 197, 178
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 23
+jump/j
+  rotate: false
+  xy: 295, 355
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 18
+jump/j
+  rotate: false
+  xy: 393, 532
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 15
+jump/j
+  rotate: false
+  xy: 197, 1
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 20
+jump/j
+  rotate: false
+  xy: 295, 178
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 4
+jump/j
+  rotate: false
+  xy: 393, 355
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 0
+jump/j
+  rotate: false
+  xy: 295, 1
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 10
+jump/j
+  rotate: false
+  xy: 393, 178
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 12
+jump/j
+  rotate: false
+  xy: 393, 1
+  size: 96, 175
+  orig: 96, 175
+  offset: 0, 0
+  index: 16
+
+RunJumpKoRoll7.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+KO/ko
+  rotate: false
+  xy: 1, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 26
+KO/ko
+  rotate: false
+  xy: 1, 411
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 18
+KO/ko
+  rotate: false
+  xy: 237, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 41
+KO/ko
+  rotate: false
+  xy: 237, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 37
+KO/ko
+  rotate: false
+  xy: 237, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 33
+KO/ko
+  rotate: false
+  xy: 237, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 42
+KO/ko
+  rotate: false
+  xy: 237, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 40
+KO/ko
+  rotate: false
+  xy: 237, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 32
+KO/ko
+  rotate: false
+  xy: 237, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 36
+KO/ko
+  rotate: false
+  xy: 237, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 38
+KO/ko
+  rotate: false
+  xy: 237, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 39
+KO/ko
+  rotate: false
+  xy: 237, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 35
+KO/ko
+  rotate: false
+  xy: 237, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 34
+KO/ko
+  rotate: false
+  xy: 1, 206
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 9
+KO/ko
+  rotate: false
+  xy: 237, 411
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 7
+KO/ko
+  rotate: false
+  xy: 473, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 2
+KO/ko
+  rotate: false
+  xy: 1, 1
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 4
+KO/ko
+  rotate: false
+  xy: 237, 206
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 30
+KO/ko
+  rotate: false
+  xy: 473, 411
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 6
+KO/ko
+  rotate: false
+  xy: 709, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 13
+KO/ko
+  rotate: false
+  xy: 237, 1
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 8
+KO/ko
+  rotate: false
+  xy: 473, 206
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 20
+KO/ko
+  rotate: false
+  xy: 709, 411
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 31
+KO/ko
+  rotate: false
+  xy: 473, 1
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 23
+KO/ko
+  rotate: false
+  xy: 709, 206
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 15
+KO/ko
+  rotate: false
+  xy: 709, 1
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 29
+
+RunJumpKoRoll8.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+KO/ko
+  rotate: false
+  xy: 1, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 11
+KO/ko
+  rotate: false
+  xy: 1, 411
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 12
+KO/ko
+  rotate: false
+  xy: 237, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 5
+KO/ko
+  rotate: false
+  xy: 1, 206
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 19
+KO/ko
+  rotate: false
+  xy: 237, 411
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 22
+KO/ko
+  rotate: false
+  xy: 473, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 14
+KO/ko
+  rotate: false
+  xy: 1, 1
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 24
+KO/ko
+  rotate: false
+  xy: 237, 206
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 0
+KO/ko
+  rotate: false
+  xy: 473, 411
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 1
+KO/ko
+  rotate: false
+  xy: 709, 616
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 21
+KO/ko
+  rotate: false
+  xy: 237, 1
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 16
+KO/ko
+  rotate: false
+  xy: 473, 206
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 27
+KO/ko
+  rotate: false
+  xy: 709, 411
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 17
+KO/ko
+  rotate: false
+  xy: 473, 1
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 3
+KO/ko
+  rotate: false
+  xy: 709, 206
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 28
+KO/ko
+  rotate: false
+  xy: 709, 1
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 25
+
+RunJumpKoRoll9.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+KO/ko
+  rotate: false
+  xy: 1, 1
+  size: 234, 203
+  orig: 234, 203
+  offset: 0, 0
+  index: 10
