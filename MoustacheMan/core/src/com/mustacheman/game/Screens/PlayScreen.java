@@ -45,6 +45,7 @@ public class PlayScreen implements Screen{
     private TmxMapLoader mapLoader;
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
+    private MoustacheMan player;
 
 
 
@@ -57,6 +58,7 @@ public class PlayScreen implements Screen{
 
 
     public PlayScreen(MainClass game){
+
         gamecam = new OrthographicCamera();
         gameport = new FitViewport(MainClass.V_Width / MainClass.PPM, MainClass.V_Height / MainClass.PPM ,gamecam);
 
@@ -69,13 +71,23 @@ public class PlayScreen implements Screen{
         mapLoader = new TmxMapLoader();
         map = mapLoader.load("level1.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, 1 / MainClass.PPM);
+
+
+
         gamecam.position.set(gameport.getWorldWidth()/2, gameport.getWorldHeight()/2, 0);
         world = new World(new Vector2(0,-10 ), true);
         b2dr = new Box2DDebugRenderer();
+
+
         BodyDef bdef = new BodyDef();
         PolygonShape shape = new PolygonShape();
         FixtureDef fdef = new FixtureDef();
         Body body;
+        player = new MoustacheMan(world);
+
+
+
+
 
         for(MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class))
         {
@@ -123,7 +135,7 @@ public class PlayScreen implements Screen{
     }
     public void handleInput(float dt){
         if (Gdx.input.isTouched()) {
-            gamecam.position.x += 100 * dt;
+            gamecam.position.x += 150 * dt / MainClass.PPM;
         }
 
     }
@@ -143,18 +155,19 @@ public class PlayScreen implements Screen{
         update(delta);
         Gdx.gl.glClearColor(0,0,0,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        renderer.render();
+        //renderer.render();
 
-        //elapsedTime += Gdx.graphics.getDeltaTime();
+        elapsedTime += Gdx.graphics.getDeltaTime();
         game.batch.setProjectionMatrix(gamecam.combined);
 
         game.batch.setProjectionMatrix(hud.hudStage.getCamera().combined);
         hud.hudStage.draw();
         //game.batch.begin();
-        //game.batch.draw(run.getKeyFrame(elapsedTime, true), 100, 100);
+        //game.batch.draw(run.getKeyFrame(elapsedTime, true), 400 ,384 );
         //game.batch.end();
 
         b2dr.render(world,gamecam.combined);
+
 
 
 

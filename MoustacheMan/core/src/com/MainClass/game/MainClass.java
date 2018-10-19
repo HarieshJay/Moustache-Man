@@ -15,7 +15,7 @@ import com.mustacheman.game.Screens.PlayScreen;
 public class MainClass extends Game {
 	public SpriteBatch batch;
 	public static final int V_Width = 1500;
-	public static final int V_Height =  672;
+	public static final int V_Height =  768;
 	public static final float PPM = 100;
 
 
