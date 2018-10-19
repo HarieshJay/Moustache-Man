@@ -3,6 +3,7 @@ package com.mustacheman.game.Screens;
 import com.MainClass.game.MainClass;
 import com.Scenes.Hud;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.MainClass.*;
 import com.badlogic.gdx.maps.MapObject;
@@ -133,16 +134,22 @@ public class PlayScreen implements Screen{
     public void show() {
 
     }
-    public void handleInput(float dt){
-        if (Gdx.input.isTouched()) {
-            gamecam.position.x += 150 * dt / MainClass.PPM;
-        }
+    public void handleInput(float dt) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+            player.b2body.applyLinearImpulse(new Vector2(0, 5f), player.b2body.getWorldCenter(), true);}
+        if ((Gdx.input.isKeyPressed(Input.Keys.RIGHT) && (player.b2body.getLinearVelocity().x <= 2))) {
+            player.b2body.applyLinearImpulse(new Vector2(0.3f, 0), player.b2body.getWorldCenter(), true);}
+        if ((Gdx.input.isKeyPressed(Input.Keys.LEFT) && (player.b2body.getLinearVelocity().x >= -2))){
+            player.b2body.applyLinearImpulse(new Vector2(-0.3f, 0), player.b2body.getWorldCenter(), true); }
+
+
 
     }
 
     public void update(float dt) {
         handleInput(dt);
         world.step(1/60f,6,2);
+        gamecam.position.x = player.b2body.getPosition().x;
 
         gamecam.update();
         renderer.setView(gamecam);
@@ -155,7 +162,7 @@ public class PlayScreen implements Screen{
         update(delta);
         Gdx.gl.glClearColor(0,0,0,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        //renderer.render();
+        renderer.render();
 
         elapsedTime += Gdx.graphics.getDeltaTime();
         game.batch.setProjectionMatrix(gamecam.combined);

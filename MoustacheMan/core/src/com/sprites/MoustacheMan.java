@@ -31,7 +31,7 @@ public class MoustacheMan extends Sprite {
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius( 50/MainClass.PPM);
+        shape.setRadius( 40/MainClass.PPM);
 
 
 
