@@ -2,6 +2,7 @@ package com.mustacheman.game.Screens;
 
 import com.MainClass.game.MainClass;
 import com.Scenes.Hud;
+import com.Tools.B2WorldCreator;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -78,53 +79,8 @@ public class PlayScreen implements Screen{
         gamecam.position.set(gameport.getWorldWidth()/2, gameport.getWorldHeight()/2, 0);
         world = new World(new Vector2(0,-10 ), true);
         b2dr = new Box2DDebugRenderer();
-
-
-        BodyDef bdef = new BodyDef();
-        PolygonShape shape = new PolygonShape();
-        FixtureDef fdef = new FixtureDef();
-        Body body;
+        new B2WorldCreator(world, map);
         player = new MoustacheMan(world);
-
-
-
-
-
-        for(MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class))
-        {
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth()/2) / MainClass.PPM, ( rect.getY() + rect.getHeight()/2) / MainClass.PPM );
-            body = world.createBody(bdef);
-            shape.setAsBox(rect.getWidth()/2 / MainClass.PPM, rect.getHeight()/2 / MainClass.PPM);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-        }
-
-        for(MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class))
-        {
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth()/2) / MainClass.PPM, ( rect.getY() + rect.getHeight()/2) / MainClass.PPM );
-            body = world.createBody(bdef);
-            shape.setAsBox(rect.getWidth()/2 / MainClass.PPM, rect.getHeight()/2 / MainClass.PPM);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-        }
-
-        for(MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class))
-        {
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth()/2) / MainClass.PPM, ( rect.getY() + rect.getHeight()/2) / MainClass.PPM );
-            body = world.createBody(bdef);
-            shape.setAsBox(rect.getWidth()/2 / MainClass.PPM, rect.getHeight()/2 / MainClass.PPM);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-        }
 
 
 
@@ -135,11 +91,11 @@ public class PlayScreen implements Screen{
 
     }
     public void handleInput(float dt) {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) || hud.isUpPressed()) {
             player.b2body.applyLinearImpulse(new Vector2(0, 5f), player.b2body.getWorldCenter(), true);}
-        if ((Gdx.input.isKeyPressed(Input.Keys.RIGHT) && (player.b2body.getLinearVelocity().x <= 2))) {
+        if ((( Gdx.input.isKeyPressed(Input.Keys.RIGHT) || hud.isRightPressed()) && (player.b2body.getLinearVelocity().x <= 2))) {
             player.b2body.applyLinearImpulse(new Vector2(0.3f, 0), player.b2body.getWorldCenter(), true);}
-        if ((Gdx.input.isKeyPressed(Input.Keys.LEFT) && (player.b2body.getLinearVelocity().x >= -2))){
+        if ((( Gdx.input.isKeyPressed(Input.Keys.LEFT) || hud.isLeftPressed()) && (player.b2body.getLinearVelocity().x >= -2))){
             player.b2body.applyLinearImpulse(new Vector2(-0.3f, 0), player.b2body.getWorldCenter(), true); }
 
 
@@ -185,6 +141,7 @@ public class PlayScreen implements Screen{
     @Override
     public void resize(int width, int height) {
         gameport.update(width,height);
+        hud.resize(width,height);
 
     }
 
@@ -205,6 +162,11 @@ public class PlayScreen implements Screen{
 
     @Override
     public void dispose() {
+        map.dispose();
+        renderer.dispose();
+        world.dispose();
+        b2dr.dispose();
+        hud.dispose();
 
     }
 }
