@@ -80,7 +80,7 @@ public class PlayScreen implements Screen{
         world = new World(new Vector2(0,-10 ), true);
         b2dr = new Box2DDebugRenderer();
         new B2WorldCreator(world, map);
-        player = new MoustacheMan(world);
+        player = new MoustacheMan(world , this);
 
 
 
@@ -90,8 +90,13 @@ public class PlayScreen implements Screen{
     public void show() {
 
     }
+
+    public TextureAtlas getTextureAtlas(){
+        return atlas;
+
+    }
     public void handleInput(float dt) {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) || hud.isUpPressed()) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) || hud.isUpPressed()  && (player.b2body.getLinearVelocity().y <= 2))  {
             player.b2body.applyLinearImpulse(new Vector2(0, 5f), player.b2body.getWorldCenter(), true);}
         if ((( Gdx.input.isKeyPressed(Input.Keys.RIGHT) || hud.isRightPressed()) && (player.b2body.getLinearVelocity().x <= 2))) {
             player.b2body.applyLinearImpulse(new Vector2(0.3f, 0), player.b2body.getWorldCenter(), true);}
@@ -109,6 +114,7 @@ public class PlayScreen implements Screen{
 
         gamecam.update();
         renderer.setView(gamecam);
+        player.update(dt);
 
 
     }
@@ -122,14 +128,18 @@ public class PlayScreen implements Screen{
 
         elapsedTime += Gdx.graphics.getDeltaTime();
         game.batch.setProjectionMatrix(gamecam.combined);
+        player.update(delta);
 
         game.batch.setProjectionMatrix(hud.hudStage.getCamera().combined);
         hud.hudStage.draw();
-        //game.batch.begin();
+        game.batch.begin();
+        player.draw(game.batch);
         //game.batch.draw(run.getKeyFrame(elapsedTime, true), 400 ,384 );
-        //game.batch.end();
+        game.batch.end();
+
 
         b2dr.render(world,gamecam.combined);
+
 
 
 
