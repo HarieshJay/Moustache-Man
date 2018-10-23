@@ -96,6 +96,7 @@ public class PlayScreen implements Screen{
 
     }
     public void handleInput(float dt) {
+
         if (Gdx.input.isKeyJustPressed(Input.Keys.UP) || hud.isUpPressed()  && (player.b2body.getLinearVelocity().y <= 2))  {
             player.b2body.applyLinearImpulse(new Vector2(0, 5f), player.b2body.getWorldCenter(), true);}
         if ((( Gdx.input.isKeyPressed(Input.Keys.RIGHT) || hud.isRightPressed()) && (player.b2body.getLinearVelocity().x <= 2))) {
@@ -133,9 +134,11 @@ public class PlayScreen implements Screen{
         game.batch.setProjectionMatrix(hud.hudStage.getCamera().combined);
         hud.hudStage.draw();
         game.batch.begin();
+
+        game.batch.draw(run.getKeyFrame(elapsedTime, true), 400 ,384 );
         player.draw(game.batch);
-        //game.batch.draw(run.getKeyFrame(elapsedTime, true), 400 ,384 );
         game.batch.end();
+
 
 
         b2dr.render(world,gamecam.combined);

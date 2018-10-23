@@ -52,7 +52,7 @@ public class MoustacheMan extends Sprite {
         this.world = world;
         rightrun = true;
         defineMoustacheMan();
-        //setBounds(0, 0, 16 / MainClass.PPM, 16 / MainClass.PPM);
+        setBounds(100, 100, 10000/ MainClass.PPM , 16000/ MainClass.PPM );
 
 
 
@@ -61,7 +61,7 @@ public class MoustacheMan extends Sprite {
     public void update(float dt){
 
         setRegion(getframe(dt));
-        setPosition(b2body.getPosition().x + 500, b2body.getPosition().y  );
+        setPosition(((b2body.getPosition().x  * MainClass.PPM) - getWidth()) /2f, ((b2body.getPosition().y  * MainClass.PPM) - getHeight())/2f);
 
 
 
@@ -79,7 +79,7 @@ public class MoustacheMan extends Sprite {
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius( 40/MainClass.PPM);
+        shape.setRadius( 30 /MainClass.PPM);
 
 
 
