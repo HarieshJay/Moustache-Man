@@ -123,25 +123,42 @@ public class PlayScreen implements Screen{
     @Override
     public void render(float delta) {
         update(delta);
-        Gdx.gl.glClearColor(0,0,0,1);
+
+
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+
+
         renderer.render();
 
-        elapsedTime += Gdx.graphics.getDeltaTime();
-        game.batch.setProjectionMatrix(gamecam.combined);
-        player.update(delta);
-
-        game.batch.setProjectionMatrix(hud.hudStage.getCamera().combined);
         hud.hudStage.draw();
-        game.batch.begin();
+        game.batch.setProjectionMatrix(hud.hudStage.getCamera().combined);
 
-        game.batch.draw(run.getKeyFrame(elapsedTime, true), 400 ,384 );
+        //Hudstage ProjectionMatrix has be be set before gamecam should
+        //Do some research later on why this is, and it affected MoustacheMan.java
+        //Try to understand this section better in general
+
+
+
+
+        game.batch.setProjectionMatrix(gamecam.combined);
+        game.batch.begin();
         player.draw(game.batch);
+
         game.batch.end();
 
+        b2dr.render(world, gamecam.combined);
 
 
-        b2dr.render(world,gamecam.combined);
+
+
+
+
+
+
+
+
 
 
 

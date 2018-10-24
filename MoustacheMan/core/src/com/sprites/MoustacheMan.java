@@ -52,7 +52,7 @@ public class MoustacheMan extends Sprite {
         this.world = world;
         rightrun = true;
         defineMoustacheMan();
-        setBounds(100, 100, 10000/ MainClass.PPM , 16000/ MainClass.PPM );
+        setBounds(0, 0, 100 /MainClass.PPM , 160/ MainClass.PPM );
 
 
 
@@ -61,7 +61,11 @@ public class MoustacheMan extends Sprite {
     public void update(float dt){
 
         setRegion(getframe(dt));
-        setPosition(((b2body.getPosition().x  * MainClass.PPM) - getWidth()) /2f, ((b2body.getPosition().y  * MainClass.PPM) - getHeight())/2f);
+
+        setPosition(b2body.getPosition().x - getWidth() / 2f, b2body.getPosition().y  - getHeight() / 2f);
+
+
+
 
 
 
@@ -71,7 +75,11 @@ public class MoustacheMan extends Sprite {
 
     public void defineMoustacheMan(){
         BodyDef bdef = new BodyDef();
-        bdef.position.set( 100/ MainClass.PPM , 500 / MainClass.PPM );
+        bdef.position.set( 100/ MainClass.PPM , 300 / MainClass.PPM );
+
+
+
+
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bdef);
 
@@ -89,7 +97,7 @@ public class MoustacheMan extends Sprite {
     }
 
     public State getState() {
-        if (b2body.getLinearVelocity().y > 0 || (b2body.getLinearVelocity().y < 0 && previousState == State.JUMPING)){
+        if (b2body.getLinearVelocity().y > 0 || b2body.getLinearVelocity().y < 0 && previousState == State.JUMPING){
             return State.JUMPING;
         }
         else if (b2body.getLinearVelocity().y < 0){
@@ -140,7 +148,30 @@ public class MoustacheMan extends Sprite {
 
     }
 
+    public float getwidth(float dt) {
+
+        currentState = getState();
+        float width;
+        switch (currentState) {
+            case JUMPING:
+                width = manJump.getKeyFrame(stateTime).getRegionWidth();
+                break;
+            case RUNNING:
+                width = manRun.getKeyFrame(stateTime, true).getRegionWidth();
+                break;
+            case STANDING:
+            case FALLING:
+            default:
+
+                width = manRun.getKeyFrame(stateTime).getRegionWidth();
+                break;
+
+
+        }
+        return width;
+    }
 
 
 
-}
+
+    }
