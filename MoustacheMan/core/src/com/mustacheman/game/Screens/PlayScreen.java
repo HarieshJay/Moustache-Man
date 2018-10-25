@@ -3,6 +3,7 @@ package com.mustacheman.game.Screens;
 import com.MainClass.game.MainClass;
 import com.Scenes.Hud;
 import com.Tools.B2WorldCreator;
+import com.Tools.WorldContactListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -81,6 +82,7 @@ public class PlayScreen implements Screen{
         b2dr = new Box2DDebugRenderer();
         new B2WorldCreator(world, map);
         player = new MoustacheMan(world , this);
+        world.setContactListener(new WorldContactListener());
 
 
 

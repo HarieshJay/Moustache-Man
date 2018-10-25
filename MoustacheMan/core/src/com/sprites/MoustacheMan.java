@@ -6,10 +6,12 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.CircleShape;
+import com.badlogic.gdx.physics.box2d.EdgeShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mustacheman.game.Screens.PlayScreen;
@@ -52,7 +54,7 @@ public class MoustacheMan extends Sprite {
         this.world = world;
         rightrun = true;
         defineMoustacheMan();
-        setBounds(0, 0, 100 /MainClass.PPM , 160/ MainClass.PPM );
+        setBounds(0, 0, 70 /MainClass.PPM , 100/ MainClass.PPM );
 
 
 
@@ -87,13 +89,18 @@ public class MoustacheMan extends Sprite {
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius( 30 /MainClass.PPM);
+        shape.setRadius( 50 /MainClass.PPM);
 
 
 
         fdef.shape = shape;
         b2body.createFixture(fdef);
 
+        EdgeShape head = new EdgeShape();
+        head.set(new Vector2(-10 / MainClass.PPM, 50/MainClass.PPM), new Vector2(10 / MainClass.PPM, 50/MainClass.PPM));
+        fdef.shape = head;
+        b2body.createFixture(fdef).setUserData("head");
+        fdef.isSensor = true;
     }
 
     public State getState() {
