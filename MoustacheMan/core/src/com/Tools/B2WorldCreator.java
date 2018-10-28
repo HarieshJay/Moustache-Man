@@ -55,7 +55,7 @@ public class B2WorldCreator {
         }
 
 
-
+        //Coin
         for(MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class))
         {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();

@@ -2,6 +2,7 @@ package com.sprites;
 
 import com.MainClass.game.MainClass;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -26,13 +27,14 @@ public class MoustacheMan extends Sprite {
     public State currentState;
     public State previousState;
     public Body b2body;
-    private TextureRegion stand;
+    private Animation<TextureRegion> stand;
     TextureRegion run;
     TextureRegion jump;
     float stateTime;
     Animation<TextureRegion> manRun;
     Animation<TextureRegion> manJump;
     private boolean rightrun;
+
 
 
     public TextureAtlas atlas;
@@ -46,15 +48,14 @@ public class MoustacheMan extends Sprite {
         stateTime = 0;
         currentState = State.STANDING;
         previousState = State.STANDING;
-        stand = new TextureRegion(screen.getTextureAtlas().findRegion("run/run", 0));
-
+        stand  = new com.badlogic.gdx.graphics.g2d.Animation(1/15f, atlas.findRegions("run/run"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
         jump = new TextureRegion(new TextureRegion(screen.getTextureAtlas().findRegion("jump/j")));
         manRun = new com.badlogic.gdx.graphics.g2d.Animation(1/15f, atlas.findRegions("run/run"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
         manJump = new com.badlogic.gdx.graphics.g2d.Animation(1/15f, atlas.findRegions("jump/j"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
         this.world = world;
         rightrun = true;
         defineMoustacheMan();
-        setBounds(0, 0, 70 /MainClass.PPM , 100/ MainClass.PPM );
+        setBounds(0, 0, 60 /MainClass.PPM , 90/ MainClass.PPM );
 
 
 
@@ -63,6 +64,7 @@ public class MoustacheMan extends Sprite {
     public void update(float dt){
 
         setRegion(getframe(dt));
+        setBounds(0, 0, 60 /MainClass.PPM , 90/ MainClass.PPM );
 
         setPosition(b2body.getPosition().x - getWidth() / 2f, b2body.getPosition().y  - getHeight() / 2f);
 
@@ -97,7 +99,7 @@ public class MoustacheMan extends Sprite {
         b2body.createFixture(fdef);
 
         EdgeShape head = new EdgeShape();
-        head.set(new Vector2(-10 / MainClass.PPM, 50/MainClass.PPM), new Vector2(10 / MainClass.PPM, 50/MainClass.PPM));
+        head.set(new Vector2(-10 / MainClass.PPM, 60/MainClass.PPM), new Vector2(10 / MainClass.PPM, 60/MainClass.PPM));
         fdef.shape = head;
         b2body.createFixture(fdef).setUserData("head");
         fdef.isSensor = true;
@@ -133,8 +135,8 @@ public class MoustacheMan extends Sprite {
             case STANDING:
             case FALLING:
             default:
-                //animation = stand;
-                animation = manRun.getKeyFrame(stateTime);
+                animation = stand.getKeyFrame(stateTime);
+
                 break;
 
         }
@@ -155,28 +157,7 @@ public class MoustacheMan extends Sprite {
 
     }
 
-    public float getwidth(float dt) {
 
-        currentState = getState();
-        float width;
-        switch (currentState) {
-            case JUMPING:
-                width = manJump.getKeyFrame(stateTime).getRegionWidth();
-                break;
-            case RUNNING:
-                width = manRun.getKeyFrame(stateTime, true).getRegionWidth();
-                break;
-            case STANDING:
-            case FALLING:
-            default:
-
-                width = manRun.getKeyFrame(stateTime).getRegionWidth();
-                break;
-
-
-        }
-        return width;
-    }
 
 
 

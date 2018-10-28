@@ -118,6 +118,7 @@ public class PlayScreen implements Screen{
         gamecam.update();
         renderer.setView(gamecam);
         player.update(dt);
+        hud.update(dt);
 
 
     }

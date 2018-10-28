@@ -35,14 +35,14 @@ public class Hud implements Disposable {
 
     private Integer worldTimer;
     private float timeCount;
-    private Integer score;
+    private static Integer score;
 
-    Label countdownLabel;
-    Label scoreLabel;
-    Label timeLabel;
-    Label levelLabel;
-    Label worldLabel;
-    Label manLabel;
+    private Label countdownLabel;
+    private static Label scoreLabel;
+    private Label timeLabel;
+    private Label levelLabel;
+    private Label worldLabel;
+    private Label manLabel;
     Texture buttonUp;
     Texture buttonRight;
     Texture buttonLeft;
@@ -67,7 +67,7 @@ public class Hud implements Disposable {
         return rightPressed;
     }
 
-    public Hud(SpriteBatch sb){
+    public Hud(SpriteBatch sb) {
         controls = new Table();
         controls.left().bottom();
         worldTimer = 300;
@@ -82,12 +82,12 @@ public class Hud implements Disposable {
         table.top();
         table.setFillParent(true);
 
-        Label countdownLabel = new Label(String.format("%10d", worldTimer), new Label.LabelStyle(new BitmapFont(), Color.BLACK));
-        Label scoreLabel = new Label(String.format("%10d", score), new Label.LabelStyle(new BitmapFont(), Color.BLACK));
-        Label timeLabel = new Label( "TIME", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
-        Label levelLabel = new Label( "1-1", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
-        Label worldLabel = new Label( "WORLD", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
-        Label manLabel =  new Label( "MOUSTACHE MAN", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
+        countdownLabel = new Label(String.format("%10d", worldTimer), new Label.LabelStyle(new BitmapFont(), Color.BLACK));
+        scoreLabel = new Label(String.format("%10d", score), new Label.LabelStyle(new BitmapFont(), Color.BLACK));
+        timeLabel = new Label("TIME", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
+        levelLabel = new Label("1-1", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
+        worldLabel = new Label("WORLD", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
+        manLabel = new Label("MOUSTACHE MAN", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
 
         table.add(manLabel).expandX().padTop(10);
         table.add(worldLabel).expandX().padTop(10);
@@ -104,8 +104,8 @@ public class Hud implements Disposable {
 
 
         Image upImg = new Image(buttonUp);
-        upImg.setSize(75,75);
-        upImg.addListener(new InputListener(){
+        upImg.setSize(75, 75);
+        upImg.addListener(new InputListener() {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -121,8 +121,8 @@ public class Hud implements Disposable {
         });
 
         Image leftImg = new Image(buttonLeft);
-        leftImg.setSize(75,75);
-        leftImg.addListener(new InputListener(){
+        leftImg.setSize(75, 75);
+        leftImg.addListener(new InputListener() {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -139,8 +139,8 @@ public class Hud implements Disposable {
 
 
         Image rightImg = new Image(buttonRight);
-        rightImg.setSize(75,75);
-        rightImg.addListener(new InputListener(){
+        rightImg.setSize(75, 75);
+        rightImg.addListener(new InputListener() {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -158,30 +158,38 @@ public class Hud implements Disposable {
         controls.add();
         controls.add(upImg).size(upImg.getWidth(), upImg.getHeight());
         controls.add();
-        controls.row().pad(5,5,5,5);
+        controls.row().pad(5, 5, 5, 5);
         controls.add(leftImg).size(leftImg.getWidth(), leftImg.getHeight());
         controls.add();
         controls.add(rightImg).size(rightImg.getWidth(), rightImg.getHeight());
-
-
-
-
-
-
-
 
 
         hudStage.addActor(table);
         hudStage.addActor(controls);
 
 
+    }
 
+    public void update(float dt) {
+        timeCount += dt;
+        if (timeCount >= 1) {
+            worldTimer--;
+            countdownLabel.setText(String.format("%10d", worldTimer));
+            timeCount = 0;
+        }
+    }
+
+    public static void addscore(int value){
+        score+= value;
+        scoreLabel.setText(String.format("%10d", score));
 
     }
 
-    public void resize(int width, int height){
+    public void resize(int width, int height) {
         viewport.update(width, height);
     }
+
+
 
 
     @Override
