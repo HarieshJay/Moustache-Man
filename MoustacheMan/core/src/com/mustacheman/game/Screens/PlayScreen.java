@@ -8,6 +8,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.MainClass.*;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
@@ -57,6 +58,7 @@ public class PlayScreen implements Screen{
 
 
 
+
     private MainClass game;
 
 
@@ -74,6 +76,10 @@ public class PlayScreen implements Screen{
         mapLoader = new TmxMapLoader();
         map = mapLoader.load("level1.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, 1 / MainClass.PPM);
+
+
+        MainClass.music.setLooping(true);
+        MainClass.music.play();
 
 
 
