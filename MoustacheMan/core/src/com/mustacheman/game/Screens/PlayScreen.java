@@ -8,7 +8,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.MainClass.*;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
@@ -50,6 +52,8 @@ public class PlayScreen implements Screen{
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
     private MoustacheMan player;
+    private AssetManager manager;
+    private Music music;
 
 
 
@@ -78,8 +82,6 @@ public class PlayScreen implements Screen{
         renderer = new OrthogonalTiledMapRenderer(map, 1 / MainClass.PPM);
 
 
-        MainClass.music.setLooping(true);
-        MainClass.music.play();
 
 
 
@@ -89,6 +91,18 @@ public class PlayScreen implements Screen{
         new B2WorldCreator(world, map);
         player = new MoustacheMan(world , this);
         world.setContactListener(new WorldContactListener());
+
+        manager = new AssetManager();
+        manager.load("sounds/music.ogg", Music.class);
+        manager.finishLoading();
+
+        music = manager.get("sounds/music.ogg", Music.class);
+
+
+        music = manager.get("sounds/music.ogg", Music.class);
+        music.setLooping(true);
+        music.play();
+
 
 
 

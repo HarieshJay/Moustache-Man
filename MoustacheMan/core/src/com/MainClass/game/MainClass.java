@@ -20,27 +20,25 @@ public class MainClass extends Game {
 	public static final int V_Width = 1500;
 	public static final int V_Height =  768;
 	public static final float PPM = 100;
-	public static AssetManager manager;
-	public Music music;
 
 
 
-	
+
+
 	@Override
 	public void create () {
 
 		setScreen(new PlayScreen(this));
-		manager = new AssetManager();
-		manager.load("sounds/music.ogg", Music.class);
-		//manager.load("sounds/coin.wav", Sound.class);
-		manager.finishLoading();
-		music = MainClass.manager.get("sounds/music.ogg", Music.class);
+
+
+		//music = MainClass.manager.get("sounds/music.ogg", Music.class);
 
 	}
 
 	@Override
 	public void render () {
 		super.render();
+        //manager.update();
 
 
 	}
