@@ -11,6 +11,7 @@ import com.MainClass.*;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.maps.Map;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
@@ -34,6 +35,7 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.*;
 import com.sprites.MoustacheMan;
+import com.sprites.lilMon;
 
 import sun.applet.Main;
 
@@ -53,6 +55,7 @@ public class PlayScreen implements Screen{
     private OrthogonalTiledMapRenderer renderer;
     private MoustacheMan player;
     private AssetManager manager;
+    private lilMon monster;
     private Music music;
 
 
@@ -67,6 +70,7 @@ public class PlayScreen implements Screen{
 
 
     public PlayScreen(MainClass game){
+
 
         gamecam = new OrthographicCamera();
         gameport = new FitViewport(MainClass.V_Width / MainClass.PPM, MainClass.V_Height / MainClass.PPM ,gamecam);
@@ -88,8 +92,9 @@ public class PlayScreen implements Screen{
         gamecam.position.set(gameport.getWorldWidth()/2, gameport.getWorldHeight()/2, 0);
         world = new World(new Vector2(0,-10 ), true);
         b2dr = new Box2DDebugRenderer();
-        new B2WorldCreator(world, map);
-        player = new MoustacheMan(world , this);
+        new B2WorldCreator(this);
+        monster = new lilMon(this, .32f, .32f);
+        player = new MoustacheMan(this); // Make sure world is made before players and objects are initialized. Else it will erase those objects and give a null pointer exception
         world.setContactListener(new WorldContactListener());
 
         manager = new AssetManager();
@@ -131,12 +136,16 @@ public class PlayScreen implements Screen{
     }
 
     public void update(float dt) {
+
         handleInput(dt);
         world.step(1/60f,6,2);
+        monster.update(dt);
         gamecam.position.x = player.b2body.getPosition().x;
+
 
         gamecam.update();
         renderer.setView(gamecam);
+
         player.update(dt);
         hud.update(dt);
 
@@ -165,26 +174,15 @@ public class PlayScreen implements Screen{
 
 
 
+
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
         player.draw(game.batch);
+        monster.draw(game.batch);
 
         game.batch.end();
 
         b2dr.render(world, gamecam.combined);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -212,6 +210,16 @@ public class PlayScreen implements Screen{
     public void hide() {
 
     }
+
+    public TiledMap getMap(){
+        return map;
+    }
+
+    public World getWorld(){
+        return world;
+    }
+
+
 
     @Override
     public void dispose() {

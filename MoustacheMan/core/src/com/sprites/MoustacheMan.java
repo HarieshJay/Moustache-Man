@@ -16,6 +16,7 @@ import com.badlogic.gdx.physics.box2d.EdgeShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mustacheman.game.Screens.PlayScreen;
+import com.sun.org.apache.bcel.internal.Constants;
 
 import sun.applet.Main;
 
@@ -33,6 +34,7 @@ public class MoustacheMan extends Sprite {
     float stateTime;
     Animation<TextureRegion> manRun;
     Animation<TextureRegion> manJump;
+    TextureRegion standimg;
     private boolean rightrun;
 
 
@@ -41,10 +43,11 @@ public class MoustacheMan extends Sprite {
 
 
 
-    public  MoustacheMan(World world, PlayScreen screen ){
+    public  MoustacheMan( PlayScreen screen ){
 
         super(screen.getTextureAtlas().findRegion("run/run"));
         atlas = new TextureAtlas("RunJumpKoRoll.atlas");
+
         stateTime = 0;
         currentState = State.STANDING;
         previousState = State.STANDING;
@@ -52,10 +55,11 @@ public class MoustacheMan extends Sprite {
         jump = new TextureRegion(new TextureRegion(screen.getTextureAtlas().findRegion("jump/j")));
         manRun = new com.badlogic.gdx.graphics.g2d.Animation(1/15f, atlas.findRegions("run/run"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
         manJump = new com.badlogic.gdx.graphics.g2d.Animation(1/15f, atlas.findRegions("jump/j"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
-        this.world = world;
+        this.world = screen.getWorld();
         rightrun = true;
         defineMoustacheMan();
-        setBounds(0, 0, 60 /MainClass.PPM , 90/ MainClass.PPM );
+        setBounds(0, 0, 66 /MainClass.PPM , 103/ MainClass.PPM );
+
 
 
 
@@ -64,7 +68,6 @@ public class MoustacheMan extends Sprite {
     public void update(float dt){
 
         setRegion(getframe(dt));
-        setBounds(0, 0, 60 /MainClass.PPM , 90/ MainClass.PPM );
 
         setPosition(b2body.getPosition().x - getWidth() / 2f, b2body.getPosition().y  - getHeight() / 2f);
 
@@ -80,8 +83,6 @@ public class MoustacheMan extends Sprite {
     public void defineMoustacheMan(){
         BodyDef bdef = new BodyDef();
         bdef.position.set( 100/ MainClass.PPM , 300 / MainClass.PPM );
-
-
 
 
         bdef.type = BodyDef.BodyType.DynamicBody;
@@ -103,6 +104,7 @@ public class MoustacheMan extends Sprite {
         fdef.shape = head;
         b2body.createFixture(fdef).setUserData("head");
         fdef.isSensor = true;
+        fdef.filter.categoryBits = MainClass.MAN_BIT;
     }
 
     public State getState() {
@@ -128,9 +130,11 @@ public class MoustacheMan extends Sprite {
         switch(currentState){
             case JUMPING:
                 animation = manJump.getKeyFrame(stateTime);
+                setBounds(0, 0, 57 /MainClass.PPM , 102/ MainClass.PPM );
                 break;
             case RUNNING:
                 animation = manRun.getKeyFrame(stateTime, true);
+                setBounds(0, 0, 66 /MainClass.PPM , 103/ MainClass.PPM );
                 break;
             case STANDING:
             case FALLING:

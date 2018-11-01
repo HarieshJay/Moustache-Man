@@ -19,7 +19,15 @@ public class MainClass extends Game {
 	public SpriteBatch batch;
 	public static final int V_Width = 1500;
 	public static final int V_Height =  768;
+	public static final short ENEMY_BIT = 62;
 	public static final float PPM = 100;
+	public static final short GROUND_BIT = 1;
+	public static final short MAN_BIT = 5;
+	public static final short BRICK_BIT = 4;
+	public static final short COIN_BIT = 8;
+	public static final short DESTROYED_BIT = 16;
+	public static final short OBJECT_BIT = 32;
+
 
 
 
@@ -29,6 +37,7 @@ public class MainClass extends Game {
 	public void create () {
 
 		setScreen(new PlayScreen(this));
+
 
 
 		//music = MainClass.manager.get("sounds/music.ogg", Music.class);
