@@ -27,6 +27,7 @@ public class MainClass extends Game {
 	public static final short COIN_BIT = 8;
 	public static final short DESTROYED_BIT = 16;
 	public static final short OBJECT_BIT = 32;
+	public static final short ENEMY_HEAD_BIT = 128;
 
 
 
