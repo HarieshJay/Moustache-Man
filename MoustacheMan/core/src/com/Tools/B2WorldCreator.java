@@ -65,12 +65,10 @@ public class B2WorldCreator {
             map.getLayers().get(5).getObjects().remove(object);
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
-
-
-
             new Coin(screen, rect);
 
             fdef.filter.categoryBits = MainClass.COIN_BIT;
+            fdef.restitution= 0f;
         }
 
 

@@ -102,7 +102,9 @@ public class MoustacheMan extends Sprite {
 
 
         fdef.shape = shape;
+        b2body.createFixture(fdef).setUserData("player");
         b2body.createFixture(fdef);
+        fdef.restitution = 0;
 
         EdgeShape head = new EdgeShape();
         head.set(new Vector2(-10 / MainClass.PPM, 60/MainClass.PPM), new Vector2(10 / MainClass.PPM, 60/MainClass.PPM));
@@ -110,6 +112,8 @@ public class MoustacheMan extends Sprite {
         b2body.createFixture(fdef).setUserData("head");
         fdef.isSensor = true;
         fdef.filter.categoryBits = MainClass.MAN_BIT;
+
+
     }
 
     public State getState() {

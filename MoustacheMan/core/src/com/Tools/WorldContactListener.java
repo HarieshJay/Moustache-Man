@@ -20,14 +20,15 @@ public class WorldContactListener implements ContactListener {
         Gdx.app.log(fixA.getFilterData().toString(), fixB.getFilterData().toString());
 
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
-        if(fixA.getUserData() == "head" || fixB.getUserData() == "head"){
-            Fixture head = fixA.getUserData() == "head" ? fixA : fixB;
+
+        if(fixA.getUserData() == "player" || fixB.getUserData() == "player"){
+            Fixture head = fixA.getUserData() == "player" ? fixA : fixB;
             Fixture object = head == fixA ? fixB : fixA;
 
             if (object.getUserData() instanceof InteractiveTileObject){
-                ((InteractiveTileObject) object.getUserData()).onHeadHit();
-            }
+                ((InteractiveTileObject) object.getUserData()).onHeadHit();            }
         }
+
 
         switch (cDef){
             case MainClass.ENEMY_HEAD_BIT | MainClass.MAN_BIT:
@@ -38,9 +39,9 @@ public class WorldContactListener implements ContactListener {
 
             case MainClass.COIN_BIT | MainClass.MAN_BIT:
                 if (fixA.getFilterData().categoryBits == MainClass.COIN_BIT)
-                    ( (Coin)fixA.getUserData()).hit();
+                    ( (Coin)fixA.getUserData()).onHit();
                 else if (fixB.getFilterData().categoryBits == MainClass.COIN_BIT)
-                    ( (Coin)fixB.getUserData()).hit();
+                    ( (Coin)fixB.getUserData()).onHit();
 
         }
 

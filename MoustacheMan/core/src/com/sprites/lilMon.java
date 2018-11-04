@@ -107,6 +107,7 @@ public class lilMon extends Enemy {
     public void hitOnHead() {
         setToDestroy = true;
     }
+    public void onHit(){}
 
 
 }

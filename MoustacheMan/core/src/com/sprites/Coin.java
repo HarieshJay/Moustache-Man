@@ -24,13 +24,22 @@ public class Coin extends InteractiveTileObject {
     @Override
     public void onHeadHit() {
         Gdx.app.log("Coin", "Collision");
-        setCategoryFilter(MainClass.DESTROYED_BIT);
+
 
 
     }
 
-    public void hit() {
-        destroy = true;
+    public void onHit() {
+        setCategoryFilter(MainClass.DESTROYED_BIT);
+        int[] a = new int[2];
+        getCell(0).setTile(null);
+        getCell(1).setTile(null);
+        //getCell(2).setTile(null);
+        //getCell(3).setTile(null);
+
+
+
+
 
 
     }

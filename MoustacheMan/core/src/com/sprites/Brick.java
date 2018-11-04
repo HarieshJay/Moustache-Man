@@ -24,4 +24,5 @@ public class Brick extends InteractiveTileObject {
 
 
     }
+    public void onHit(){}
 }
