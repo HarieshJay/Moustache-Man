@@ -92,9 +92,10 @@ public class MoustacheMan extends Sprite {
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
+        fdef.filter.categoryBits = MainClass.MAN_BIT;
         shape.setRadius( 50 /MainClass.PPM);
         fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT | MainClass.ENEMY_BIT |
-                    //MainClass.COIN_BIT |
+                    MainClass.COIN_BIT |
                     MainClass.OBJECT_BIT |
                     MainClass.ENEMY_HEAD_BIT;
 

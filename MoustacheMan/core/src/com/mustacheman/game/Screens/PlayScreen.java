@@ -34,6 +34,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.*;
+import com.sprites.Coin;
 import com.sprites.MoustacheMan;
 import com.sprites.lilMon;
 
@@ -46,7 +47,6 @@ public class PlayScreen implements Screen{
 
     TextureAtlas atlas;
     com.badlogic.gdx.graphics.g2d.Animation<TextureRegion> run;
-    float elapsedTime;
     Hud hud;
     private World world;
     private Box2DDebugRenderer b2dr;
@@ -57,6 +57,7 @@ public class PlayScreen implements Screen{
     private AssetManager manager;
     private lilMon monster;
     private Music music;
+    private Coin coin;
 
 
 
@@ -74,6 +75,7 @@ public class PlayScreen implements Screen{
 
         gamecam = new OrthographicCamera();
         gameport = new FitViewport(MainClass.V_Width / MainClass.PPM, MainClass.V_Height / MainClass.PPM ,gamecam);
+
 
         this.game = game;
         game.batch = new SpriteBatch();
@@ -111,6 +113,10 @@ public class PlayScreen implements Screen{
 
 
 
+
+
+
+
     }
 
     @Override
@@ -139,7 +145,9 @@ public class PlayScreen implements Screen{
 
         handleInput(dt);
         world.step(1/60f,6,2);
+
         monster.update(dt);
+        //coin.update(dt);
         gamecam.position.x = player.b2body.getPosition().x;
 
 
@@ -148,6 +156,8 @@ public class PlayScreen implements Screen{
 
         player.update(dt);
         hud.update(dt);
+
+
 
 
     }

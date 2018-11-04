@@ -63,7 +63,7 @@ public class lilMon extends Enemy {
 
     @Override
     protected void defineEnemy() {
-        setBounds(50/ MainClass.PPM , 300 / MainClass.PPM, 40 /MainClass.PPM, 40/MainClass.PPM);
+        setBounds(50/ MainClass.PPM , 300 / MainClass.PPM, 40 /MainClass.PPM, 40 / MainClass.PPM);
 
         BodyDef bdef = new BodyDef();
         bdef.position.set( getX(), getY());

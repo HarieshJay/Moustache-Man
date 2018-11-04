@@ -2,6 +2,7 @@ package com.Tools;
 
 import com.MainClass.game.MainClass;
 import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
@@ -61,10 +62,17 @@ public class B2WorldCreator {
         //Coin
         for(MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class))
         {
+            map.getLayers().get(5).getObjects().remove(object);
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
+
+
+
             new Coin(screen, rect);
+
+            fdef.filter.categoryBits = MainClass.COIN_BIT;
         }
+
 
 
 
