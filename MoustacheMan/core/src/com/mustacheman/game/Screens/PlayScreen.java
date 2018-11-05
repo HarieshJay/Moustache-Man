@@ -105,8 +105,6 @@ public class PlayScreen implements Screen{
 
         music = manager.get("sounds/music.ogg", Music.class);
 
-
-        music = manager.get("sounds/music.ogg", Music.class);
         music.setLooping(true);
         music.play();
 

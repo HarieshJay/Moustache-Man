@@ -17,13 +17,14 @@ public class WorldContactListener implements ContactListener {
     public void beginContact(Contact contact) {
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
-        Gdx.app.log(fixA.getFilterData().toString(), fixB.getFilterData().toString());
+
 
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
 
+
         if(fixA.getUserData() == "player" || fixB.getUserData() == "player"){
-            Fixture head = fixA.getUserData() == "player" ? fixA : fixB;
-            Fixture object = head == fixA ? fixB : fixA;
+            Fixture player = fixA.getUserData() == "player" ? fixA : fixB;
+            Fixture object = player == fixA ? fixB : fixA;
 
             if (object.getUserData() instanceof InteractiveTileObject){
                 ((InteractiveTileObject) object.getUserData()).onHeadHit();            }
@@ -35,11 +36,13 @@ public class WorldContactListener implements ContactListener {
                 if (fixA.getFilterData().categoryBits == MainClass.ENEMY_HEAD_BIT)
                     ( (Enemy)fixA.getUserData()).hitOnHead();
                 else if (fixB.getFilterData().categoryBits == MainClass.ENEMY_HEAD_BIT)
-                    ( (Enemy)fixA.getUserData()).hitOnHead();
+                    ( (Enemy)fixB.getUserData()).hitOnHead();
+
 
             case MainClass.COIN_BIT | MainClass.MAN_BIT:
                 if (fixA.getFilterData().categoryBits == MainClass.COIN_BIT)
                     ( (Coin)fixA.getUserData()).onHit();
+
                 else if (fixB.getFilterData().categoryBits == MainClass.COIN_BIT)
                     ( (Coin)fixB.getUserData()).onHit();
 

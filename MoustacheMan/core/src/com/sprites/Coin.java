@@ -1,6 +1,7 @@
 package com.sprites;
 
 import com.MainClass.game.MainClass;
+import com.Scenes.Hud;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
@@ -19,6 +20,8 @@ public class Coin extends InteractiveTileObject {
         setCategoryFilter(MainClass.COIN_BIT);
 
 
+
+
     }
 
     @Override
@@ -34,8 +37,9 @@ public class Coin extends InteractiveTileObject {
         int[] a = new int[2];
         getCell(0).setTile(null);
         getCell(1).setTile(null);
-        //getCell(2).setTile(null);
-        //getCell(3).setTile(null);
+        getCell(2).setTile(null);
+        getCell(3).setTile(null);
+        Hud.addscore(200);
 
 
 

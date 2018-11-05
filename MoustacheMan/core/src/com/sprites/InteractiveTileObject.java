@@ -1,6 +1,7 @@
 package com.sprites;
 
 import com.MainClass.game.MainClass;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTile;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
@@ -52,10 +53,11 @@ public abstract class InteractiveTileObject {
     public TiledMapTileLayer.Cell  getCell(int i){
         ArrayList<TiledMapTileLayer.Cell> arrayList = new ArrayList<TiledMapTileLayer.Cell>();
         TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(2);
-        arrayList.add(layer.getCell((int) (body.getPosition().x * MainClass.PPM / 16), (int) (body.getPosition().y * MainClass.PPM / 16)));
-        arrayList.add(layer.getCell((int) (body.getPosition().x * MainClass.PPM / 16), (int) (body.getPosition().y * MainClass.PPM / 16)));
-        arrayList.add(layer.getCell((int) (body.getPosition().x * MainClass.PPM / 16), (int) (body.getPosition().y * MainClass.PPM / 16)));
-        arrayList.add(layer.getCell((int) (body.getPosition().x * MainClass.PPM / 16), (int) (body.getPosition().y * MainClass.PPM / 16)));
+        arrayList.add(layer.getCell((int) ((body.getPosition().x * MainClass.PPM / 16 - 1  ) ), (int) (body.getPosition().y * MainClass.PPM / 16)));
+        arrayList.add(layer.getCell((int) ((body.getPosition().x * MainClass.PPM / 16) ), (int) (body.getPosition().y * MainClass.PPM / 16)));
+        arrayList.add(layer.getCell((int) ((body.getPosition().x * MainClass.PPM / 16) ), (int) (body.getPosition().y * MainClass.PPM / 16 - 1)));
+        arrayList.add(layer.getCell((int) ((body.getPosition().x * MainClass.PPM / 16 - 1) ), (int) (body.getPosition().y * MainClass.PPM / 16 - 1)));
+
         if (i == 0){
             return arrayList.get(0);
         }
@@ -68,13 +70,7 @@ public abstract class InteractiveTileObject {
         if (i == 3){
             return arrayList.get(3);
         }
-        else return arrayList.get(3);
-
-
-
-
-
-
+        else return arrayList.get(0);
 
 
     }

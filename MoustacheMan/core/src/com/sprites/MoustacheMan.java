@@ -28,7 +28,7 @@ public class MoustacheMan extends Sprite {
     public State currentState;
     public State previousState;
     public Body b2body;
-    private Animation<TextureRegion> stand;
+    private TextureRegion stand;
     TextureRegion run;
     TextureRegion jump;
     float stateTime;
@@ -51,7 +51,7 @@ public class MoustacheMan extends Sprite {
         stateTime = 0;
         currentState = State.STANDING;
         previousState = State.STANDING;
-        stand  = new com.badlogic.gdx.graphics.g2d.Animation(1/15f, atlas.findRegions("run/run"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
+        stand  = new TextureRegion(atlas.findRegion("run/run",7));
         jump = new TextureRegion(new TextureRegion(screen.getTextureAtlas().findRegion("jump/j")));
         manRun = new com.badlogic.gdx.graphics.g2d.Animation(1/15f, atlas.findRegions("run/run"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
         manJump = new com.badlogic.gdx.graphics.g2d.Animation(1/15f, atlas.findRegions("jump/j"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
@@ -94,6 +94,7 @@ public class MoustacheMan extends Sprite {
         CircleShape shape = new CircleShape();
         fdef.filter.categoryBits = MainClass.MAN_BIT;
         shape.setRadius( 50 /MainClass.PPM);
+
         fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT | MainClass.ENEMY_BIT |
                     MainClass.COIN_BIT |
                     MainClass.OBJECT_BIT |
@@ -146,9 +147,12 @@ public class MoustacheMan extends Sprite {
                 setBounds(0, 0, 66 /MainClass.PPM , 103/ MainClass.PPM );
                 break;
             case STANDING:
+                animation = stand;
+                setBounds(0, 0, 66 /MainClass.PPM , 103/ MainClass.PPM );
+                break;
             case FALLING:
             default:
-                animation = stand.getKeyFrame(stateTime);
+                animation = stand;
 
                 break;
 

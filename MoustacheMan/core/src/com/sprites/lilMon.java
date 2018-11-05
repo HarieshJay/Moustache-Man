@@ -1,7 +1,9 @@
 package com.sprites;
 
 import com.MainClass.game.MainClass;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -47,10 +49,13 @@ public class lilMon extends Enemy {
     public void update(float dt){
         stateTime += dt;
 
+
         if(setToDestroy && !destroyed){
-            world.destroyBody(b2body);
+
             destroyed = true;
-            setBounds(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y - getHeight()/2, 40, 20);
+            setBounds(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y - getHeight()/2, 1, 2);
+            stateTime = 0;
+            Gdx.app.log("update", "Enemy");
 
         }
         else if (!destroyed) {
@@ -94,18 +99,24 @@ public class lilMon extends Enemy {
 
         fdef.shape = head;
 
-        fdef.restitution = 0.5f;
+        fdef.restitution = 2f;
         fdef.filter.categoryBits = MainClass.ENEMY_HEAD_BIT;
         fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT | MainClass.ENEMY_BIT |
-                MainClass.OBJECT_BIT;
+                MainClass.OBJECT_BIT | MainClass.MAN_BIT;
         b2body.createFixture(fdef).setUserData(this);
 
 
     }
 
+    public void draw(Batch batch){
+        if(!destroyed || stateTime < 1){
+        super.draw(batch);}
+    }
+
     @Override
     public void hitOnHead() {
         setToDestroy = true;
+
     }
     public void onHit(){}
 
