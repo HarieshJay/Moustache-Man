@@ -53,14 +53,22 @@ public class lilMon extends Enemy {
         if(setToDestroy && !destroyed){
 
             destroyed = true;
-            setBounds(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y - getHeight()/2, 1, 2);
+
+
+
+
+            setBounds(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y - getHeight()/2, 40/MainClass.PPM, 30/MainClass.PPM);
             stateTime = 0;
+
+
+
             Gdx.app.log("update", "Enemy");
 
         }
         else if (!destroyed) {
             setPosition(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y - getHeight()/2);
             setRegion(walkAnimation.getKeyFrame(stateTime, true));
+            b2body.setLinearVelocity(velocity);
 
         }
 
@@ -68,7 +76,7 @@ public class lilMon extends Enemy {
 
     @Override
     protected void defineEnemy() {
-        setBounds(50/ MainClass.PPM , 300 / MainClass.PPM, 40 /MainClass.PPM, 40 / MainClass.PPM);
+        setBounds(300/ MainClass.PPM , 400 / MainClass.PPM, 40 /MainClass.PPM, 40 / MainClass.PPM);
 
         BodyDef bdef = new BodyDef();
         bdef.position.set( getX(), getY());
@@ -99,18 +107,18 @@ public class lilMon extends Enemy {
 
         fdef.shape = head;
 
-        fdef.restitution = 2f;
+        fdef.restitution = 0.5f;
         fdef.filter.categoryBits = MainClass.ENEMY_HEAD_BIT;
-        fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT | MainClass.ENEMY_BIT |
-                MainClass.OBJECT_BIT | MainClass.MAN_BIT;
+        fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.MAN_BIT;
         b2body.createFixture(fdef).setUserData(this);
 
 
     }
 
     public void draw(Batch batch){
-        if(!destroyed || stateTime < 1){
-        super.draw(batch);}
+        if(!destroyed || stateTime < 1)
+
+            super.draw(batch);
     }
 
     @Override

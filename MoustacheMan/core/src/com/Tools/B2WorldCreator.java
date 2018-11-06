@@ -56,6 +56,7 @@ public class B2WorldCreator {
             body = world.createBody(bdef);
             shape.setAsBox(rect.getWidth()/2 / MainClass.PPM, rect.getHeight()/2 / MainClass.PPM);
             fdef.shape = shape;
+            fdef.isSensor = true;
             body.createFixture(fdef);
         }
 
@@ -67,11 +68,12 @@ public class B2WorldCreator {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
 
+
+
+
             new Coin(screen, rect);
 
-            fdef.filter.categoryBits = MainClass.COIN_BIT;
 
-            fdef.isSensor = true;
         }
 
 

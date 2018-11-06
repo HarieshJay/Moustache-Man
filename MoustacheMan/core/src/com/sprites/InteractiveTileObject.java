@@ -38,7 +38,12 @@ public abstract class InteractiveTileObject {
         body = world.createBody(bdef);
         shape.setAsBox(bounds.getWidth()/2 / MainClass.PPM, bounds.getHeight()/2 / MainClass.PPM);
         fdef.shape = shape;
+        fdef.isSensor = true; //Used because of Coin, Might need to move this around later
+        //Can only change fdef before it is used in body.createFixture(fdef);
+        //ex. isSenor will return a bool if you use it after fixture = body.createFixture(fdef);
+
         fixture = body.createFixture(fdef);
+
 
     }
     public abstract void onHeadHit();
@@ -46,6 +51,8 @@ public abstract class InteractiveTileObject {
         Filter filter = new Filter();
         filter.categoryBits = filterbit;
         fixture.setFilterData(filter);
+
+
 
 
     }

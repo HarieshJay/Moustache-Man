@@ -33,10 +33,15 @@ public class WorldContactListener implements ContactListener {
 
         switch (cDef){
             case MainClass.ENEMY_HEAD_BIT | MainClass.MAN_BIT:
-                if (fixA.getFilterData().categoryBits == MainClass.ENEMY_HEAD_BIT)
+                if (fixA.getFilterData().categoryBits == MainClass.ENEMY_HEAD_BIT){
                     ( (Enemy)fixA.getUserData()).hitOnHead();
+                       fixA.getFilterData().categoryBits = MainClass.DESTROYED_BIT;
+                       fixA.getFilterData().maskBits = MainClass.NOTHING_BIT;}
                 else if (fixB.getFilterData().categoryBits == MainClass.ENEMY_HEAD_BIT)
-                    ( (Enemy)fixB.getUserData()).hitOnHead();
+                {( (Enemy)fixB.getUserData()).hitOnHead();
+                    fixB.getFilterData().categoryBits = MainClass.DESTROYED_BIT;
+                    fixB.getFilterData().maskBits = MainClass.NOTHING_BIT;}
+                break;
 
 
             case MainClass.COIN_BIT | MainClass.MAN_BIT:

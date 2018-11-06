@@ -142,9 +142,11 @@ public class PlayScreen implements Screen{
     public void update(float dt) {
 
         handleInput(dt);
+
+
         world.step(1/60f,6,2);
 
-        monster.update(dt);
+
         //coin.update(dt);
         gamecam.position.x = player.b2body.getPosition().x;
 
@@ -153,6 +155,7 @@ public class PlayScreen implements Screen{
         renderer.setView(gamecam);
 
         player.update(dt);
+        monster.update(dt);
         hud.update(dt);
 
 

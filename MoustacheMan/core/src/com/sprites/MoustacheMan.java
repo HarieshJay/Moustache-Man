@@ -95,6 +95,7 @@ public class MoustacheMan extends Sprite {
         fdef.filter.categoryBits = MainClass.MAN_BIT;
         shape.setRadius( 50 /MainClass.PPM);
 
+
         fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT | MainClass.ENEMY_BIT |
                     MainClass.COIN_BIT |
                     MainClass.OBJECT_BIT |
@@ -108,7 +109,7 @@ public class MoustacheMan extends Sprite {
         fdef.restitution = 0;
 
         EdgeShape head = new EdgeShape();
-        head.set(new Vector2(-10 / MainClass.PPM, 60/MainClass.PPM), new Vector2(10 / MainClass.PPM, 60/MainClass.PPM));
+        head.set(new Vector2(-3 / MainClass.PPM, 30/MainClass.PPM), new Vector2(2 / MainClass.PPM, 30/MainClass.PPM));
         fdef.shape = head;
         b2body.createFixture(fdef).setUserData("head");
         fdef.isSensor = true;
