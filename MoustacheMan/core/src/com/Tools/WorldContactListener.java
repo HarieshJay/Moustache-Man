@@ -6,17 +6,35 @@ import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
+import com.mustacheman.game.Screens.PlayScreen;
 import com.sprites.Coin;
 import com.sprites.Enemy;
 import com.sprites.InteractiveTileObject;
 import com.MainClass.game.MainClass;
+import com.mustacheman.game.Screens.PlayScreen;
+import com.sprites.MoustacheMan;
 
 public class WorldContactListener implements ContactListener {
+    public PlayScreen playScreen;
+
+    public WorldContactListener(PlayScreen screen){
+        playScreen = screen;
+
+
+
+    }
+
+    MoustacheMan man;
+    int currentjump;
 
     @Override
     public void beginContact(Contact contact) {
+
+
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
+
+
 
 
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
@@ -50,6 +68,11 @@ public class WorldContactListener implements ContactListener {
 
                 else if (fixB.getFilterData().categoryBits == MainClass.COIN_BIT)
                     ( (Coin)fixB.getUserData()).onHit();
+
+            case MainClass.GROUND_BIT | MainClass.MAN_BIT:
+                playScreen.currentjump = 0;
+
+
 
         }
 

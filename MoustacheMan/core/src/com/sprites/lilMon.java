@@ -38,6 +38,7 @@ public class lilMon extends Enemy {
         stateTime = 0;
         setToDestroy = false;
         destroyed = false;
+        world = screen.getWorld();
 
 
 
@@ -51,11 +52,10 @@ public class lilMon extends Enemy {
 
 
         if(setToDestroy && !destroyed){
+            screen.getWorld().destroyBody(b2body);
+
 
             destroyed = true;
-
-
-
 
             setBounds(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y - getHeight()/2, 40/MainClass.PPM, 30/MainClass.PPM);
             stateTime = 0;
@@ -74,12 +74,14 @@ public class lilMon extends Enemy {
 
     }
 
+
     @Override
     protected void defineEnemy() {
         setBounds(300/ MainClass.PPM , 400 / MainClass.PPM, 40 /MainClass.PPM, 40 / MainClass.PPM);
 
         BodyDef bdef = new BodyDef();
         bdef.position.set( getX(), getY());
+
 
 
         bdef.type = BodyDef.BodyType.DynamicBody;

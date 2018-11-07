@@ -43,6 +43,7 @@ public class MoustacheMan extends Sprite {
 
 
 
+
     public  MoustacheMan( PlayScreen screen ){
 
         super(screen.getTextureAtlas().findRegion("run/run"));
@@ -63,8 +64,10 @@ public class MoustacheMan extends Sprite {
 
 
 
-
     }
+
+
+
     public void update(float dt){
 
         setRegion(getframe(dt));

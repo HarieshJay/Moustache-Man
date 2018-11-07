@@ -30,6 +30,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
@@ -45,6 +46,7 @@ public class PlayScreen implements Screen{
     private Viewport gameport;
 
 
+
     TextureAtlas atlas;
     com.badlogic.gdx.graphics.g2d.Animation<TextureRegion> run;
     Hud hud;
@@ -58,19 +60,14 @@ public class PlayScreen implements Screen{
     private lilMon monster;
     private Music music;
     private Coin coin;
-
-
-
-
-
-
-
+    public int currentjump;
 
 
     private MainClass game;
 
 
     public PlayScreen(MainClass game){
+
 
 
         gamecam = new OrthographicCamera();
@@ -97,7 +94,7 @@ public class PlayScreen implements Screen{
         new B2WorldCreator(this);
         monster = new lilMon(this, .32f, .32f);
         player = new MoustacheMan(this); // Make sure world is made before players and objects are initialized. Else it will erase those objects and give a null pointer exception
-        world.setContactListener(new WorldContactListener());
+        world.setContactListener(new WorldContactListener(this));
 
         manager = new AssetManager();
         manager.load("sounds/music.ogg", Music.class);
@@ -128,8 +125,10 @@ public class PlayScreen implements Screen{
     }
     public void handleInput(float dt) {
 
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) || hud.isUpPressed()  && (player.b2body.getLinearVelocity().y <= 2))  {
-            player.b2body.applyLinearImpulse(new Vector2(0, 5f), player.b2body.getWorldCenter(), true);}
+        if ((Gdx.input.isKeyJustPressed(Input.Keys.UP) || hud.isUpPressed()  && (player.b2body.getLinearVelocity().y <= 2)) && currentjump < 2) {
+            player.b2body.applyLinearImpulse(new Vector2(0, 5f), player.b2body.getWorldCenter(), true);
+            currentjump += 1;
+            }
         if ((( Gdx.input.isKeyPressed(Input.Keys.RIGHT) || hud.isRightPressed()) && (player.b2body.getLinearVelocity().x <= 2))) {
             player.b2body.applyLinearImpulse(new Vector2(0.3f, 0), player.b2body.getWorldCenter(), true);}
         if ((( Gdx.input.isKeyPressed(Input.Keys.LEFT) || hud.isLeftPressed()) && (player.b2body.getLinearVelocity().x >= -2))){
@@ -137,11 +136,18 @@ public class PlayScreen implements Screen{
 
 
 
+
     }
+
+
+
+
+
 
     public void update(float dt) {
 
         handleInput(dt);
+
 
 
         world.step(1/60f,6,2);
@@ -228,6 +234,10 @@ public class PlayScreen implements Screen{
 
     public World getWorld(){
         return world;
+    }
+
+    public PlayScreen getScreen(){
+        return  this;
     }
 
 
