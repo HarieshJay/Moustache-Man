@@ -1,5 +1,6 @@
 package com.sprites;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -20,7 +21,7 @@ public abstract class Enemy extends Sprite {
         this.screen = screen;
         setPosition(x, y);
         defineEnemy();
-        velocity = new Vector2(1, -1);
+        velocity = new Vector2(2, -2);
 
 
     }
@@ -38,6 +39,7 @@ public abstract class Enemy extends Sprite {
         if (y){
             velocity.y = -velocity.y;
         }
+
     }
 
 

@@ -72,6 +72,15 @@ public class WorldContactListener implements ContactListener {
             case MainClass.GROUND_BIT | MainClass.MAN_BIT:
                 playScreen.currentjump = 0;
 
+            case MainClass.ENEMY_BIT | MainClass.ENEMYBORDER_BIT:
+                Gdx.app.log("EnemyBorder", "Collision");
+                if (fixA.getFilterData().categoryBits == MainClass.ENEMY_BIT)
+                    ( (Enemy)fixA.getUserData()).reverseVelocity(true, true);
+
+
+                else if (fixA.getFilterData().categoryBits == MainClass.ENEMY_BIT)
+                    ( (Enemy)fixB.getUserData()).reverseVelocity(true, true);
+
 
 
         }

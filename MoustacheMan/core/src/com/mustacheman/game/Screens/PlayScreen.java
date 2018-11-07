@@ -71,6 +71,7 @@ public class PlayScreen implements Screen{
 
 
         gamecam = new OrthographicCamera();
+
         gameport = new FitViewport(MainClass.V_Width / MainClass.PPM, MainClass.V_Height / MainClass.PPM ,gamecam);
 
 
@@ -104,6 +105,7 @@ public class PlayScreen implements Screen{
 
         music.setLooping(true);
         music.play();
+        //b2dr.setDrawBodies(false);  //Set to true to stop showing debug lines
 
 
 

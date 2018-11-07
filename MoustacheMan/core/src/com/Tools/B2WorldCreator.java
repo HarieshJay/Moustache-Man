@@ -43,6 +43,45 @@ public class B2WorldCreator {
             fdef.shape = shape;
             body.createFixture(fdef);
 
+
+        }
+
+        //Borders
+        for(MapObject object : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class))
+        {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            bdef.type = BodyDef.BodyType.StaticBody;
+            bdef.position.set((rect.getX() + rect.getWidth()/2) / MainClass.PPM, ( rect.getY() + rect.getHeight()/2) / MainClass.PPM );
+            body = world.createBody(bdef);
+            shape.setAsBox(rect.getWidth()/2 / MainClass.PPM, rect.getHeight()/2 / MainClass.PPM);
+            fdef.shape = shape;
+            fdef.filter.categoryBits = MainClass.OBJECT_BIT;
+            fdef.filter.maskBits = MainClass.MAN_BIT;
+            body.createFixture(fdef);
+
+
+
+        }
+
+        //EnemyBorder
+        for(MapObject object : map.getLayers().get(7).getObjects().getByType(RectangleMapObject.class))
+        {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            bdef.type = BodyDef.BodyType.StaticBody;
+            bdef.position.set((rect.getX() + rect.getWidth()/2) / MainClass.PPM, ( rect.getY() + rect.getHeight()/2) / MainClass.PPM );
+
+
+            body = world.createBody(bdef);
+
+            shape.setAsBox(rect.getWidth()/2 / MainClass.PPM, rect.getHeight()/2 / MainClass.PPM);
+            fdef.shape = shape;
+            fdef.filter.maskBits = MainClass.ENEMY_BIT;
+            fdef.filter.categoryBits = MainClass.ENEMYBORDER_BIT;
+            body.createFixture(fdef);
+
+
         }
 
 
@@ -58,6 +97,7 @@ public class B2WorldCreator {
             fdef.shape = shape;
             fdef.isSensor = true;
             body.createFixture(fdef);
+
         }
 
 
@@ -66,6 +106,7 @@ public class B2WorldCreator {
         {
             map.getLayers().get(5).getObjects().remove(object);
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
 
 
 

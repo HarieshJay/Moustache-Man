@@ -14,6 +14,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g3d.model.Animation;
 import com.mustacheman.game.Screens.PlayScreen;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 
 public class MainClass extends Game {
 	public SpriteBatch batch;
@@ -34,6 +36,7 @@ public class MainClass extends Game {
 	public static final short ENEMY_HEAD_BIT = 128;
 	public static final short ITEM_BIT = 256;
 	public static final short MAN_HEAD_BIT = 512;
+	public static final short ENEMYBORDER_BIT = 1024;
 
 
 

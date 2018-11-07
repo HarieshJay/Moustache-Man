@@ -89,6 +89,7 @@ public class lilMon extends Enemy {
 
 
 
+
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
         shape.setRadius( 20 /MainClass.PPM);
@@ -96,22 +97,26 @@ public class lilMon extends Enemy {
 
 
         fdef.shape = shape;
+
+        fdef.filter.categoryBits = MainClass.ENEMY_BIT;
+        fdef.filter.maskBits = MainClass.ENEMYBORDER_BIT | MainClass.MAN_BIT | MainClass.GROUND_BIT |MainClass.OBJECT_BIT;
         b2body.createFixture(fdef);
+        b2body.setUserData(this);
 
         //create Head
         PolygonShape head = new PolygonShape();
         Vector2[] veritice = new Vector2[4];
-        veritice[0] = new Vector2(-20, 30).scl(1 /MainClass.PPM);
-        veritice[1] = new Vector2(20, 30).scl(1 /MainClass.PPM);
-        veritice[2] = new Vector2(-10, 20).scl(1 /MainClass.PPM);
-        veritice[3] = new Vector2(10, 20).scl(1 /MainClass.PPM);
+        veritice[0] = new Vector2(-10, 30).scl(1 /MainClass.PPM);
+        veritice[1] = new Vector2(10, 30).scl(1 /MainClass.PPM);
+        veritice[2] = new Vector2(-15, 20).scl(1 /MainClass.PPM);
+        veritice[3] = new Vector2(15, 20).scl(1 /MainClass.PPM);
         head.set(veritice);
 
         fdef.shape = head;
 
         fdef.restitution = 0.5f;
         fdef.filter.categoryBits = MainClass.ENEMY_HEAD_BIT;
-        fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.MAN_BIT;
+        fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.MAN_BIT ;
         b2body.createFixture(fdef).setUserData(this);
 
 
