@@ -14,6 +14,7 @@ import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.EdgeShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mustacheman.game.Screens.PlayScreen;
 import com.sun.org.apache.bcel.internal.Constants;
@@ -72,7 +73,7 @@ public class MoustacheMan extends Sprite {
 
         setRegion(getframe(dt));
 
-        setPosition(b2body.getPosition().x - getWidth() / 2f , b2body.getPosition().y  - getHeight() / 2f + 18/MainClass.PPM);
+        setPosition(b2body.getPosition().x - getWidth() / 2f , b2body.getPosition().y  - getHeight() / 2f + 10/MainClass.PPM);
 
 
 
@@ -94,9 +95,11 @@ public class MoustacheMan extends Sprite {
 
 
         FixtureDef fdef = new FixtureDef();
-        CircleShape shape = new CircleShape();
+        //CircleShape shape = new CircleShape();
+        PolygonShape shape = new PolygonShape();
+        shape.setAsBox(15 /MainClass.PPM , 40/ MainClass.PPM);
         fdef.filter.categoryBits = MainClass.MAN_BIT;
-        shape.setRadius( 30 /MainClass.PPM);
+        //shape.setRadius( 40 /MainClass.PPM);
 
 
         fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT | MainClass.ENEMY_BIT |

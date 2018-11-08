@@ -132,9 +132,9 @@ public class PlayScreen implements Screen{
             currentjump += 1;
             }
         if ((( Gdx.input.isKeyPressed(Input.Keys.RIGHT) || hud.isRightPressed()) && (player.b2body.getLinearVelocity().x <= 2))) {
-            player.b2body.applyLinearImpulse(new Vector2(0.3f, 0), player.b2body.getWorldCenter(), true);}
+            player.b2body.applyLinearImpulse(new Vector2(0.9f, 0), player.b2body.getWorldCenter(), true);}
         if ((( Gdx.input.isKeyPressed(Input.Keys.LEFT) || hud.isLeftPressed()) && (player.b2body.getLinearVelocity().x >= -2))){
-            player.b2body.applyLinearImpulse(new Vector2(-0.3f, 0), player.b2body.getWorldCenter(), true); }
+            player.b2body.applyLinearImpulse(new Vector2(-0.9f, 0), player.b2body.getWorldCenter(), true); }
 
 
 

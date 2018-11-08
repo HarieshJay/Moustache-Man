@@ -62,7 +62,6 @@ public class lilMon extends Enemy {
 
 
 
-            Gdx.app.log("update", "Enemy");
 
         }
         else if (!destroyed) {
@@ -100,8 +99,8 @@ public class lilMon extends Enemy {
 
         fdef.filter.categoryBits = MainClass.ENEMY_BIT;
         fdef.filter.maskBits = MainClass.ENEMYBORDER_BIT | MainClass.MAN_BIT | MainClass.GROUND_BIT |MainClass.OBJECT_BIT;
-        b2body.createFixture(fdef);
-        b2body.setUserData(this);
+        b2body.createFixture(fdef).setUserData(this);
+
 
         //create Head
         PolygonShape head = new PolygonShape();

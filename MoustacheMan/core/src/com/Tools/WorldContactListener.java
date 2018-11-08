@@ -14,6 +14,8 @@ import com.MainClass.game.MainClass;
 import com.mustacheman.game.Screens.PlayScreen;
 import com.sprites.MoustacheMan;
 
+import sun.applet.Main;
+
 public class WorldContactListener implements ContactListener {
     public PlayScreen playScreen;
 
@@ -49,37 +51,45 @@ public class WorldContactListener implements ContactListener {
         }
 
 
-        switch (cDef){
+        switch (cDef) {
             case MainClass.ENEMY_HEAD_BIT | MainClass.MAN_BIT:
-                if (fixA.getFilterData().categoryBits == MainClass.ENEMY_HEAD_BIT){
-                    ( (Enemy)fixA.getUserData()).hitOnHead();
-                       fixA.getFilterData().categoryBits = MainClass.DESTROYED_BIT;
-                       fixA.getFilterData().maskBits = MainClass.NOTHING_BIT;}
-                else if (fixB.getFilterData().categoryBits == MainClass.ENEMY_HEAD_BIT)
-                {( (Enemy)fixB.getUserData()).hitOnHead();
+                if (fixA.getFilterData().categoryBits == MainClass.ENEMY_HEAD_BIT) {
+                    ((Enemy) fixA.getUserData()).hitOnHead();
+                    fixA.getFilterData().categoryBits = MainClass.DESTROYED_BIT;
+                    fixA.getFilterData().maskBits = MainClass.NOTHING_BIT;
+                } else if (fixB.getFilterData().categoryBits == MainClass.ENEMY_HEAD_BIT) {
+                    ((Enemy) fixB.getUserData()).hitOnHead();
                     fixB.getFilterData().categoryBits = MainClass.DESTROYED_BIT;
-                    fixB.getFilterData().maskBits = MainClass.NOTHING_BIT;}
+                    fixB.getFilterData().maskBits = MainClass.NOTHING_BIT;
+                }
                 break;
 
 
             case MainClass.COIN_BIT | MainClass.MAN_BIT:
                 if (fixA.getFilterData().categoryBits == MainClass.COIN_BIT)
-                    ( (Coin)fixA.getUserData()).onHit();
+                    ((Coin) fixA.getUserData()).onHit();
 
                 else if (fixB.getFilterData().categoryBits == MainClass.COIN_BIT)
-                    ( (Coin)fixB.getUserData()).onHit();
+                    ((Coin) fixB.getUserData()).onHit();
 
             case MainClass.GROUND_BIT | MainClass.MAN_BIT:
                 playScreen.currentjump = 0;
 
-            case MainClass.ENEMY_BIT | MainClass.ENEMYBORDER_BIT:
-                Gdx.app.log("EnemyBorder", "Collision");
+        }
+
+
+            if (doesCollide(fixA,fixB, MainClass.ENEMY_BIT, MainClass.ENEMYBORDER_BIT)) {
+                Gdx.app.log("EnemyBorder:","Collision");
+
                 if (fixA.getFilterData().categoryBits == MainClass.ENEMY_BIT)
-                    ( (Enemy)fixA.getUserData()).reverseVelocity(true, true);
+                    ((Enemy) fixA.getUserData()).reverseVelocity(true, false);
 
 
-                else if (fixA.getFilterData().categoryBits == MainClass.ENEMY_BIT)
-                    ( (Enemy)fixB.getUserData()).reverseVelocity(true, true);
+                else if (fixB.getFilterData().categoryBits == MainClass.ENEMY_BIT)
+                    ((Enemy) fixB.getUserData()).reverseVelocity(true, false);
+
+
+            }
 
 
 
@@ -88,7 +98,7 @@ public class WorldContactListener implements ContactListener {
 
 
 
-    }
+
 
     @Override
     public void endContact(Contact contact) {
@@ -102,6 +112,18 @@ public class WorldContactListener implements ContactListener {
 
     @Override
     public void postSolve(Contact contact, ContactImpulse impulse) {
+
+    }
+
+    public boolean doesCollide(Fixture fixA, Fixture fixB, short bit1, short bit2){
+        if ((fixB.getFilterData().categoryBits == bit1 && fixA.getFilterData().categoryBits == bit2) || (fixA.getFilterData().categoryBits == bit1 && fixB.getFilterData().categoryBits == bit2)){
+            return true;
+        }
+
+        else
+            return false;
+
+
 
     }
 }
