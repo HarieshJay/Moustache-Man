@@ -55,7 +55,7 @@ public class MoustacheMan extends Sprite {
         previousState = State.STANDING;
         stand  = new TextureRegion(atlas.findRegion("run/run",7));
         jump = new TextureRegion(new TextureRegion(screen.getTextureAtlas().findRegion("jump/j")));
-        manRun = new com.badlogic.gdx.graphics.g2d.Animation(1/15f, atlas.findRegions("run/run"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
+        manRun = new com.badlogic.gdx.graphics.g2d.Animation(1/30f, atlas.findRegions("run/run"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
         manJump = new com.badlogic.gdx.graphics.g2d.Animation(1/15f, atlas.findRegions("jump/j"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
         this.world = screen.getWorld();
         rightrun = true;
@@ -73,7 +73,7 @@ public class MoustacheMan extends Sprite {
 
         setRegion(getframe(dt));
 
-        setPosition(b2body.getPosition().x - getWidth() / 2f , b2body.getPosition().y  - getHeight() / 2f + 10/MainClass.PPM);
+        setPosition(b2body.getPosition().x - getWidth() / 2f , b2body.getPosition().y  - getHeight() / 2f + 8/MainClass.PPM);
 
 
 
@@ -82,6 +82,9 @@ public class MoustacheMan extends Sprite {
 
 
     }
+
+
+
 
 
     public void defineMoustacheMan(){
@@ -95,31 +98,43 @@ public class MoustacheMan extends Sprite {
 
 
         FixtureDef fdef = new FixtureDef();
-        //CircleShape shape = new CircleShape();
-        PolygonShape shape = new PolygonShape();
-        shape.setAsBox(15 /MainClass.PPM , 40/ MainClass.PPM);
-        fdef.filter.categoryBits = MainClass.MAN_BIT;
-        //shape.setRadius( 40 /MainClass.PPM);
+        CircleShape shape = new CircleShape();
 
+        //Create body
+        shape.setRadius( 20 /MainClass.PPM);
+
+        fdef.filter.categoryBits = MainClass.MAN_BIT;
+        fdef.friction = 0.2f;
 
         fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT | MainClass.ENEMY_BIT |
-                    MainClass.COIN_BIT |
-                    MainClass.OBJECT_BIT |
-                    MainClass.ENEMY_HEAD_BIT;
-
-
+                MainClass.COIN_BIT |
+                MainClass.OBJECT_BIT |
+                MainClass.ENEMY_HEAD_BIT;
+        shape.setPosition(new Vector2(0, -20/MainClass.PPM));
 
         fdef.shape = shape;
-        b2body.createFixture(fdef).setUserData("player");
-        b2body.createFixture(fdef);
-        fdef.restitution = 0;
 
-        EdgeShape head = new EdgeShape();
-        head.set(new Vector2(-5 / MainClass.PPM, 70/MainClass.PPM), new Vector2(5 / MainClass.PPM, 70/MainClass.PPM));
-        fdef.shape = head;
-        b2body.createFixture(fdef).setUserData("head");
-        fdef.isSensor = true;
-        fdef.filter.categoryBits = MainClass.MAN_BIT;
+        b2body.createFixture(fdef).setUserData("playerbody");
+
+        //Create head
+        FixtureDef bodyfdef = new FixtureDef();
+        shape.setRadius(35 /MainClass.PPM);
+        shape.setPosition(new Vector2(0, 20/MainClass.PPM));
+        bodyfdef.shape = shape;
+        fdef.filter.categoryBits = MainClass.MAN_HEAD_BIT;
+        fdef.friction = 0.2f;
+        fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT | MainClass.ENEMY_BIT |
+                MainClass.COIN_BIT |
+                MainClass.OBJECT_BIT |
+                MainClass.ENEMY_HEAD_BIT;
+        b2body.createFixture(bodyfdef).setUserData("head");
+
+
+
+
+
+
+
 
 
     }

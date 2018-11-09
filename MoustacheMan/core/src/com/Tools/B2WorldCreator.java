@@ -1,6 +1,8 @@
 package com.Tools;
 
 import com.MainClass.game.MainClass;
+import com.Scenes.Hud;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
@@ -11,13 +13,19 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.utils.Array;
 import com.mustacheman.game.Screens.PlayScreen;
 import com.sprites.Coin;
 import com.sprites.MoustacheMan;
+import com.sprites.lilMon;
+
+import java.util.ArrayList;
 
 public class B2WorldCreator {
+    private Array<lilMon> monsters;
 
-    public B2WorldCreator(PlayScreen screen){
+
+    public B2WorldCreator(PlayScreen screen, Hud hud) {
         World world = screen.getWorld();
         TiledMap map = screen.getMap();
 
@@ -26,6 +34,8 @@ public class B2WorldCreator {
         PolygonShape shape = new PolygonShape();
         FixtureDef fdef = new FixtureDef();
         Body body;
+
+
 
 
 
@@ -117,8 +127,29 @@ public class B2WorldCreator {
 
         }
 
+        monsters = new Array<lilMon>();
+        for(MapObject object : map.getLayers().get(8).getObjects().getByType(RectangleMapObject.class))
+        {
+
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            monsters.add(new lilMon(screen, rect.getX() /MainClass.PPM, rect.getY()/MainClass.PPM, hud));
+
+
+        }
+
+
+
 
 
 
     }
+
+    public Array<lilMon> getMonsters(){
+        return monsters;
+    }
+
+
+
+
 }

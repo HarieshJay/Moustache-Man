@@ -1,6 +1,7 @@
 package com.sprites;
 
 import com.MainClass.game.MainClass;
+import com.Scenes.Hud;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -28,10 +29,12 @@ public class lilMon extends Enemy {
     public World world;
     private boolean setToDestroy;
     private boolean destroyed;
+    float x;
+    float y;
 
 
-    public lilMon(PlayScreen screen, float x, float y) {
-        super(screen, x, y);
+    public lilMon(PlayScreen screen, float x, float y, Hud hud) {
+        super(screen, x, y, hud);
         atlas = new TextureAtlas("LittleMonster.atlas");
         frames = new Array<TextureRegion>();
         walkAnimation = new Animation<TextureRegion>(0.01f, atlas.findRegions("w"));
@@ -39,6 +42,8 @@ public class lilMon extends Enemy {
         setToDestroy = false;
         destroyed = false;
         world = screen.getWorld();
+
+
 
 
 
@@ -57,17 +62,20 @@ public class lilMon extends Enemy {
 
             destroyed = true;
 
-            setBounds(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y - getHeight()/2, 40/MainClass.PPM, 30/MainClass.PPM);
+            setBounds(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y - getHeight()/2 - 5/MainClass.PPM , 40/MainClass.PPM, 30/MainClass.PPM);
             stateTime = 0;
+
+
 
 
 
 
         }
         else if (!destroyed) {
-            setPosition(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y - getHeight()/2);
+            setPosition(b2body.getPosition().x - getWidth()/2 , b2body.getPosition().y - getHeight()/2 - 5/MainClass.PPM);
             setRegion(walkAnimation.getKeyFrame(stateTime, true));
             b2body.setLinearVelocity(velocity);
+
 
         }
 
@@ -76,7 +84,7 @@ public class lilMon extends Enemy {
 
     @Override
     protected void defineEnemy() {
-        setBounds(300/ MainClass.PPM , 400 / MainClass.PPM, 40 /MainClass.PPM, 40 / MainClass.PPM);
+        setBounds(getX(), getY(), 40 /MainClass.PPM, 40 / MainClass.PPM);
 
         BodyDef bdef = new BodyDef();
         bdef.position.set( getX(), getY());
@@ -91,7 +99,7 @@ public class lilMon extends Enemy {
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius( 20 /MainClass.PPM);
+        shape.setRadius( 25 /MainClass.PPM);
 
 
 
@@ -107,8 +115,8 @@ public class lilMon extends Enemy {
         Vector2[] veritice = new Vector2[4];
         veritice[0] = new Vector2(-10, 30).scl(1 /MainClass.PPM);
         veritice[1] = new Vector2(10, 30).scl(1 /MainClass.PPM);
-        veritice[2] = new Vector2(-15, 20).scl(1 /MainClass.PPM);
-        veritice[3] = new Vector2(15, 20).scl(1 /MainClass.PPM);
+        veritice[2] = new Vector2(-12, 20).scl(1 /MainClass.PPM);
+        veritice[3] = new Vector2(12, 20).scl(1 /MainClass.PPM);
         head.set(veritice);
 
         fdef.shape = head;

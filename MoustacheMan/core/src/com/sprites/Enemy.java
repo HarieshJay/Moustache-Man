@@ -1,5 +1,6 @@
 package com.sprites;
 
+import com.Scenes.Hud;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
@@ -16,7 +17,7 @@ public abstract class Enemy extends Sprite {
     public Body b2body;
     public Vector2 velocity;
 
-    public Enemy(PlayScreen screen, float x, float y){
+    public Enemy(PlayScreen screen, float x, float y, Hud hud){
         this.world = screen.getWorld();
         this.screen = screen;
         setPosition(x, y);
@@ -41,6 +42,8 @@ public abstract class Enemy extends Sprite {
         }
 
     }
+
+    public abstract void update(float dt);
 
 
 }

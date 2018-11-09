@@ -36,6 +36,7 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.*;
 import com.sprites.Coin;
+import com.sprites.Enemy;
 import com.sprites.MoustacheMan;
 import com.sprites.lilMon;
 
@@ -57,10 +58,10 @@ public class PlayScreen implements Screen{
     private OrthogonalTiledMapRenderer renderer;
     private MoustacheMan player;
     private AssetManager manager;
-    private lilMon monster;
     private Music music;
     private Coin coin;
     public int currentjump;
+    private B2WorldCreator creator;
 
 
     private MainClass game;
@@ -89,11 +90,14 @@ public class PlayScreen implements Screen{
 
 
 
+
+
         gamecam.position.set(gameport.getWorldWidth()/2, gameport.getWorldHeight()/2, 0);
         world = new World(new Vector2(0,-10 ), true);
         b2dr = new Box2DDebugRenderer();
-        new B2WorldCreator(this);
-        monster = new lilMon(this, .32f, .32f);
+        creator = new B2WorldCreator(this, hud);
+
+
         player = new MoustacheMan(this); // Make sure world is made before players and objects are initialized. Else it will erase those objects and give a null pointer exception
         world.setContactListener(new WorldContactListener(this));
 
@@ -103,9 +107,9 @@ public class PlayScreen implements Screen{
 
         music = manager.get("sounds/music.ogg", Music.class);
 
-        music.setLooping(true);
-        music.play();
-        //b2dr.setDrawBodies(false);  //Set to true to stop showing debug lines
+        //music.setLooping(true);
+        //music.play();
+        b2dr.setDrawBodies(true);  //Set to true to stop showing debug lines
 
 
 
@@ -128,7 +132,7 @@ public class PlayScreen implements Screen{
     public void handleInput(float dt) {
 
         if ((Gdx.input.isKeyJustPressed(Input.Keys.UP) || hud.isUpPressed()  && (player.b2body.getLinearVelocity().y <= 2)) && currentjump < 2) {
-            player.b2body.applyLinearImpulse(new Vector2(0, 5f), player.b2body.getWorldCenter(), true);
+            player.b2body.applyLinearImpulse(new Vector2(0, 6f), player.b2body.getWorldCenter(), true);
             currentjump += 1;
             }
         if ((( Gdx.input.isKeyPressed(Input.Keys.RIGHT) || hud.isRightPressed()) && (player.b2body.getLinearVelocity().x <= 2))) {
@@ -140,6 +144,7 @@ public class PlayScreen implements Screen{
 
 
     }
+
 
 
 
@@ -163,8 +168,15 @@ public class PlayScreen implements Screen{
         renderer.setView(gamecam);
 
         player.update(dt);
-        monster.update(dt);
+
+        for (Enemy enemy : creator.getMonsters()){
+            enemy.update(dt);
+        }
+
         hud.update(dt);
+
+
+
 
 
 
@@ -184,6 +196,7 @@ public class PlayScreen implements Screen{
         renderer.render();
 
         hud.hudStage.draw();
+
         game.batch.setProjectionMatrix(hud.hudStage.getCamera().combined);
 
         //Hudstage ProjectionMatrix has be be set before gamecam should
@@ -197,7 +210,9 @@ public class PlayScreen implements Screen{
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
         player.draw(game.batch);
-        monster.draw(game.batch);
+        for (Enemy enemy : creator.getMonsters()){
+            enemy.draw(game.batch);
+        }
 
         game.batch.end();
 

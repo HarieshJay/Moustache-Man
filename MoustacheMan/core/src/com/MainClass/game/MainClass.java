@@ -50,6 +50,7 @@ public class MainClass extends Game {
 
 
 
+
 		//music = MainClass.manager.get("sounds/music.ogg", Music.class);
 
 	}

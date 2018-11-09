@@ -13,6 +13,7 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.utils.Array;
 import com.mustacheman.game.Screens.PlayScreen;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public abstract class InteractiveTileObject {
         body = world.createBody(bdef);
         shape.setAsBox(bounds.getWidth()/2 / MainClass.PPM, bounds.getHeight()/2 / MainClass.PPM);
         fdef.shape = shape;
-        fdef.isSensor = true; //Used because of Coin, Might need to move this around later
+        fdef.isSensor = true; // Used because of Coin, Might need to move this around later
         //Can only change fdef before it is used in body.createFixture(fdef);
         //ex. isSenor will return a bool if you use it after fixture = body.createFixture(fdef);
 
@@ -53,6 +54,14 @@ public abstract class InteractiveTileObject {
         fixture.setFilterData(filter);
 
 
+    }
+
+    public void setMaskFilter(ArrayList<Integer> bits){
+        Filter filter = new Filter();
+        fixture.setFilterData(filter);
+        for (Integer bit : bits){
+            filter.maskBits = bit.shortValue();
+        }
 
 
     }

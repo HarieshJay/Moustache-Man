@@ -42,8 +42,8 @@ public class WorldContactListener implements ContactListener {
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
 
 
-        if(fixA.getUserData() == "player" || fixB.getUserData() == "player"){
-            Fixture player = fixA.getUserData() == "player" ? fixA : fixB;
+        if(fixA.getUserData() == "playerbody" || fixB.getUserData() == "playerbody"){
+            Fixture player = fixA.getUserData() == "playerbody" ? fixA : fixB;
             Fixture object = player == fixA ? fixB : fixA;
 
             if (object.getUserData() instanceof InteractiveTileObject){
@@ -116,6 +116,7 @@ public class WorldContactListener implements ContactListener {
     }
 
     public boolean doesCollide(Fixture fixA, Fixture fixB, short bit1, short bit2){
+
         if ((fixB.getFilterData().categoryBits == bit1 && fixA.getFilterData().categoryBits == bit2) || (fixA.getFilterData().categoryBits == bit1 && fixB.getFilterData().categoryBits == bit2)){
             return true;
         }
