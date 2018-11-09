@@ -25,7 +25,7 @@ import sun.applet.Main;
 public class MoustacheMan extends Sprite {
 
     public World world;
-    public enum State {FALLING, JUMPING, STANDING, RUNNING };
+    public enum State {FALLING, JUMPING, STANDING, RUNNING , DEAD}
     public State currentState;
     public State previousState;
     public Body b2body;
@@ -35,8 +35,10 @@ public class MoustacheMan extends Sprite {
     float stateTime;
     Animation<TextureRegion> manRun;
     Animation<TextureRegion> manJump;
+    Animation<TextureRegion> manKO;
     TextureRegion standimg;
     private boolean rightrun;
+    private boolean alive = true;
 
 
 
@@ -56,7 +58,8 @@ public class MoustacheMan extends Sprite {
         stand  = new TextureRegion(atlas.findRegion("run/run",7));
         jump = new TextureRegion(new TextureRegion(screen.getTextureAtlas().findRegion("jump/j")));
         manRun = new com.badlogic.gdx.graphics.g2d.Animation(1/30f, atlas.findRegions("run/run"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
-        manJump = new com.badlogic.gdx.graphics.g2d.Animation(1/15f, atlas.findRegions("jump/j"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
+        manJump = new com.badlogic.gdx.graphics.g2d.Animation(1/30f, atlas.findRegions("jump/j"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
+        manKO = new Animation<TextureRegion>(1/30f, atlas.findRegions("KO/ko"), Animation.PlayMode.LOOP);
         this.world = screen.getWorld();
         rightrun = true;
         defineMoustacheMan();
@@ -71,9 +74,18 @@ public class MoustacheMan extends Sprite {
 
     public void update(float dt){
 
-        setRegion(getframe(dt));
+        if (alive) {
 
-        setPosition(b2body.getPosition().x - getWidth() / 2f , b2body.getPosition().y  - getHeight() / 2f + 8/MainClass.PPM);
+            setRegion(getframe(dt));
+
+            setPosition(b2body.getPosition().x - getWidth() / 2f, b2body.getPosition().y - getHeight() / 2f + 8 / MainClass.PPM);
+        }
+        else if (!alive){
+
+            setRegion(getframe(dt));
+
+
+        }
 
 
 
@@ -149,6 +161,9 @@ public class MoustacheMan extends Sprite {
         else if (b2body.getLinearVelocity().x != 0){
             return State.RUNNING;
         }
+        else if (!alive){
+            return State.DEAD;
+        }
         else {
             return State.STANDING;
         }
@@ -172,6 +187,9 @@ public class MoustacheMan extends Sprite {
                 animation = stand;
                 setBounds(0, 0, 66 /MainClass.PPM , 103/ MainClass.PPM );
                 break;
+            case DEAD:
+                animation = manKO.getKeyFrame(stateTime,false);
+
             case FALLING:
             default:
                 animation = stand;
