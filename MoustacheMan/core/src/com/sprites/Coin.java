@@ -25,14 +25,10 @@ public class Coin extends InteractiveTileObject {
     public Coin(PlayScreen screen, Rectangle bounds) {
         super(screen, bounds);
         fixture.setUserData(this);
-        setCategoryFilter(MainClass.COIN_BIT);
 
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add((int) MainClass.MAN_BIT);
-        list.add((int) MainClass.MAN_HEAD_BIT);
 
-        //setMaskFilter(list);
 
+        setFilter(MainClass.MAN_BIT, MainClass.COIN_BIT);
 
 
 
@@ -47,13 +43,14 @@ public class Coin extends InteractiveTileObject {
 
     @Override
     public void onHeadHit() {
-        Gdx.app.log("Coin", "Collision");
+
 
 
 
     }
 
     public void onHit() {
+
         setCategoryFilter(MainClass.DESTROYED_BIT);
         int[] a = new int[2];
         getCell(0).setTile(null);

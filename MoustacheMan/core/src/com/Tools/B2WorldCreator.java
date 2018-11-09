@@ -118,10 +118,6 @@ public class B2WorldCreator {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
 
-
-
-
-
             new Coin(screen, rect);
 
 

@@ -56,12 +56,12 @@ public abstract class InteractiveTileObject {
 
     }
 
-    public void setMaskFilter(ArrayList<Integer> bits){
+    public void setFilter(short Maskbits, short filterbit){
         Filter filter = new Filter();
+
+        filter.categoryBits = filterbit;
+        filter.maskBits = MainClass.MAN_BIT | MainClass.MAN_HEAD_BIT;
         fixture.setFilterData(filter);
-        for (Integer bit : bits){
-            filter.maskBits = bit.shortValue();
-        }
 
 
     }

@@ -36,19 +36,21 @@ public class WorldContactListener implements ContactListener {
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
 
+        /*if(fixA.getUserData() == "playerbody" || fixB.getUserData() == "playerbody"){
+            Fixture player = fixA.getUserData() == "playerbody" ? fixA : fixB;
+            Fixture object = player == fixA ? fixB : fixA;
+
+            if (object.getUserData() instanceof InteractiveTileObject){
+                ((InteractiveTileObject) object.getUserData()).onHeadHit();            }
+        } */
+
+
 
 
 
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
 
 
-        if(fixA.getUserData() == "playerbody" || fixB.getUserData() == "playerbody"){
-            Fixture player = fixA.getUserData() == "playerbody" ? fixA : fixB;
-            Fixture object = player == fixA ? fixB : fixA;
-
-            if (object.getUserData() instanceof InteractiveTileObject){
-                ((InteractiveTileObject) object.getUserData()).onHeadHit();            }
-        }
 
 
         switch (cDef) {
@@ -65,12 +67,15 @@ public class WorldContactListener implements ContactListener {
                 break;
 
 
-            case MainClass.COIN_BIT | MainClass.MAN_BIT:
+            /*case (MainClass.COIN_BIT | MainClass.MAN_HEAD_BIT) :
                 if (fixA.getFilterData().categoryBits == MainClass.COIN_BIT)
                     ((Coin) fixA.getUserData()).onHit();
 
                 else if (fixB.getFilterData().categoryBits == MainClass.COIN_BIT)
-                    ((Coin) fixB.getUserData()).onHit();
+                    ((Coin) fixB.getUserData()).onHit(); */
+
+
+
 
             case MainClass.GROUND_BIT | MainClass.MAN_BIT:
                 playScreen.currentjump = 0;
@@ -78,8 +83,8 @@ public class WorldContactListener implements ContactListener {
         }
 
 
-            if (doesCollide(fixA,fixB, MainClass.ENEMY_BIT, MainClass.ENEMYBORDER_BIT)) {
-                Gdx.app.log("EnemyBorder:","Collision");
+        if (doesCollide(fixA,fixB, MainClass.ENEMY_BIT, MainClass.ENEMYBORDER_BIT)) {
+
 
                 if (fixA.getFilterData().categoryBits == MainClass.ENEMY_BIT)
                     ((Enemy) fixA.getUserData()).reverseVelocity(true, false);
@@ -90,6 +95,28 @@ public class WorldContactListener implements ContactListener {
 
 
             }
+
+        if (doesCollide(fixA,fixB, MainClass.MAN_BIT, MainClass.COIN_BIT)){
+                Gdx.app.log("Collision", "Coin and ManBody");
+                if (fixA.getFilterData().categoryBits == MainClass.COIN_BIT)
+                    ((Coin) fixA.getUserData()).onHit();
+
+
+                else if (fixB.getFilterData().categoryBits == MainClass.COIN_BIT)
+                    ((Coin) fixB.getUserData()).onHit();
+
+            }
+
+        if (doesCollide(fixA,fixB, MainClass.MAN_HEAD_BIT, MainClass.COIN_BIT)){
+            Gdx.app.log("Collision", "Coin and ManHead");
+            if (fixA.getFilterData().categoryBits == MainClass.COIN_BIT)
+                ((Coin) fixA.getUserData()).onHit();
+
+
+            else if (fixB.getFilterData().categoryBits == MainClass.COIN_BIT)
+                ((Coin) fixB.getUserData()).onHit();
+
+        }
 
 
 

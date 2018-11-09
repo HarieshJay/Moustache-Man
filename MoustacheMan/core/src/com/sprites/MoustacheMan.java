@@ -114,7 +114,7 @@ public class MoustacheMan extends Sprite {
 
         fdef.shape = shape;
 
-        b2body.createFixture(fdef).setUserData("playerbody");
+        b2body.createFixture(fdef);
 
         //Create head
         FixtureDef bodyfdef = new FixtureDef();
@@ -127,7 +127,7 @@ public class MoustacheMan extends Sprite {
                 MainClass.COIN_BIT |
                 MainClass.OBJECT_BIT |
                 MainClass.ENEMY_HEAD_BIT;
-        b2body.createFixture(bodyfdef).setUserData("head");
+        b2body.createFixture(fdef);
 
 
 

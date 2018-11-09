@@ -131,7 +131,7 @@ public class PlayScreen implements Screen{
     }
     public void handleInput(float dt) {
 
-        if ((Gdx.input.isKeyJustPressed(Input.Keys.UP) || hud.isUpPressed()  && (player.b2body.getLinearVelocity().y <= 2)) && currentjump < 2) {
+        if ((Gdx.input.isKeyJustPressed(Input.Keys.UP) || hud.isUpPressed()  && (player.b2body.getLinearVelocity().y <= 2)) && currentjump < 1) {
             player.b2body.applyLinearImpulse(new Vector2(0, 6f), player.b2body.getWorldCenter(), true);
             currentjump += 1;
             }
