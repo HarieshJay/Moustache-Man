@@ -14,6 +14,8 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.EdgeShape;
+import com.badlogic.gdx.physics.box2d.Filter;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
@@ -39,9 +41,7 @@ public class MoustacheMan extends Sprite {
     Animation<TextureRegion> manKO;
     TextureRegion standimg;
     private boolean rightrun;
-    private boolean destroyed = false;
-    public boolean setToDestroy = false;
-
+    public boolean dead = false;
 
 
 
@@ -62,7 +62,7 @@ public class MoustacheMan extends Sprite {
         jump = new TextureRegion(new TextureRegion(screen.getTextureAtlas().findRegion("jump/j")));
         manRun = new com.badlogic.gdx.graphics.g2d.Animation(1/30f, atlas.findRegions("run/run"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
         manJump = new com.badlogic.gdx.graphics.g2d.Animation(1/30f, atlas.findRegions("jump/j"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
-        manKO = new Animation<TextureRegion>(1/30f, atlas.findRegions("KO/ko"), Animation.PlayMode.LOOP);
+        manKO = new Animation<TextureRegion>(1/20f, atlas.findRegions("KO/ko"), Animation.PlayMode.LOOP);
         this.world = screen.getWorld();
         rightrun = true;
         defineMoustacheMan();
@@ -76,28 +76,6 @@ public class MoustacheMan extends Sprite {
 
 
     public void update(float dt){
-        setToDestroy = false;
-
-
-
-
-
-            //setPosition(b2body.getPosition().x - getWidth() / 2f, b2body.getPosition().y - getHeight() / 2f + 8 / MainClass.PPM);
-
-
-        if(setToDestroy && !destroyed){ // man needs to die but hasn't died yet
-
-
-
-            setPosition(b2body.getPosition().x - getWidth() / 2f, b2body.getPosition().y - getHeight() / 2f + 8 / MainClass.PPM);
-
-            world.destroyBody(b2body);
-            destroyed = true;
-            stateTime = 0;
-
-
-        }
-        else if (!destroyed) { // If man has not died
 
 
             setRegion(getframe(dt));
@@ -105,23 +83,16 @@ public class MoustacheMan extends Sprite {
 
 
 
-        }
-
-
-
-
-
-
-
-
 
     }
 
-    public void draw(Batch batch){
+    /*public void draw(Batch batch){
         if(!destroyed || stateTime < 1)
 
             super.draw(batch);
-    }
+
+
+    }*/
 
 
 
@@ -162,7 +133,7 @@ public class MoustacheMan extends Sprite {
         shape.setPosition(new Vector2(0, 20/MainClass.PPM));
         bodyfdef.shape = shape;
         fdef.filter.categoryBits = MainClass.MAN_HEAD_BIT;
-        fdef.friction = 0.2f;
+        fdef.friction = 0.4f;
         fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT | MainClass.ENEMY_BIT |
                 MainClass.COIN_BIT |
                 MainClass.OBJECT_BIT |
@@ -182,7 +153,12 @@ public class MoustacheMan extends Sprite {
 
 
     public State getState() {
-        if (b2body.getLinearVelocity().y > 0 || b2body.getLinearVelocity().y < 0 && previousState == State.JUMPING){
+        if (dead){
+            return State.DEAD;
+
+        }
+
+        else if (b2body.getLinearVelocity().y > 0 || b2body.getLinearVelocity().y < 0 && previousState == State.JUMPING){
             return State.JUMPING;
         }
         else if (b2body.getLinearVelocity().y < 0){
@@ -191,9 +167,7 @@ public class MoustacheMan extends Sprite {
         else if (b2body.getLinearVelocity().x != 0){
             return State.RUNNING;
         }
-        else if (destroyed){
-            return State.DEAD;
-        }
+
         else {
             return State.STANDING;
         }
@@ -219,13 +193,17 @@ public class MoustacheMan extends Sprite {
                 break;
             case DEAD:
                 animation = manKO.getKeyFrame(stateTime,false);
-                setBounds(0, 0, 89 /MainClass.PPM , 77/MainClass.PPM );
+                setBounds(b2body.getPosition().x - getWidth() / 2f, b2body.getPosition().y - getHeight() / 2f + 8 / MainClass.PPM, 135 /MainClass.PPM , 115/MainClass.PPM );
+                break;
 
             case FALLING:
+
+
             default:
                 animation = stand;
-
                 break;
+
+
 
         }
         if ((b2body.getLinearVelocity().x < 0 || !rightrun) && !animation.isFlipX()){
@@ -246,7 +224,15 @@ public class MoustacheMan extends Sprite {
     }
 
     public void onHit(){
-        setToDestroy = true;
+        dead = true;
+        Filter filter = new Filter();
+        filter.maskBits = MainClass.NOTHING_BIT;
+        for (Fixture fixture : b2body.getFixtureList()){
+            fixture.setFilterData(filter);
+        }
+
+
+
     }
 
 
