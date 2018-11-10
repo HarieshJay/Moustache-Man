@@ -51,7 +51,7 @@ public class B2WorldCreator {
             body = world.createBody(bdef);
             shape.setAsBox(rect.getWidth()/2 / MainClass.PPM, rect.getHeight()/2 / MainClass.PPM);
             fdef.shape = shape;
-            body.createFixture(fdef);
+            body.createFixture(fdef).setUserData(this);
 
 
         }
@@ -68,7 +68,7 @@ public class B2WorldCreator {
             fdef.shape = shape;
             fdef.filter.categoryBits = MainClass.OBJECT_BIT;
             fdef.filter.maskBits = MainClass.MAN_BIT;
-            body.createFixture(fdef);
+            body.createFixture(fdef).setUserData(this);
 
 
 
@@ -89,7 +89,7 @@ public class B2WorldCreator {
             fdef.shape = shape;
             fdef.filter.maskBits = MainClass.ENEMY_BIT;
             fdef.filter.categoryBits = MainClass.ENEMYBORDER_BIT;
-            body.createFixture(fdef);
+            body.createFixture(fdef).setUserData(this);
 
 
         }
@@ -106,7 +106,7 @@ public class B2WorldCreator {
             shape.setAsBox(rect.getWidth()/2 / MainClass.PPM, rect.getHeight()/2 / MainClass.PPM);
             fdef.shape = shape;
             fdef.isSensor = true;
-            body.createFixture(fdef);
+            body.createFixture(fdef).setUserData(this);
 
         }
 

@@ -4,6 +4,7 @@ import com.MainClass.game.MainClass;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -38,7 +39,9 @@ public class MoustacheMan extends Sprite {
     Animation<TextureRegion> manKO;
     TextureRegion standimg;
     private boolean rightrun;
-    private boolean alive = true;
+    private boolean destroyed = false;
+    public boolean setToDestroy = false;
+
 
 
 
@@ -73,16 +76,33 @@ public class MoustacheMan extends Sprite {
 
 
     public void update(float dt){
+        setToDestroy = false;
 
-        if (alive) {
 
-            setRegion(getframe(dt));
+
+
+
+            //setPosition(b2body.getPosition().x - getWidth() / 2f, b2body.getPosition().y - getHeight() / 2f + 8 / MainClass.PPM);
+
+
+        if(setToDestroy && !destroyed){ // man needs to die but hasn't died yet
+
+
 
             setPosition(b2body.getPosition().x - getWidth() / 2f, b2body.getPosition().y - getHeight() / 2f + 8 / MainClass.PPM);
+
+            world.destroyBody(b2body);
+            destroyed = true;
+            stateTime = 0;
+
+
         }
-        else if (!alive){
+        else if (!destroyed) { // If man has not died
+
 
             setRegion(getframe(dt));
+            setPosition(b2body.getPosition().x - getWidth() / 2f, b2body.getPosition().y - getHeight() / 2f + 8 / MainClass.PPM);
+
 
 
         }
@@ -93,6 +113,14 @@ public class MoustacheMan extends Sprite {
 
 
 
+
+
+    }
+
+    public void draw(Batch batch){
+        if(!destroyed || stateTime < 1)
+
+            super.draw(batch);
     }
 
 
@@ -126,7 +154,7 @@ public class MoustacheMan extends Sprite {
 
         fdef.shape = shape;
 
-        b2body.createFixture(fdef);
+        b2body.createFixture(fdef).setUserData(this);
 
         //Create head
         FixtureDef bodyfdef = new FixtureDef();
@@ -139,7 +167,7 @@ public class MoustacheMan extends Sprite {
                 MainClass.COIN_BIT |
                 MainClass.OBJECT_BIT |
                 MainClass.ENEMY_HEAD_BIT;
-        b2body.createFixture(fdef);
+        b2body.createFixture(fdef).setUserData(this);
 
 
 
@@ -151,6 +179,8 @@ public class MoustacheMan extends Sprite {
 
     }
 
+
+
     public State getState() {
         if (b2body.getLinearVelocity().y > 0 || b2body.getLinearVelocity().y < 0 && previousState == State.JUMPING){
             return State.JUMPING;
@@ -161,7 +191,7 @@ public class MoustacheMan extends Sprite {
         else if (b2body.getLinearVelocity().x != 0){
             return State.RUNNING;
         }
-        else if (!alive){
+        else if (destroyed){
             return State.DEAD;
         }
         else {
@@ -189,6 +219,7 @@ public class MoustacheMan extends Sprite {
                 break;
             case DEAD:
                 animation = manKO.getKeyFrame(stateTime,false);
+                setBounds(0, 0, 89 /MainClass.PPM , 77/MainClass.PPM );
 
             case FALLING:
             default:
@@ -212,6 +243,10 @@ public class MoustacheMan extends Sprite {
         return animation;
 
 
+    }
+
+    public void onHit(){
+        setToDestroy = true;
     }
 
 

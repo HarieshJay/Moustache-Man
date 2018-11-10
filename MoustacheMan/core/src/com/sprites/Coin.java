@@ -32,13 +32,6 @@ public class Coin extends InteractiveTileObject {
 
 
 
-
-
-
-
-
-
-
     }
 
     @Override
