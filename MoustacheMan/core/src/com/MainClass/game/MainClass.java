@@ -3,6 +3,7 @@ package com.MainClass.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -37,6 +38,7 @@ public class MainClass extends Game {
 	public static final short ITEM_BIT = 256;
 	public static final short MAN_HEAD_BIT = 512;
 	public static final short ENEMYBORDER_BIT = 2048;
+	PlayScreen screen;
 
 
 
@@ -45,8 +47,14 @@ public class MainClass extends Game {
 
 	@Override
 	public void create () {
+		screen = new PlayScreen(this);
+		setScreen(screen);
 
-		setScreen(new PlayScreen(this));
+
+
+
+
+
 
 
 
@@ -58,6 +66,7 @@ public class MainClass extends Game {
 	@Override
 	public void render () {
 		super.render();
+
         //manager.update();
 
 

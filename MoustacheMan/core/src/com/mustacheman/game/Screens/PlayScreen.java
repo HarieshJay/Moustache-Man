@@ -62,6 +62,7 @@ public class PlayScreen implements Screen{
     private Coin coin;
     public int currentjump;
     private B2WorldCreator creator;
+    public boolean endlevel = false;
 
 
     private MainClass game;
@@ -79,7 +80,7 @@ public class PlayScreen implements Screen{
         this.game = game;
         game.batch = new SpriteBatch();
         atlas = new TextureAtlas("RunJumpKoRoll.atlas");
-        run = new com.badlogic.gdx.graphics.g2d.Animation(1/15f, atlas.findRegions("run/run"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
+        run = new com.badlogic.gdx.graphics.g2d.Animation(1/30f, atlas.findRegions("run/run"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
         hud = new Hud(game.batch);
 
         mapLoader = new TmxMapLoader();
@@ -137,10 +138,10 @@ public class PlayScreen implements Screen{
                 currentjump += 1;
             }
             if (((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || hud.isRightPressed()) && (player.b2body.getLinearVelocity().x <= 2))) {
-                player.b2body.applyLinearImpulse(new Vector2(0.9f, 0), player.b2body.getWorldCenter(), true);
+                player.b2body.applyLinearImpulse(new Vector2(2f, 0), player.b2body.getWorldCenter(), true);
             }
             if (((Gdx.input.isKeyPressed(Input.Keys.LEFT) || hud.isLeftPressed()) && (player.b2body.getLinearVelocity().x >= -2))) {
-                player.b2body.applyLinearImpulse(new Vector2(-0.9f, 0), player.b2body.getWorldCenter(), true);
+                player.b2body.applyLinearImpulse(new Vector2(-2f, 0), player.b2body.getWorldCenter(), true);
             }
         }
 
@@ -178,6 +179,12 @@ public class PlayScreen implements Screen{
         }
 
         hud.update(dt);
+
+        endlevel = player.dead;
+
+        if (endlevel){
+
+        }
 
 
 

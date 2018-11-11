@@ -60,8 +60,8 @@ public class MoustacheMan extends Sprite {
         previousState = State.STANDING;
         stand  = new TextureRegion(atlas.findRegion("run/run",7));
         jump = new TextureRegion(new TextureRegion(screen.getTextureAtlas().findRegion("jump/j")));
-        manRun = new com.badlogic.gdx.graphics.g2d.Animation(1/30f, atlas.findRegions("run/run"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
-        manJump = new com.badlogic.gdx.graphics.g2d.Animation(1/30f, atlas.findRegions("jump/j"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
+        manRun = new com.badlogic.gdx.graphics.g2d.Animation(1/50f, atlas.findRegions("run/run"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
+        manJump = new com.badlogic.gdx.graphics.g2d.Animation(1/50f, atlas.findRegions("jump/j"), com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
         manKO = new Animation<TextureRegion>(1/20f, atlas.findRegions("KO/ko"), Animation.PlayMode.LOOP);
         this.world = screen.getWorld();
         rightrun = true;
@@ -156,6 +156,7 @@ public class MoustacheMan extends Sprite {
         if (dead){
             return State.DEAD;
 
+
         }
 
         else if (b2body.getLinearVelocity().y > 0 || b2body.getLinearVelocity().y < 0 && previousState == State.JUMPING){
@@ -194,6 +195,7 @@ public class MoustacheMan extends Sprite {
             case DEAD:
                 animation = manKO.getKeyFrame(stateTime,false);
                 setBounds(b2body.getPosition().x - getWidth() / 2f, b2body.getPosition().y - getHeight() / 2f + 8 / MainClass.PPM, 135 /MainClass.PPM , 115/MainClass.PPM );
+
                 break;
 
             case FALLING:
