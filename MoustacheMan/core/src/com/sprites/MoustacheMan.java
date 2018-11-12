@@ -125,6 +125,7 @@ public class MoustacheMan extends Sprite {
 
         fdef.shape = shape;
 
+
         b2body.createFixture(fdef).setUserData(this);
 
         //Create head
@@ -133,7 +134,7 @@ public class MoustacheMan extends Sprite {
         shape.setPosition(new Vector2(0, 20/MainClass.PPM));
         bodyfdef.shape = shape;
         fdef.filter.categoryBits = MainClass.MAN_HEAD_BIT;
-        fdef.friction = 0.4f;
+        fdef.friction = 0f;
         fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT | MainClass.ENEMY_BIT |
                 MainClass.COIN_BIT |
                 MainClass.OBJECT_BIT |

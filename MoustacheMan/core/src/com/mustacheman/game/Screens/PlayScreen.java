@@ -110,7 +110,7 @@ public class PlayScreen implements Screen{
 
         //music.setLooping(true);
         //music.play();
-        b2dr.setDrawBodies(false);  //Set to true to stop showing debug lines
+        b2dr.setDrawBodies(true);  //Set to true to stop showing debug lines
 
 
 
@@ -182,7 +182,9 @@ public class PlayScreen implements Screen{
 
         endlevel = player.dead;
 
-        if (endlevel){
+        if (player.b2body.getPosition().y < -10){
+            game.setScreen(new GameOver(game));
+
 
         }
 
@@ -196,6 +198,7 @@ public class PlayScreen implements Screen{
 
     @Override
     public void render(float delta) {
+
         update(delta);
 
 

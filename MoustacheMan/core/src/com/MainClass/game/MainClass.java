@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g3d.model.Animation;
+import com.mustacheman.game.Screens.GameOver;
 import com.mustacheman.game.Screens.PlayScreen;
 
 import org.omg.CORBA.PUBLIC_MEMBER;
@@ -39,6 +40,7 @@ public class MainClass extends Game {
 	public static final short MAN_HEAD_BIT = 512;
 	public static final short ENEMYBORDER_BIT = 2048;
 	PlayScreen screen;
+	GameOver gameOver;
 
 
 
@@ -48,24 +50,22 @@ public class MainClass extends Game {
 	@Override
 	public void create () {
 		screen = new PlayScreen(this);
+		gameOver = new GameOver(this);
 		setScreen(screen);
-
-
-
-
-
-
-
-
-
 
 		//music = MainClass.manager.get("sounds/music.ogg", Music.class);
 
 	}
 
+	public void screenUpdate(){
+
+	}
+
+
 	@Override
 	public void render () {
 		super.render();
+
 
         //manager.update();
 
@@ -75,5 +75,11 @@ public class MainClass extends Game {
 	@Override
 	public void dispose () {
 
+
+
 	}
+
+
+
+
 }
