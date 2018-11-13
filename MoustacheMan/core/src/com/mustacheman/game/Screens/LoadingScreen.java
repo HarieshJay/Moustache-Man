@@ -1,40 +1,71 @@
 package com.mustacheman.game.Screens;
 
 import com.MainClass.game.MainClass;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
+import java.lang.*;
+
+
+import sun.applet.Main;
 
 public class LoadingScreen implements Screen {
 
-    Timer timer;
+
     Batch batch;
-    Texture texture;
+    private MainClass game;
+    Texture lscreen;
+    SpriteBatch loadingbatch;
+
+    Float stopWatch;
+    PlayScreen playScreen;
+
+
 
 
     public LoadingScreen(MainClass game) {
 
-        texture = new Texture("landscape.png");
-        timer = new Timer();
-        //TimerTask task = new TimerTask(){
+        stopWatch = 0f;
+        lscreen = new Texture("landscape.png");
+        this.game = game;
+        loadingbatch = new SpriteBatch();
+        lscreen = new Texture("loadingscreen.jpg");
 
-        //}
-        //timer.schedule(game.setScreen(null), new Long(100));
+
+
 
 
     }
+
 
     @Override
     public void show() {
 
     }
 
+    public void update(Float dt){
+        stopWatch += dt;
+
+        if (stopWatch > 0.5){
+
+            game.setScreen(new PlayScreen(game));
+
+        }
+    }
+
     @Override
     public void render(float delta) {
+        update(delta);
+        loadingbatch.begin();
+        loadingbatch.draw(lscreen, 0, 0 , Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        loadingbatch.end();
+
+
+
 
     }
 

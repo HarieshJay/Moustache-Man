@@ -11,8 +11,11 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class GameOver implements Screen {
     Batch batch;
     Texture texture;
+    private MainClass game;
 
     public GameOver(MainClass game) {
+
+        this.game = game;
         texture = new Texture("landscape.png");
         batch = new SpriteBatch();
 

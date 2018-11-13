@@ -51,11 +51,12 @@ public class MainClass extends Game {
 
 	@Override
 	public void create () {
+		batch = new SpriteBatch();
 		loadingScreen = new LoadingScreen(this);
 		screen = new PlayScreen(this);
 
 		gameOver = new GameOver(this);
-		setScreen(screen);
+		setScreen(loadingScreen);
 
 		//music = MainClass.manager.get("sounds/music.ogg", Sound.class);
 
