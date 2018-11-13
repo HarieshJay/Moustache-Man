@@ -110,7 +110,7 @@ public class PlayScreen implements Screen{
 
         //music.setLooping(true);
         //music.play();
-        b2dr.setDrawBodies(true);  //Set to true to stop showing debug lines
+        b2dr.setDrawBodies(false);  //Set to true to stop showing debug lines
 
 
 

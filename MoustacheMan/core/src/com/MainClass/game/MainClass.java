@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g3d.model.Animation;
 import com.mustacheman.game.Screens.GameOver;
+import com.mustacheman.game.Screens.LoadingScreen;
 import com.mustacheman.game.Screens.PlayScreen;
 
 import org.omg.CORBA.PUBLIC_MEMBER;
@@ -41,6 +42,7 @@ public class MainClass extends Game {
 	public static final short ENEMYBORDER_BIT = 2048;
 	PlayScreen screen;
 	GameOver gameOver;
+	LoadingScreen loadingScreen;
 
 
 
@@ -49,11 +51,13 @@ public class MainClass extends Game {
 
 	@Override
 	public void create () {
+		loadingScreen = new LoadingScreen(this);
 		screen = new PlayScreen(this);
+
 		gameOver = new GameOver(this);
 		setScreen(screen);
 
-		//music = MainClass.manager.get("sounds/music.ogg", Music.class);
+		//music = MainClass.manager.get("sounds/music.ogg", Sound.class);
 
 	}
 
