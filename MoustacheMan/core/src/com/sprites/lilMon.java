@@ -57,9 +57,9 @@ public class lilMon extends Enemy {
 
 
         if(setToDestroy && !destroyed){
+
+
             screen.getWorld().destroyBody(b2body);
-
-
             destroyed = true;
 
             setBounds(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y - getHeight()/2 - 5/MainClass.PPM , 40/MainClass.PPM, 30/MainClass.PPM);
@@ -113,8 +113,8 @@ public class lilMon extends Enemy {
         //create Head
         PolygonShape head = new PolygonShape();
         Vector2[] veritice = new Vector2[4];
-        veritice[0] = new Vector2(-10, 30).scl(1 /MainClass.PPM);
-        veritice[1] = new Vector2(10, 30).scl(1 /MainClass.PPM);
+        veritice[0] = new Vector2(-10, 25).scl(1 /MainClass.PPM);
+        veritice[1] = new Vector2(10, 25).scl(1 /MainClass.PPM);
         veritice[2] = new Vector2(-20, 20).scl(1 /MainClass.PPM);
         veritice[3] = new Vector2(20, 20).scl(1 /MainClass.PPM);
         head.set(veritice);
@@ -138,6 +138,7 @@ public class lilMon extends Enemy {
     @Override
     public void hitOnHead() {
         setToDestroy = true;
+
 
     }
     public void onHit(){}

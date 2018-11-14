@@ -75,6 +75,7 @@ public class PlayScreen implements Screen{
         gamecam = new OrthographicCamera();
 
         gameport = new FitViewport(MainClass.V_Width / MainClass.PPM, MainClass.V_Height / MainClass.PPM ,gamecam);
+        //gameport = new ExtendViewport(Gdx.graphics.getWidth() / MainClass.PPM, Gdx.graphics.getHeight() /MainClass.PPM ,gamecam);
 
 
         this.game = game;
