@@ -63,6 +63,8 @@ public class PlayScreen implements Screen{
     public int currentjump;
     private B2WorldCreator creator;
     public boolean endlevel = false;
+    private GameOver gameover;
+;
 
 
     private MainClass game;
@@ -73,6 +75,7 @@ public class PlayScreen implements Screen{
 
 
         gamecam = new OrthographicCamera();
+
 
         gameport = new FitViewport(MainClass.V_Width / MainClass.PPM, MainClass.V_Height / MainClass.PPM ,gamecam);
         //gameport = new ExtendViewport(Gdx.graphics.getWidth() / MainClass.PPM, Gdx.graphics.getHeight() /MainClass.PPM ,gamecam);
@@ -112,6 +115,9 @@ public class PlayScreen implements Screen{
         //music.setLooping(true);
         //music.play();
         b2dr.setDrawBodies(false);  //Set to true to stop showing debug lines
+        gameover = new GameOver(game.batch, hud.score());
+
+
 
 
 
@@ -139,10 +145,10 @@ public class PlayScreen implements Screen{
                 currentjump += 1;
             }
             if (((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || hud.isRightPressed()) && (player.b2body.getLinearVelocity().x <= 2))) {
-                player.b2body.applyLinearImpulse(new Vector2(2f, 0), player.b2body.getWorldCenter(), true);
+                player.b2body.applyLinearImpulse(new Vector2(3f, 0), player.b2body.getWorldCenter(), true);
             }
             if (((Gdx.input.isKeyPressed(Input.Keys.LEFT) || hud.isLeftPressed()) && (player.b2body.getLinearVelocity().x >= -2))) {
-                player.b2body.applyLinearImpulse(new Vector2(-2f, 0), player.b2body.getWorldCenter(), true);
+                player.b2body.applyLinearImpulse(new Vector2(-3f, 0), player.b2body.getWorldCenter(), true);
             }
         }
 
@@ -167,7 +173,7 @@ public class PlayScreen implements Screen{
 
 
         //coin.update(dt);
-        gamecam.position.x = player.b2body.getPosition().x;
+        if (player.b2body.getPosition().y > 0){gamecam.position.x = player.b2body.getPosition().x;}
 
 
         gamecam.update();
@@ -183,11 +189,6 @@ public class PlayScreen implements Screen{
 
         endlevel = player.dead;
 
-        if (player.b2body.getPosition().y < -10){
-            game.setScreen(new GameOver(game));
-
-
-        }
 
 
 
@@ -211,6 +212,11 @@ public class PlayScreen implements Screen{
         renderer.render();
 
         hud.hudStage.draw();
+        if (player.b2body.getPosition().y < 0){gameover.gameoStage.draw();}
+
+
+
+
 
         game.batch.setProjectionMatrix(hud.hudStage.getCamera().combined);
 
@@ -232,6 +238,9 @@ public class PlayScreen implements Screen{
         game.batch.end();
 
         b2dr.render(world, gamecam.combined);
+        if (player.b2body.getPosition().y < 0){
+            gameover.gameoStage.draw();
+            game.batch.setProjectionMatrix(gameover.gameoStage.getCamera().combined);}
 
 
 
@@ -281,6 +290,7 @@ public class PlayScreen implements Screen{
         world.dispose();
         b2dr.dispose();
         hud.dispose();
+        gameover.dispose();
 
     }
 }

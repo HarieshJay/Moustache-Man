@@ -53,9 +53,9 @@ public class MainClass extends Game {
 	public void create () {
 		batch = new SpriteBatch();
 		loadingScreen = new LoadingScreen(this);
-		screen = new PlayScreen(this);
+		//screen = new PlayScreen(this);
 
-		gameOver = new GameOver(this);
+
 		setScreen(loadingScreen);
 
 		//music = MainClass.manager.get("sounds/music.ogg", Sound.class);

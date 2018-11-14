@@ -196,4 +196,9 @@ public class Hud implements Disposable {
     public void dispose() {
         hudStage.dispose();
     }
+
+
+    public int score(){
+        return score;
+    }
 }
