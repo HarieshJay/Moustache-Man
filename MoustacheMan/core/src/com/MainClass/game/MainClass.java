@@ -17,8 +17,6 @@ import com.mustacheman.game.Screens.GameOver;
 import com.mustacheman.game.Screens.LoadingScreen;
 import com.mustacheman.game.Screens.PlayScreen;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-
 
 public class MainClass extends Game {
 	public SpriteBatch batch;

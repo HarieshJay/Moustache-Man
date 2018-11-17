@@ -18,6 +18,10 @@ import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import java.awt.Color;
+
+import sun.applet.Main;
+
 public class GameOver implements Disposable {
     Batch batch;
     Texture texture;
@@ -25,7 +29,7 @@ public class GameOver implements Disposable {
     BitmapFont font;
     public Stage gameoStage;
     private Viewport viewport;
-    Table tabel;
+    Table table;
     Texture restart;
     Image button;
 
@@ -40,8 +44,11 @@ public class GameOver implements Disposable {
 
         viewport = new FitViewport(MainClass.V_Width, MainClass.V_Height, new OrthographicCamera());
         gameoStage = new Stage(viewport, batch);
+
+
         restart = new Texture("restart.png");
         button = new Image(restart);
+
         button.setSize(75, 75);
         button.addListener(new InputListener(){
 
@@ -59,10 +66,14 @@ public class GameOver implements Disposable {
 
 
 
-        tabel = new Table();
-        tabel.center().center();
-        tabel.add(button);
-        gameoStage.addActor(tabel);
+        table = new Table();
+        table.setFillParent(true);
+
+        table.center().center();
+        table.add(button);
+
+        gameoStage.addActor(table);
+
 
 
     }
@@ -71,6 +82,12 @@ public class GameOver implements Disposable {
 
     public void show() {
 
+    }
+
+    public void render(float delta){
+
+        gameoStage.act();
+        gameoStage.draw();
     }
 
     public void update(float dt) {

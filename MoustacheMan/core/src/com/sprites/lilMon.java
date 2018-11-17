@@ -113,11 +113,12 @@ public class lilMon extends Enemy {
         //create Head
         PolygonShape head = new PolygonShape();
         Vector2[] veritice = new Vector2[4];
-        veritice[0] = new Vector2(-10, 25).scl(1 /MainClass.PPM);
-        veritice[1] = new Vector2(10, 25).scl(1 /MainClass.PPM);
-        veritice[2] = new Vector2(-20, 20).scl(1 /MainClass.PPM);
-        veritice[3] = new Vector2(20, 20).scl(1 /MainClass.PPM);
+        veritice[0] = new Vector2(-10, 28).scl(1 /MainClass.PPM);
+        veritice[1] = new Vector2(10, 28).scl(1 /MainClass.PPM);
+        veritice[2] = new Vector2(-20, 25).scl(1 /MainClass.PPM);
+        veritice[3] = new Vector2(20, 25).scl(1 /MainClass.PPM);
         head.set(veritice);
+        fdef.isSensor = true;
 
         fdef.shape = head;
 

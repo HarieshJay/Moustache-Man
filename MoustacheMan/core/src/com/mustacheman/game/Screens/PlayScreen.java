@@ -64,6 +64,7 @@ public class PlayScreen implements Screen{
     private B2WorldCreator creator;
     public boolean endlevel = false;
     private GameOver gameover;
+    public boolean gameoverb;
 ;
 
 
@@ -75,6 +76,7 @@ public class PlayScreen implements Screen{
 
 
         gamecam = new OrthographicCamera();
+        gameoverb = false;
 
 
         gameport = new FitViewport(MainClass.V_Width / MainClass.PPM, MainClass.V_Height / MainClass.PPM ,gamecam);
@@ -114,7 +116,7 @@ public class PlayScreen implements Screen{
 
         //music.setLooping(true);
         //music.play();
-        b2dr.setDrawBodies(false);  //Set to true to stop showing debug lines
+        b2dr.setDrawBodies(true);  //Set to true to stop showing debug lines
         gameover = new GameOver(game.batch, hud.score());
 
 
@@ -171,9 +173,12 @@ public class PlayScreen implements Screen{
 
         world.step(1/60f,6,2);
 
+        if (player.b2body.getPosition().y < 0){gameoverb = true; }
+
+
 
         //coin.update(dt);
-        if (player.b2body.getPosition().y > 0){gamecam.position.x = player.b2body.getPosition().x;}
+        if (!gameoverb){gamecam.position.x = player.b2body.getPosition().x;}
 
 
         gamecam.update();
@@ -201,6 +206,7 @@ public class PlayScreen implements Screen{
     @Override
     public void render(float delta) {
 
+
         update(delta);
 
 
@@ -211,14 +217,10 @@ public class PlayScreen implements Screen{
 
         renderer.render();
 
-        hud.hudStage.draw();
-        if (player.b2body.getPosition().y < 0){gameover.gameoStage.draw();}
+        //hud.hudStage.draw();
+        //game.batch.setProjectionMatrix(hud.hudStage.getCamera().combined);
 
 
-
-
-
-        game.batch.setProjectionMatrix(hud.hudStage.getCamera().combined);
 
         //Hudstage ProjectionMatrix has be be set before gamecam should
         //Do some research later on why this is, and it affected MoustacheMan.java
@@ -228,8 +230,13 @@ public class PlayScreen implements Screen{
 
 
 
+
+
+
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
+
+
         player.draw(game.batch);
         for (Enemy enemy : creator.getMonsters()){
             enemy.draw(game.batch);
@@ -238,9 +245,13 @@ public class PlayScreen implements Screen{
         game.batch.end();
 
         b2dr.render(world, gamecam.combined);
-        if (player.b2body.getPosition().y < 0){
-            gameover.gameoStage.draw();
-            game.batch.setProjectionMatrix(gameover.gameoStage.getCamera().combined);}
+
+        gameover.render(delta);
+        gameover.gameoStage.draw();
+        game.batch.setProjectionMatrix(gameover.gameoStage.getCamera().combined);
+
+
+
 
 
 
@@ -251,6 +262,7 @@ public class PlayScreen implements Screen{
     public void resize(int width, int height) {
         gameport.update(width,height);
         hud.resize(width,height);
+        gameover.gameoStage.getViewport().update(width, height);
 
     }
 
@@ -291,6 +303,7 @@ public class PlayScreen implements Screen{
         b2dr.dispose();
         hud.dispose();
         gameover.dispose();
+
 
     }
 }
