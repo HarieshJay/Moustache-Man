@@ -217,8 +217,8 @@ public class PlayScreen implements Screen{
 
         renderer.render();
 
-        //hud.hudStage.draw();
-        //game.batch.setProjectionMatrix(hud.hudStage.getCamera().combined);
+        hud.hudStage.draw();
+        game.batch.setProjectionMatrix(hud.hudStage.getCamera().combined);
 
 
 
@@ -246,9 +246,9 @@ public class PlayScreen implements Screen{
 
         b2dr.render(world, gamecam.combined);
 
-        gameover.render(delta);
+        if (gameoverb) {gameover.render(delta);
         gameover.gameoStage.draw();
-        game.batch.setProjectionMatrix(gameover.gameoStage.getCamera().combined);
+        game.batch.setProjectionMatrix(gameover.gameoStage.getCamera().combined);}
 
 
 

@@ -47,6 +47,7 @@ public class MainClass extends Game {
 
 
 
+
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
