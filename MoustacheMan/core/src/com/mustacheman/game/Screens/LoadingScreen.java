@@ -63,7 +63,7 @@ public class LoadingScreen implements Screen {
     public void update(Float dt){
         stopWatch += dt;
 
-        if (stopWatch > 10){
+        if (stopWatch > 3){
 
             game.setScreen(new PlayScreen(game));
 
@@ -82,7 +82,7 @@ public class LoadingScreen implements Screen {
 
 
         logobatch.begin();
-        logobatch.draw(logo, Gdx.graphics.getWidth()/2 , Gdx.graphics.getHeight()/2  , 200, 200);
+        logobatch.draw(logo, Gdx.graphics.getWidth()/2 - 100, Gdx.graphics.getHeight()/2  - 100, 200, 200);
         logobatch.end();
 
 

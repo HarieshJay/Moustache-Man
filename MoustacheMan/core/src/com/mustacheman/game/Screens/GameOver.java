@@ -33,11 +33,23 @@ public class GameOver implements Disposable {
     Texture restart;
     Image button;
 
-    public GameOver(SpriteBatch batch, int score) {
+    public GameOver(SpriteBatch batch, int score, MainClass game) {
 
 
-        //this.game = game;
-        //this.batch = batch;
+        this.game = game;
+        this.batch = batch;
+        onCreate();
+
+
+
+
+
+
+    }
+
+
+
+    public void onCreate(){
         texture = new Texture("landscape.png");
         font = new BitmapFont(Gdx.files.internal("font.fnt"),
                 Gdx.files.internal("font.png"), false);
@@ -67,20 +79,14 @@ public class GameOver implements Disposable {
 
 
         table = new Table();
+
         table.setFillParent(true);
 
         table.center().center();
         table.add(button);
 
         gameoStage.addActor(table);
-
-
-
-    }
-
-
-
-    public void show() {
+        Gdx.input.setInputProcessor(gameoStage);
 
     }
 
