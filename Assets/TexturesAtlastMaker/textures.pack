@@ -1,0 +1,274 @@
+
+textures.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Roll jump/rolj
+  rotate: false
+  xy: 1, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 35
+Roll jump/rolj
+  rotate: false
+  xy: 1, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 36
+Roll jump/rolj
+  rotate: false
+  xy: 1, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 34
+Roll jump/rolj
+  rotate: false
+  xy: 1, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 0
+Roll jump/rolj
+  rotate: false
+  xy: 254, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 11
+Roll jump/rolj
+  rotate: false
+  xy: 1, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 9
+Roll jump/rolj
+  rotate: false
+  xy: 254, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 2
+Roll jump/rolj
+  rotate: false
+  xy: 507, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 26
+Roll jump/rolj
+  rotate: false
+  xy: 1, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 29
+Roll jump/rolj
+  rotate: false
+  xy: 254, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 27
+Roll jump/rolj
+  rotate: false
+  xy: 507, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 20
+Roll jump/rolj
+  rotate: false
+  xy: 760, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 22
+Roll jump/rolj
+  rotate: false
+  xy: 254, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 7
+Roll jump/rolj
+  rotate: false
+  xy: 507, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 16
+Roll jump/rolj
+  rotate: false
+  xy: 760, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 1
+Roll jump/rolj
+  rotate: false
+  xy: 507, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 23
+Roll jump/rolj
+  rotate: false
+  xy: 760, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 14
+Roll jump/rolj
+  rotate: false
+  xy: 760, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 6
+
+textures2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Roll jump/rolj
+  rotate: false
+  xy: 1, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 4
+Roll jump/rolj
+  rotate: false
+  xy: 1, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 30
+Roll jump/rolj
+  rotate: false
+  xy: 254, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 19
+Roll jump/rolj
+  rotate: false
+  xy: 1, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 24
+Roll jump/rolj
+  rotate: false
+  xy: 254, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 17
+Roll jump/rolj
+  rotate: false
+  xy: 507, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 3
+Roll jump/rolj
+  rotate: false
+  xy: 1, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 31
+Roll jump/rolj
+  rotate: false
+  xy: 254, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 13
+Roll jump/rolj
+  rotate: false
+  xy: 507, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 18
+Roll jump/rolj
+  rotate: false
+  xy: 760, 697
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 8
+Roll jump/rolj
+  rotate: false
+  xy: 254, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 28
+Roll jump/rolj
+  rotate: false
+  xy: 507, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 12
+Roll jump/rolj
+  rotate: false
+  xy: 760, 465
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 25
+Roll jump/rolj
+  rotate: false
+  xy: 507, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 21
+Roll jump/rolj
+  rotate: false
+  xy: 760, 233
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 10
+Roll jump/rolj
+  rotate: false
+  xy: 760, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 5
+
+textures3.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Roll jump/rolj
+  rotate: false
+  xy: 1, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 33
+Roll jump/rolj
+  rotate: false
+  xy: 254, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 32
+Roll jump/rolj
+  rotate: false
+  xy: 507, 1
+  size: 251, 230
+  orig: 251, 230
+  offset: 0, 0
+  index: 15

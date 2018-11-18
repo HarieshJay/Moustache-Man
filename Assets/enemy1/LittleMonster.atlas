@@ -1,0 +1,444 @@
+
+LittleMonster.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+w
+  rotate: false
+  xy: 1, 761
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 16
+w
+  rotate: false
+  xy: 1, 609
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 4
+w
+  rotate: false
+  xy: 153, 761
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 44
+w
+  rotate: false
+  xy: 1, 457
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 57
+w
+  rotate: false
+  xy: 153, 609
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 13
+w
+  rotate: false
+  xy: 305, 761
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 38
+w
+  rotate: false
+  xy: 1, 305
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 39
+w
+  rotate: false
+  xy: 153, 457
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 25
+w
+  rotate: false
+  xy: 305, 609
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 10
+w
+  rotate: false
+  xy: 457, 761
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 32
+w
+  rotate: false
+  xy: 1, 153
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 12
+w
+  rotate: false
+  xy: 153, 305
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 42
+w
+  rotate: false
+  xy: 305, 457
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 9
+w
+  rotate: false
+  xy: 457, 609
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 27
+w
+  rotate: false
+  xy: 609, 761
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 2
+w
+  rotate: false
+  xy: 1, 1
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 7
+w
+  rotate: false
+  xy: 153, 153
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 58
+w
+  rotate: false
+  xy: 305, 305
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 50
+w
+  rotate: false
+  xy: 457, 457
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 21
+w
+  rotate: false
+  xy: 609, 609
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 15
+w
+  rotate: false
+  xy: 761, 761
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 23
+w
+  rotate: false
+  xy: 153, 1
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 1
+w
+  rotate: false
+  xy: 305, 153
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 36
+w
+  rotate: false
+  xy: 457, 305
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 30
+w
+  rotate: false
+  xy: 609, 457
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 47
+w
+  rotate: false
+  xy: 761, 609
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 17
+w
+  rotate: false
+  xy: 305, 1
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 56
+w
+  rotate: false
+  xy: 457, 153
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 48
+w
+  rotate: false
+  xy: 609, 305
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 51
+w
+  rotate: false
+  xy: 761, 457
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 43
+w
+  rotate: false
+  xy: 457, 1
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 59
+w
+  rotate: false
+  xy: 609, 153
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 55
+w
+  rotate: false
+  xy: 761, 305
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 14
+w
+  rotate: false
+  xy: 609, 1
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 6
+w
+  rotate: false
+  xy: 761, 153
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 35
+w
+  rotate: false
+  xy: 761, 1
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 52
+
+LittleMonster2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+w
+  rotate: false
+  xy: 1, 761
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 31
+w
+  rotate: false
+  xy: 1, 609
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 37
+w
+  rotate: false
+  xy: 153, 761
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 24
+w
+  rotate: false
+  xy: 1, 457
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 41
+w
+  rotate: false
+  xy: 153, 609
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 0
+w
+  rotate: false
+  xy: 305, 761
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 5
+w
+  rotate: false
+  xy: 1, 305
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 11
+w
+  rotate: false
+  xy: 153, 457
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 46
+w
+  rotate: false
+  xy: 305, 609
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 18
+w
+  rotate: false
+  xy: 457, 761
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 19
+w
+  rotate: false
+  xy: 1, 153
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 40
+w
+  rotate: false
+  xy: 153, 305
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 54
+w
+  rotate: false
+  xy: 305, 457
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 60
+w
+  rotate: false
+  xy: 457, 609
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 20
+w
+  rotate: false
+  xy: 609, 761
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 29
+w
+  rotate: false
+  xy: 1, 1
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 61
+w
+  rotate: false
+  xy: 153, 153
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 8
+w
+  rotate: false
+  xy: 305, 305
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 28
+w
+  rotate: false
+  xy: 457, 457
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 49
+w
+  rotate: false
+  xy: 609, 609
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 34
+w
+  rotate: false
+  xy: 761, 761
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 33
+w
+  rotate: false
+  xy: 153, 1
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 53
+w
+  rotate: false
+  xy: 305, 153
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 26
+w
+  rotate: false
+  xy: 457, 305
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 3
+w
+  rotate: false
+  xy: 609, 457
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 45
+w
+  rotate: false
+  xy: 761, 609
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: 22
