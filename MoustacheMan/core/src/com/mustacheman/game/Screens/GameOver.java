@@ -77,18 +77,18 @@ public class GameOver implements Disposable {
         gameoStage = new Stage(viewport, batch);
 
 
-        if (isWin){message = new Label("GOOD JOB YOU COMPLETED THE LEVEL!", skin);}
+        if (isWin){message = new Label("YOU WON!!", skin);}
         if (!isWin){message = new Label("OH NO! NICE TRY", skin);}
 
 
         button = new TextButton("Restart Level", skin);
-        lscore = new Label("Score: " + Integer.toString(score), skin);
+        lscore = new Label("You Scored " + Integer.toString(score) + " Points!", skin);
 
 
 
         button.setSize(150, 150);
-        message.setFontScale(3);
-        lscore.setFontScale(3);
+        message.setFontScale(2);
+        lscore.setFontScale(2);
         button.addListener(new InputListener(){
 
             @Override
@@ -102,15 +102,15 @@ public class GameOver implements Disposable {
         });
 
 
-        window.setSize(500,500);
+        window.setSize(600,600);
 
 
         window.add(message);
-        window.row().pad(5,5,5,5);
+        window.row().pad(25,25,25,25);
         window.add(lscore);
-        window.row().pad(5,5,5,5);
+        window.row().pad(25,25,25,25);
         window.add(button);
-        window.center().center();
+        window.setPosition(gameoStage.getWidth() / 2 - 300, gameoStage.getHeight() /2 - 300);
 
 
 

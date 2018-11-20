@@ -33,8 +33,8 @@ public class Hud implements Disposable {
     ImageButton.ImageButtonStyle imageButtonStyle;
 
 
-    private Integer worldTimer;
-    private float timeCount;
+    public Integer worldTimer;
+    public float timeCount;
     private static Integer score;
 
     private Label countdownLabel;
@@ -164,7 +164,7 @@ public class Hud implements Disposable {
         controls.add();
         controls.add(rightImg).size(rightImg.getWidth(), rightImg.getHeight());
 
-        upImg.setPosition(Gdx.graphics.getWidth() + 150, Gdx.graphics.getHeight() + 150);
+        upImg.setPosition(hudStage.getWidth() - 200, 0);
 
 
 
@@ -185,6 +185,10 @@ public class Hud implements Disposable {
             worldTimer--;
             countdownLabel.setText(String.format("%10d", worldTimer));
             timeCount = 0;
+        }
+
+        if (timeCount <= 0){
+
         }
     }
 

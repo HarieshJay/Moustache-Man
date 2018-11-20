@@ -65,7 +65,7 @@ public class PlayScreen implements Screen{
     public boolean endlevel = false;
     private GameOver gameover;
     public boolean gameoverb;
-    private boolean isalive;
+    public boolean isalive;
 ;
 
 
@@ -117,7 +117,7 @@ public class PlayScreen implements Screen{
 
         //music.setLooping(true);
         //music.play();
-        b2dr.setDrawBodies(true);  //Set to true to stop showing debug lines
+        b2dr.setDrawBodies(false);  //Set to true to stop showing debug lines
 
 
 
@@ -178,6 +178,7 @@ public class PlayScreen implements Screen{
 
         if (player.b2body.getPosition().y < 0){gameoverb = true; isalive = false; }
 
+        if (hud.worldTimer == 0){gameoverb = true;}
 
         if (gameoverb){
             gameover = new GameOver(game.batch, hud.score(), game, isalive);
@@ -199,6 +200,8 @@ public class PlayScreen implements Screen{
         for (Enemy enemy : creator.getMonsters()){
             enemy.update(dt);
         }
+
+
 
         hud.update(dt);
 
