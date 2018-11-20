@@ -106,7 +106,10 @@ public class B2WorldCreator {
             shape.setAsBox(rect.getWidth()/2 / MainClass.PPM, rect.getHeight()/2 / MainClass.PPM);
             fdef.shape = shape;
             fdef.isSensor = true;
+            fdef.filter.maskBits = MainClass.MAN_BIT | MainClass.MAN_HEAD_BIT;
+            fdef.filter.categoryBits = MainClass.EXIT_BIT;
             body.createFixture(fdef).setUserData(this);
+
 
         }
 

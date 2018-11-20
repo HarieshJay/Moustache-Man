@@ -65,6 +65,7 @@ public class PlayScreen implements Screen{
     public boolean endlevel = false;
     private GameOver gameover;
     public boolean gameoverb;
+    private boolean isalive;
 ;
 
 
@@ -117,7 +118,8 @@ public class PlayScreen implements Screen{
         //music.setLooping(true);
         //music.play();
         b2dr.setDrawBodies(true);  //Set to true to stop showing debug lines
-        gameover = new GameOver(game.batch, hud.score(), game);
+        gameover = new GameOver(game.batch, hud.score(), game, isalive);
+
 
 
 
@@ -146,11 +148,11 @@ public class PlayScreen implements Screen{
                 player.b2body.applyLinearImpulse(new Vector2(0, 6f), player.b2body.getWorldCenter(), true);
                 currentjump += 1;
             }
-            if (((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || hud.isRightPressed()) && (player.b2body.getLinearVelocity().x <= 2))) {
-                player.b2body.applyLinearImpulse(new Vector2(3f, 0), player.b2body.getWorldCenter(), true);
+            if (((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || hud.isRightPressed()) && (player.b2body.getLinearVelocity().x <= 4))) {
+                player.b2body.applyLinearImpulse(new Vector2(2f, 0), player.b2body.getWorldCenter(), true);
             }
-            if (((Gdx.input.isKeyPressed(Input.Keys.LEFT) || hud.isLeftPressed()) && (player.b2body.getLinearVelocity().x >= -2))) {
-                player.b2body.applyLinearImpulse(new Vector2(-3f, 0), player.b2body.getWorldCenter(), true);
+            if (((Gdx.input.isKeyPressed(Input.Keys.LEFT) || hud.isLeftPressed()) && (player.b2body.getLinearVelocity().x >= -4))) {
+                player.b2body.applyLinearImpulse(new Vector2(-2f, 0), player.b2body.getWorldCenter(), true);
             }
         }
 
@@ -171,9 +173,15 @@ public class PlayScreen implements Screen{
 
 
 
+
         world.step(1/60f,6,2);
 
-        if (player.b2body.getPosition().y < 0){gameoverb = true; }
+        if (player.b2body.getPosition().y < 0){gameoverb = true; isalive = false; }
+
+
+        if (gameoverb){
+            gameover = new GameOver(game.batch, hud.score(), game, isalive);
+        }
 
 
 

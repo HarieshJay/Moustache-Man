@@ -38,6 +38,7 @@ public class MainClass extends Game {
 	public static final short ITEM_BIT = 256;
 	public static final short MAN_HEAD_BIT = 512;
 	public static final short ENEMYBORDER_BIT = 2048;
+	public static final short EXIT_BIT = 4096;
 	PlayScreen screen;
 	GameOver gameOver;
 	LoadingScreen loadingScreen;
