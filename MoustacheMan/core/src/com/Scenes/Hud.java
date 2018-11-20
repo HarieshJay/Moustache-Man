@@ -71,14 +71,14 @@ public class Hud implements Disposable {
     public Hud(SpriteBatch sb) {
         controls = new Table();
         controls.left().bottom();
-        jump = new Table();
-        jump.center().center();
+
+
         worldTimer = 300;
         timeCount = 0;
         score = 0;
 
         viewport = new FitViewport(MainClass.V_Width, MainClass.V_Height, new OrthographicCamera());
-        hudStage = new Stage(viewport, sb);
+        hudStage = new Stage(viewport);
         Gdx.input.setInputProcessor(hudStage);
 
         Table table = new Table();
@@ -164,16 +164,15 @@ public class Hud implements Disposable {
         controls.add();
         controls.add(rightImg).size(rightImg.getWidth(), rightImg.getHeight());
 
+        upImg.setPosition(Gdx.graphics.getWidth() + 150, Gdx.graphics.getHeight() + 150);
 
 
-        jump.row().pad(5, 5, 5, 5);
-        jump.add(upImg).size(upImg.getWidth(), upImg.getHeight());
-        jump.row().pad(5, 5, 5, 5);
 
 
         hudStage.addActor(table);
         hudStage.addActor(controls);
-        hudStage.addActor(jump);
+        hudStage.addActor(upImg);
+
 
 
 
