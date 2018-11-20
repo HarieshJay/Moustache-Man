@@ -53,6 +53,7 @@ public class Hud implements Disposable {
     boolean leftPressed;
     boolean rightPressed;
     Table controls;
+    Table jump;
 
 
     public boolean isUpPressed() {
@@ -70,6 +71,8 @@ public class Hud implements Disposable {
     public Hud(SpriteBatch sb) {
         controls = new Table();
         controls.left().bottom();
+        jump = new Table();
+        jump.center().center();
         worldTimer = 300;
         timeCount = 0;
         score = 0;
@@ -104,7 +107,7 @@ public class Hud implements Disposable {
 
 
         Image upImg = new Image(buttonUp);
-        upImg.setSize(75, 75);
+        upImg.setSize(150, 150);
         upImg.addListener(new InputListener() {
 
             @Override
@@ -121,7 +124,7 @@ public class Hud implements Disposable {
         });
 
         Image leftImg = new Image(buttonLeft);
-        leftImg.setSize(75, 75);
+        leftImg.setSize(150, 150);
         leftImg.addListener(new InputListener() {
 
             @Override
@@ -139,7 +142,7 @@ public class Hud implements Disposable {
 
 
         Image rightImg = new Image(buttonRight);
-        rightImg.setSize(75, 75);
+        rightImg.setSize(150, 150);
         rightImg.addListener(new InputListener() {
 
             @Override
@@ -155,17 +158,24 @@ public class Hud implements Disposable {
             }
         });
 
-        controls.add();
-        controls.add(upImg).size(upImg.getWidth(), upImg.getHeight());
-        controls.add();
+
         controls.row().pad(5, 5, 5, 5);
         controls.add(leftImg).size(leftImg.getWidth(), leftImg.getHeight());
         controls.add();
         controls.add(rightImg).size(rightImg.getWidth(), rightImg.getHeight());
 
 
+
+        jump.row().pad(5, 5, 5, 5);
+        jump.add(upImg).size(upImg.getWidth(), upImg.getHeight());
+        jump.row().pad(5, 5, 5, 5);
+
+
         hudStage.addActor(table);
         hudStage.addActor(controls);
+        hudStage.addActor(jump);
+
+
 
 
     }

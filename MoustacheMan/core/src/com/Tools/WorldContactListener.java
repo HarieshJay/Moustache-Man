@@ -143,6 +143,7 @@ public class WorldContactListener implements ContactListener {
 
         if (doesCollide(fixA, fixB, MainClass.MAN_BIT , MainClass.EXIT_BIT)){
             playScreen.gameoverb =true;
+            Gdx.app.log("Exit", "Collision");
 
 
         }

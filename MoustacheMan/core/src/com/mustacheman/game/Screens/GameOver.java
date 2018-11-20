@@ -16,6 +16,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -41,6 +43,7 @@ public class GameOver implements Disposable {
     Label message;
     Label lscore;
     boolean isWin;
+    Window window;
 
     public GameOver(SpriteBatch batch, int score, MainClass game, boolean isWin) {
 
@@ -61,7 +64,10 @@ public class GameOver implements Disposable {
 
 
     public void onCreate(){
+
         skin = new Skin(Gdx.files.internal("plain-james/skin/plain-james-ui.json"));
+        window = new Window("Game Over", skin);
+
         //redo = new TextButton("restart", skin);
         texture = new Texture("landscape.png");
         font = new BitmapFont(Gdx.files.internal("font.fnt"),
@@ -76,7 +82,6 @@ public class GameOver implements Disposable {
 
 
         button = new TextButton("Restart Level", skin);
-        message = new Label("GOOD JOB", skin);
         lscore = new Label("Score: " + Integer.toString(score), skin);
 
 
@@ -97,24 +102,38 @@ public class GameOver implements Disposable {
         });
 
 
+        window.setSize(500,500);
 
 
-        table = new Table();
+        window.add(message);
+        window.row().pad(5,5,5,5);
+        window.add(lscore);
+        window.row().pad(5,5,5,5);
+        window.add(button);
+        window.center().center();
+
+
+
+
+        /*table = new Table();
+
+
 
         table.setFillParent(true);
 
-        table.center().center();
+        //table.center().center();
 
 
         table.add(message);
         table.row();
         table.add(lscore);
         table.row();
-        table.add(button);
+        table.add(button); */
 
 
 
-        gameoStage.addActor(table);
+        //gameoStage.addActor(table);
+        gameoStage.addActor(window);
         Gdx.input.setInputProcessor(gameoStage);
 
     }
@@ -123,6 +142,9 @@ public class GameOver implements Disposable {
 
         gameoStage.act();
         gameoStage.draw();
+
+
+
     }
 
     public void update(float dt) {
@@ -147,6 +169,10 @@ public class GameOver implements Disposable {
     @Override
     public void dispose() {
         gameoStage.dispose();
+
+    }
+
+    public void resize(){
 
     }
 }

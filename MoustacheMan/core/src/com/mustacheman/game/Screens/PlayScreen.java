@@ -118,7 +118,7 @@ public class PlayScreen implements Screen{
         //music.setLooping(true);
         //music.play();
         b2dr.setDrawBodies(true);  //Set to true to stop showing debug lines
-        gameover = new GameOver(game.batch, hud.score(), game, isalive);
+
 
 
 
@@ -181,13 +181,14 @@ public class PlayScreen implements Screen{
 
         if (gameoverb){
             gameover = new GameOver(game.batch, hud.score(), game, isalive);
+
         }
 
 
 
         //coin.update(dt);
         if (!gameoverb){gamecam.position.x = player.b2body.getPosition().x;}
-        gameover.update(dt);
+
 
 
         gamecam.update();
@@ -271,7 +272,7 @@ public class PlayScreen implements Screen{
     public void resize(int width, int height) {
         gameport.update(width,height);
         hud.resize(width,height);
-        gameover.gameoStage.getViewport().update(width, height);
+        if (gameoverb) { gameover.gameoStage.getViewport().update(width, height);}
 
     }
 
@@ -312,6 +313,7 @@ public class PlayScreen implements Screen{
         b2dr.dispose();
         hud.dispose();
         gameover.dispose();
+
 
 
     }
