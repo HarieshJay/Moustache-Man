@@ -41,8 +41,7 @@ public class LoadingScreen implements Screen {
 
         this.game = game;
         loadingbatch = new SpriteBatch();
-        font = new BitmapFont(Gdx.files.internal("font.fnt"),
-          Gdx.files.internal("font.png"), false);
+        font = new BitmapFont(Gdx.files.internal("font.fnt"), Gdx.files.internal("font.png"), false);
         font = new BitmapFont();
         logo = new Texture("hariesh.png");
         logobatch = new SpriteBatch();
@@ -63,7 +62,7 @@ public class LoadingScreen implements Screen {
     public void update(Float dt){
         stopWatch += dt;
 
-        if (stopWatch > 3){
+        if (stopWatch > 5){
 
             game.setScreen(new PlayScreen(game));
 
@@ -82,7 +81,7 @@ public class LoadingScreen implements Screen {
 
 
         logobatch.begin();
-        logobatch.draw(logo, Gdx.graphics.getWidth()/2 - 100, Gdx.graphics.getHeight()/2  - 100, 200, 200);
+        logobatch.draw(logo, Gdx.graphics.getWidth()/2 - (Gdx.graphics.getWidth() /3)/2, Gdx.graphics.getHeight()/2  - (Gdx.graphics.getWidth() /3)/2, Gdx.graphics.getWidth() /3, Gdx.graphics.getWidth() /3);
         logobatch.end();
 
 

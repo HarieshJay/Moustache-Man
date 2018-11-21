@@ -65,6 +65,7 @@ public class PlayScreen implements Screen{
     public boolean endlevel = false;
     private GameOver gameover;
     public boolean gameoverb;
+    public boolean gameovermade = false;
     public boolean isalive;
 ;
 
@@ -180,8 +181,9 @@ public class PlayScreen implements Screen{
 
         if (hud.worldTimer == 0){gameoverb = true;}
 
-        if (gameoverb){
+        if (gameoverb && !gameovermade){
             gameover = new GameOver(game.batch, hud.score(), game, isalive);
+            gameovermade = true;
 
         }
 
