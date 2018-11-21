@@ -1,4 +1,4 @@
-package com.mustacheman.game.Screens;
+package com.Scenes;
 
 import com.MainClass.game.MainClass;
 import com.badlogic.gdx.Gdx;
@@ -22,6 +22,7 @@ import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.mustacheman.game.Screens.PlayScreen;
 
 import java.awt.Color;
 

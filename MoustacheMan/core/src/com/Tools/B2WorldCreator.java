@@ -51,6 +51,8 @@ public class B2WorldCreator {
             body = world.createBody(bdef);
             shape.setAsBox(rect.getWidth()/2 / MainClass.PPM, rect.getHeight()/2 / MainClass.PPM);
             fdef.shape = shape;
+            fdef.filter.categoryBits = MainClass.GROUND_BIT;
+            fdef.filter.maskBits = MainClass.MAN_BIT | MainClass.ENEMY_BIT |MainClass.MAN_HEAD_BIT;
             body.createFixture(fdef).setUserData(this);
 
 

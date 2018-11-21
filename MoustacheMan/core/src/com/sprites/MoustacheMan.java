@@ -122,7 +122,7 @@ public class MoustacheMan extends Sprite {
                 MainClass.EXIT_BIT |
                 MainClass.ENEMY_HEAD_BIT;
         shape.setPosition(new Vector2(0, -20/MainClass.PPM));
-        fdef.friction = 0.7f;
+        fdef.friction = 1f;
 
         fdef.shape = shape;
 
@@ -237,6 +237,39 @@ public class MoustacheMan extends Sprite {
         }
 
 
+
+    }
+
+    public void onIce(){
+        Filter filter = new Filter();
+        filter.categoryBits = MainClass.MAN_BIT;
+
+        filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT | MainClass.ENEMY_BIT |
+                MainClass.COIN_BIT |
+                MainClass.OBJECT_BIT|
+                MainClass.EXIT_BIT |
+                MainClass.ENEMY_HEAD_BIT;
+
+        for (Fixture fixture : b2body.getFixtureList()){
+            fixture.setFriction(0);
+        }
+
+    }
+
+
+    public void offIce(){
+        Filter filter = new Filter();
+        filter.categoryBits = MainClass.MAN_BIT;
+
+        filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT | MainClass.ENEMY_BIT |
+                MainClass.COIN_BIT |
+                MainClass.OBJECT_BIT|
+                MainClass.EXIT_BIT |
+                MainClass.ENEMY_HEAD_BIT;
+
+        for (Fixture fixture : b2body.getFixtureList()){
+            fixture.setFriction(0.7f);
+        }
 
     }
 
