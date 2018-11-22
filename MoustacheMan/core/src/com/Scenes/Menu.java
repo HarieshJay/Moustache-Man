@@ -2,61 +2,50 @@ package com.Scenes;
 
 import com.MainClass.game.MainClass;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.mustacheman.game.Screens.MainMenu;
 import com.mustacheman.game.Screens.PlayScreen;
 
-import java.awt.Color;
+public class Menu implements Disposable {
 
-import sun.applet.Main;
 
-public class GameOver implements Disposable {
     Batch batch;
     Texture texture;
     private MainClass game;
-    BitmapFont font;
-    public Stage gameoStage;
-    private Viewport viewport;
-    Table table;
-    Texture restart;
-    TextButton button;
-    TextButton redo;
-    Skin skin;
-    int score;
-    Label message;
-    Label lscore;
-    boolean isWin;
-    Window window;
-    TextButton levelSelect;
-    public String level;
 
-    public GameOver(SpriteBatch batch, int score, MainClass game, boolean isWin, String level) {
+    public Stage stage;
+    private Viewport viewport;
+
+    TextButton level1;
+    TextButton level2;
+
+    Skin skin;
+
+    Label message;
+
+    Window window;
+
+
+    public Menu( MainClass game) {
 
 
         this.game = game;
         this.batch = batch;
-        this.score = score;
-        this.isWin = isWin;
-        this.level = level;
+
         onCreate();
 
 
@@ -71,36 +60,29 @@ public class GameOver implements Disposable {
     public void onCreate(){
 
         skin = new Skin(Gdx.files.internal("plain-james/skin/plain-james-ui.json"));
-        window = new Window("Game Over", skin);
+        window = new Window("Level Selection", skin);
 
         //redo = new TextButton("restart", skin);
-        texture = new Texture("landscape.png");
-        font = new BitmapFont(Gdx.files.internal("font.fnt"),
-                Gdx.files.internal("font.png"), false);
+
 
         viewport = new FitViewport(MainClass.V_Width, MainClass.V_Height, new OrthographicCamera());
-        gameoStage = new Stage(viewport, batch);
+        stage = new Stage(viewport, game.batch);
 
+        level1 = new TextButton("Level 1", skin);
+        level2 = new TextButton("Level 2", skin);
 
-        if (isWin){message = new Label("YOU WON!!", skin);}
-        if (!isWin){message = new Label("OH NO! NICE TRY", skin);}
+        level1.setSize(150, 150);
+        level2.setSize(150, 150);
 
+        message = new Label("Choose a level\nPick 2 for a challenge", skin);
 
-        button = new TextButton("Restart Level", skin);
-        levelSelect = new TextButton("Different Level", skin);
-
-        lscore = new Label("You Scored " + Integer.toString(score) + " Points!", skin);
-
-
-
-        button.setSize(150, 150);
         message.setFontScale(2);
-        lscore.setFontScale(2);
-        button.addListener(new InputListener(){
+
+        level1.addListener(new InputListener(){
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new PlayScreen( game, level));
+                game.setScreen(new PlayScreen( game, "level1.tmx"));
                 return true;
 
             }
@@ -108,11 +90,11 @@ public class GameOver implements Disposable {
 
         });
 
-        levelSelect.addListener(new InputListener(){
+        level2.addListener(new InputListener(){
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new MainMenu(game));
+                game.setScreen(new PlayScreen( game, "level2.tmx"));
                 return true;
 
             }
@@ -126,12 +108,10 @@ public class GameOver implements Disposable {
 
         window.add(message);
         window.row().pad(25,25,25,25);
-        window.add(lscore);
+        window.add(level1);
         window.row().pad(25,25,25,25);
-        window.add(button);
-        window.row().pad(25,25,25,25);
-        window.add(levelSelect);
-        window.setPosition(gameoStage.getWidth() / 2 - 300, gameoStage.getHeight() /2 - 300);
+        window.add(level2);
+        window.setPosition(stage.getWidth() / 2 - 300, stage.getHeight() /2 - 300);
 
 
 
@@ -153,20 +133,23 @@ public class GameOver implements Disposable {
 
 
 
-        //gameoStage.addActor(table);
-        gameoStage.addActor(window);
-        Gdx.input.setInputProcessor(gameoStage);
+        //stage.addActor(table);
+        stage.addActor(window);
+        Gdx.input.setInputProcessor(stage);
 
     }
 
     public void render(float delta){
 
-        gameoStage.act();
-        gameoStage.draw();
+        stage.act();
+        stage.draw();
 
 
 
-    }
+
+
+
+}
 
     public void update(float dt) {
 
@@ -189,11 +172,13 @@ public class GameOver implements Disposable {
 
     @Override
     public void dispose() {
-        gameoStage.dispose();
+        stage.dispose();
+
 
     }
 
     public void resize(){
+
 
     }
 }

@@ -51,17 +51,20 @@ public class PlayScreen implements Screen{
     public boolean gameoverb;
     public boolean gameovermade = false;
     public boolean isalive;
+    public String level;
 ;
 
 
     private MainClass game;
 
 
-    public PlayScreen(MainClass game){
+    public PlayScreen(MainClass game, String level){
 
 
 
         gamecam = new OrthographicCamera();
+
+        this.level = level;
         gameoverb = false;
 
 
@@ -76,7 +79,7 @@ public class PlayScreen implements Screen{
         hud = new Hud(game.batch);
 
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("level2.tmx");
+        map = mapLoader.load(level);
         renderer = new OrthogonalTiledMapRenderer(map, 1 / MainClass.PPM);
 
 
@@ -129,7 +132,7 @@ public class PlayScreen implements Screen{
     public void handleInput(float dt) {
         if (player.dead == false ) {
 
-            if ((Gdx.input.isKeyJustPressed(Input.Keys.UP) || hud.isUpPressed() && (player.b2body.getLinearVelocity().y <= 2)) && currentjump < 1000) {
+            if ((Gdx.input.isKeyJustPressed(Input.Keys.UP) || hud.isUpPressed() && (player.b2body.getLinearVelocity().y <= 2)) && currentjump < 1) {
                 player.b2body.applyLinearImpulse(new Vector2(0, 6f), player.b2body.getWorldCenter(), true);
                 currentjump += 1;
             }
@@ -166,7 +169,7 @@ public class PlayScreen implements Screen{
         if (hud.worldTimer == 0){gameoverb = true;}
 
         if (gameoverb && !gameovermade){
-            gameover = new GameOver(game.batch, hud.score(), game, isalive);
+            gameover = new GameOver(game.batch, hud.score(), game, isalive, level);
             gameovermade = true;
 
         }

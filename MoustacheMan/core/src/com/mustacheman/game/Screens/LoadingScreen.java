@@ -13,13 +13,11 @@ import java.util.*;
 import java.lang.*;
 
 
-import sun.applet.Main;
-
 public class LoadingScreen implements Screen {
 
 
     Batch batch;
-    private MainClass game;
+    private final MainClass game;
     Texture background;
     SpriteBatch loadingbatch;
     BitmapFont font;
@@ -40,7 +38,8 @@ public class LoadingScreen implements Screen {
 
 
         this.game = game;
-        loadingbatch = new SpriteBatch();
+        game.batch = new SpriteBatch();
+
         font = new BitmapFont(Gdx.files.internal("font.fnt"), Gdx.files.internal("font.png"), false);
         font = new BitmapFont();
         logo = new Texture("hariesh.png");
@@ -62,9 +61,9 @@ public class LoadingScreen implements Screen {
     public void update(Float dt){
         stopWatch += dt;
 
-        if (stopWatch > 5){
+        if (stopWatch > 1){
 
-            game.setScreen(new PlayScreen(game));
+            game.setScreen(new MainMenu(game));
 
         }
     }
@@ -72,7 +71,6 @@ public class LoadingScreen implements Screen {
     @Override
     public void render(float delta) {
         update(delta);
-        loadingbatch.begin();
 
         //loadingbatch.draw(background, 0,0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         font.getData().setScale(1);
@@ -80,13 +78,9 @@ public class LoadingScreen implements Screen {
 
 
 
-        logobatch.begin();
-        logobatch.draw(logo, Gdx.graphics.getWidth()/2 - (Gdx.graphics.getWidth() /3)/2, Gdx.graphics.getHeight()/2  - (Gdx.graphics.getWidth() /3)/2, Gdx.graphics.getWidth() /3, Gdx.graphics.getWidth() /3);
-        logobatch.end();
-
-
-        loadingbatch.end();
-
+        game.batch.begin();
+        game.batch.draw(logo, Gdx.graphics.getWidth()/2 - (Gdx.graphics.getWidth() /3)/2, Gdx.graphics.getHeight()/2  - (Gdx.graphics.getWidth() /3)/2, Gdx.graphics.getWidth() /3, Gdx.graphics.getWidth() /3);
+        game.batch.end();
 
 
 
@@ -114,6 +108,7 @@ public class LoadingScreen implements Screen {
 
     @Override
     public void dispose() {
+        batch.dispose();
 
     }
 }

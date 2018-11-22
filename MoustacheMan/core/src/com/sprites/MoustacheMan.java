@@ -124,7 +124,7 @@ public class MoustacheMan extends Sprite {
 
 
         shape.setPosition(new Vector2(0, -20/MainClass.PPM));
-        fdef.friction = 0.8f;
+        fdef.friction = 3f;
 
         fdef.shape = shape;
 
