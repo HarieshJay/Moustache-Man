@@ -118,11 +118,13 @@ public class MoustacheMan extends Sprite {
 
         fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT | MainClass.ENEMY_BIT |
                 MainClass.COIN_BIT |
-                MainClass.OBJECT_BIT|
+                MainClass.OBJECT_BIT |
                 MainClass.EXIT_BIT |
                 MainClass.ENEMY_HEAD_BIT;
+
+
         shape.setPosition(new Vector2(0, -20/MainClass.PPM));
-        fdef.friction = 1f;
+        fdef.friction = 0.8f;
 
         fdef.shape = shape;
 
