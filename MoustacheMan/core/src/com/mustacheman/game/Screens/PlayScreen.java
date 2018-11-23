@@ -84,10 +84,6 @@ public class PlayScreen implements Screen{
 
 
 
-
-
-
-
         gamecam.position.set(gameport.getWorldWidth()/2, gameport.getWorldHeight()/2, 0);
         world = new World(new Vector2(0,-10 ), true);
         b2dr = new Box2DDebugRenderer();
@@ -105,7 +101,7 @@ public class PlayScreen implements Screen{
 
         //music.setLooping(true);
         //music.play();
-        b2dr.setDrawBodies(false);  //Set to true to stop showing debug lines
+        b2dr.setDrawBodies(true);  //Set to true to stop showing debug lines
 
 
 
@@ -137,10 +133,10 @@ public class PlayScreen implements Screen{
                 currentjump += 1;
             }
             if (((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || hud.isRightPressed()) && (player.b2body.getLinearVelocity().x <= 4))) {
-                player.b2body.applyLinearImpulse(new Vector2(1f, 0), player.b2body.getWorldCenter(), true);
+                player.b2body.applyLinearImpulse(new Vector2(0.5f, 0), player.b2body.getWorldCenter(), true);
             }
             if (((Gdx.input.isKeyPressed(Input.Keys.LEFT) || hud.isLeftPressed()) && (player.b2body.getLinearVelocity().x >= -4))) {
-                player.b2body.applyLinearImpulse(new Vector2(-1f, 0), player.b2body.getWorldCenter(), true);
+                player.b2body.applyLinearImpulse(new Vector2(-0.5f, 0), player.b2body.getWorldCenter(), true);
             }
         }
 
@@ -305,6 +301,8 @@ public class PlayScreen implements Screen{
         b2dr.dispose();
         hud.dispose();
         gameover.dispose();
+
+
 
 
 

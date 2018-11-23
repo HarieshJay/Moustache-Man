@@ -15,17 +15,15 @@ import java.lang.*;
 
 public class LoadingScreen implements Screen {
 
-
-    Batch batch;
     private final MainClass game;
     Texture background;
-    SpriteBatch loadingbatch;
+
     BitmapFont font;
 
     Float stopWatch;
-    PlayScreen playScreen;
+
     Texture logo;
-    SpriteBatch logobatch;
+
 
 
 
@@ -43,11 +41,6 @@ public class LoadingScreen implements Screen {
         font = new BitmapFont(Gdx.files.internal("font.fnt"), Gdx.files.internal("font.png"), false);
         font = new BitmapFont();
         logo = new Texture("hariesh.png");
-        logobatch = new SpriteBatch();
-
-
-
-
 
 
     }
@@ -108,7 +101,10 @@ public class LoadingScreen implements Screen {
 
     @Override
     public void dispose() {
-        batch.dispose();
+
+        game.batch.dispose();
+        font.dispose();
+
 
     }
 }

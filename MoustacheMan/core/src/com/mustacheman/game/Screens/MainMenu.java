@@ -33,15 +33,22 @@ public class MainMenu implements Screen {
 
     private MainClass game;
     Texture background;
+    SpriteBatch batch2;
 
     Viewport viewport;
     com.Scenes.Menu menu;
+    float width;
+    float height;
 
     public MainMenu(MainClass game) {
         this.game = game;
         game.batch = new SpriteBatch();
         background = new Texture("cave.png");
-        menu = new com.Scenes.Menu(game);
+        menu = new com.Scenes.Menu(game, this);
+        batch2 = new SpriteBatch();
+
+        width = Gdx.graphics.getWidth();
+        height = Gdx.graphics.getHeight();
 
 
 
@@ -60,9 +67,10 @@ public class MainMenu implements Screen {
     @Override
     public void render(float delta) {
 
-        game.batch.begin();
-        game.batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        game.batch.end();
+        batch2.begin();
+        batch2.draw(background, 0, 0, width, height);
+        batch2.end();
+
         menu.stage.draw();
         game.batch.setProjectionMatrix(menu.stage.getCamera().combined);}
 
@@ -73,6 +81,9 @@ public class MainMenu implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        menu.stage.getViewport().update(width,height);
+        this.width = width;
+        this.height = height;
 
 
 
@@ -98,7 +109,8 @@ public class MainMenu implements Screen {
     public void dispose() {
         game.batch.dispose();
         menu.dispose();
-
+        batch2.dispose();
+        background.dispose();
 
     }
 }

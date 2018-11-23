@@ -18,13 +18,15 @@ import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.mustacheman.game.Screens.MainMenu;
 import com.mustacheman.game.Screens.PlayScreen;
+
+import sun.applet.Main;
 
 public class Menu implements Disposable {
 
 
-    Batch batch;
-    Texture texture;
+
     private MainClass game;
 
     public Stage stage;
@@ -38,13 +40,16 @@ public class Menu implements Disposable {
     Label message;
 
     Window window;
+    MainMenu screen;
 
 
-    public Menu( MainClass game) {
+    public Menu(MainClass game, MainMenu screen) {
 
 
         this.game = game;
-        this.batch = batch;
+
+        this.screen = screen;
+
 
         onCreate();
 
@@ -83,6 +88,8 @@ public class Menu implements Disposable {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 game.setScreen(new PlayScreen( game, "level1.tmx"));
+
+
                 return true;
 
             }
@@ -95,6 +102,7 @@ public class Menu implements Disposable {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 game.setScreen(new PlayScreen( game, "level2.tmx"));
+
                 return true;
 
             }
@@ -141,6 +149,7 @@ public class Menu implements Disposable {
 
     public void render(float delta){
 
+
         stage.act();
         stage.draw();
 
@@ -172,6 +181,8 @@ public class Menu implements Disposable {
 
     @Override
     public void dispose() {
+
+        skin.dispose();
         stage.dispose();
 
 

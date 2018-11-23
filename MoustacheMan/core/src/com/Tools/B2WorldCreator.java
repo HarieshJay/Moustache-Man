@@ -70,6 +70,7 @@ public class B2WorldCreator {
             fdef.shape = shape;
             fdef.filter.categoryBits = MainClass.OBJECT_BIT;
             fdef.filter.maskBits = MainClass.MAN_BIT;
+            fdef.friction = 0;
             body.createFixture(fdef).setUserData(this);
 
 
