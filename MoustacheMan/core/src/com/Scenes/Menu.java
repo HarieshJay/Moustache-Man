@@ -2,6 +2,7 @@ package com.Scenes;
 
 import com.MainClass.game.MainClass;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -38,6 +39,7 @@ public class Menu implements Disposable {
     Skin skin;
 
     Label message;
+    Label message2;
 
     Window window;
     MainMenu screen;
@@ -79,9 +81,11 @@ public class Menu implements Disposable {
         level1.setSize(150, 150);
         level2.setSize(150, 150);
 
-        message = new Label("Choose a level\nPick 2 for a challenge", skin);
+        message = new Label("Choose a level", skin);
+        message2 = new Label("Level 2 is a bit challenging", skin);
 
         message.setFontScale(2);
+        message2.setFontScale(2);
 
         level1.addListener(new InputListener(){
 
@@ -116,6 +120,8 @@ public class Menu implements Disposable {
 
         window.add(message);
         window.row().pad(25,25,25,25);
+        window.add(message2);
+        window.row().pad(25,25,25,25);
         window.add(level1);
         window.row().pad(25,25,25,25);
         window.add(level2);
@@ -148,6 +154,8 @@ public class Menu implements Disposable {
     }
 
     public void render(float delta){
+
+
 
 
         stage.act();
@@ -188,7 +196,8 @@ public class Menu implements Disposable {
 
     }
 
-    public void resize(){
+    public void resize(int width, int length){
+        viewport.update(width, length);
 
 
     }

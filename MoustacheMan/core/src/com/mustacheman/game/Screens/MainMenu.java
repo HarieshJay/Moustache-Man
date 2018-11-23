@@ -35,10 +35,13 @@ public class MainMenu implements Screen {
     Texture background;
     SpriteBatch batch2;
 
-    Viewport viewport;
+
     com.Scenes.Menu menu;
-    float width;
-    float height;
+    float width = Gdx.graphics.getWidth();
+    float height = Gdx.graphics.getHeight();
+
+
+
 
     public MainMenu(MainClass game) {
         this.game = game;
@@ -71,7 +74,14 @@ public class MainMenu implements Screen {
         batch2.draw(background, 0, 0, width, height);
         batch2.end();
 
-        menu.stage.draw();
+
+
+        //game.batch.begin();
+        //game.batch.draw(background, 0, 0, width, height);
+        //game.batch.end();
+
+        //menu.stage.draw();
+        menu.render(delta);
         game.batch.setProjectionMatrix(menu.stage.getCamera().combined);}
 
 
@@ -81,6 +91,7 @@ public class MainMenu implements Screen {
 
     @Override
     public void resize(int width, int height) {
+
         menu.stage.getViewport().update(width,height);
         this.width = width;
         this.height = height;
