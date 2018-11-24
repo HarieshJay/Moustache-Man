@@ -107,7 +107,7 @@ public class Hud implements Disposable {
 
 
         Image upImg = new Image(buttonUp);
-        upImg.setSize(150, 150);
+        upImg.setSize(200, 200);
         upImg.addListener(new InputListener() {
 
             @Override
@@ -124,7 +124,7 @@ public class Hud implements Disposable {
         });
 
         Image leftImg = new Image(buttonLeft);
-        leftImg.setSize(150, 150);
+        leftImg.setSize(200, 200);
         leftImg.addListener(new InputListener() {
 
             @Override
@@ -142,7 +142,7 @@ public class Hud implements Disposable {
 
 
         Image rightImg = new Image(buttonRight);
-        rightImg.setSize(150, 150);
+        rightImg.setSize(200, 200);
         rightImg.addListener(new InputListener() {
 
             @Override

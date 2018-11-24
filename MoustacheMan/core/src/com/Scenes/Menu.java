@@ -82,7 +82,7 @@ public class Menu implements Disposable {
         level2.setSize(150, 150);
 
         message = new Label("Choose a level", skin);
-        message2 = new Label("Level 2 is a bit challenging", skin);
+        message2 = new Label("Good Luck, and Have Fun", skin);
 
         message.setFontScale(2);
         message2.setFontScale(2);
@@ -122,9 +122,9 @@ public class Menu implements Disposable {
         window.row().pad(25,25,25,25);
         window.add(message2);
         window.row().pad(25,25,25,25);
-        window.add(level1);
+        window.add(level1).size(150,100);
         window.row().pad(25,25,25,25);
-        window.add(level2);
+        window.add(level2).size(150,100);
         window.setPosition(stage.getWidth() / 2 - 300, stage.getHeight() /2 - 300);
 
 
