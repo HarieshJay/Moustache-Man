@@ -125,9 +125,9 @@ public class GameOver implements Disposable {
         window.row().pad(25,25,25,25);
         window.add(lscore);
         window.row().pad(25,25,25,25);
-        window.add(button);
+        window.add(button).size(175,100);
         window.row().pad(25,25,25,25);
-        window.add(levelSelect);
+        window.add(levelSelect).size(175,100);
         window.setPosition(gameoStage.getWidth() / 2 - 300, gameoStage.getHeight() /2 - 300);
 
 

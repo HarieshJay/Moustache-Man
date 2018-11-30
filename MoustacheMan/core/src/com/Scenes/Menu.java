@@ -75,14 +75,14 @@ public class Menu implements Disposable {
         viewport = new FitViewport(MainClass.V_Width, MainClass.V_Height, new OrthographicCamera());
         stage = new Stage(viewport, game.batch);
 
-        level1 = new TextButton("Level 1", skin);
-        level2 = new TextButton("Level 2", skin);
+        level1 = new TextButton("Easy", skin);
+        level2 = new TextButton("Hard", skin);
 
         level1.setSize(150, 150);
         level2.setSize(150, 150);
 
         message = new Label("Choose a level", skin);
-        message2 = new Label("Good Luck, and Have Fun", skin);
+        message2 = new Label("Have Fun", skin);
 
         message.setFontScale(2);
         message2.setFontScale(2);

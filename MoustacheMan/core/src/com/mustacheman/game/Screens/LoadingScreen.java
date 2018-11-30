@@ -4,6 +4,7 @@ import com.MainClass.game.MainClass;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -24,6 +25,15 @@ public class LoadingScreen implements Screen {
 
     Texture logo;
 
+    int Posx;
+    int Posy;
+    int Pwidth;
+    int PHeight;
+
+
+
+
+
 
 
 
@@ -42,6 +52,14 @@ public class LoadingScreen implements Screen {
         font = new BitmapFont();
         logo = new Texture("hariesh.png");
 
+        Posx = Gdx.graphics.getWidth()/2 - (Pwidth)/2;
+        Posy = Gdx.graphics.getHeight()/2  - (PHeight)/2;
+        Pwidth = Gdx.graphics.getWidth()/3;
+        PHeight = Gdx.graphics.getHeight()/2;
+
+
+
+
 
     }
 
@@ -54,7 +72,7 @@ public class LoadingScreen implements Screen {
     public void update(Float dt){
         stopWatch += dt;
 
-        if (stopWatch > 4){
+        if (stopWatch > 400){
 
             game.setScreen(new MainMenu(game));
 
@@ -66,13 +84,18 @@ public class LoadingScreen implements Screen {
         update(delta);
 
         //loadingbatch.draw(background, 0,0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+
         font.getData().setScale(1);
         font.setColor(Color.WHITE);
 
 
 
         game.batch.begin();
-        game.batch.draw(logo, Gdx.graphics.getWidth()/2 - (Gdx.graphics.getWidth() /3)/2, Gdx.graphics.getHeight()/2  - (Gdx.graphics.getWidth() /3)/2, Gdx.graphics.getWidth() /3, Gdx.graphics.getWidth() /3);
+        game.batch.draw(logo, Posx, Posy , Pwidth, PHeight);
         game.batch.end();
 
 
@@ -81,6 +104,13 @@ public class LoadingScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
+
+        Posx = width/2 - (Pwidth)/2;
+        Posy = height/2  - (PHeight)/2;
+        Pwidth = 350;
+        PHeight = 400;
+
+
 
     }
 
