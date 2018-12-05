@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.Scenes.GameOver;
 import com.mustacheman.game.Screens.LoadingScreen;
+import com.mustacheman.game.Screens.MainMenu;
 import com.mustacheman.game.Screens.PlayScreen;
 
 
@@ -42,11 +43,11 @@ public final class MainClass extends Game {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		loadingScreen = new LoadingScreen(this);
-		//screen = new PlayScreen(this);
+		//loadingScreen = new LoadingScreen(this);
+		//screen = new MainMenu(this);
 
 
-		setScreen(loadingScreen);
+		setScreen(new MainMenu(this));
 
 		//music = MainClass.manager.get("sounds/music.ogg", Sound.class);
 

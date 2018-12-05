@@ -72,7 +72,7 @@ public class LoadingScreen implements Screen {
     public void update(Float dt){
         stopWatch += dt;
 
-        if (stopWatch > 400){
+        if (stopWatch > 4){
 
             game.setScreen(new MainMenu(game));
 
