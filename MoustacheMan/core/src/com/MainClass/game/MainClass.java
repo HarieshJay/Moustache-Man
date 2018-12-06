@@ -2,10 +2,6 @@ package com.MainClass.game;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.Scenes.GameOver;
-import com.mustacheman.game.Screens.LoadingScreen;
-import com.mustacheman.game.Screens.MainMenu;
-import com.mustacheman.game.Screens.PlayScreen;
 
 
 public final class MainClass extends Game {

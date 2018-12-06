@@ -1,15 +1,11 @@
-package com.sprites;
+package com.MainClass.game;
 
-import com.Scenes.Hud;
-import com.badlogic.gdx.Gdx;
+import com.MainClass.game.Hud;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.Filter;
 import com.badlogic.gdx.physics.box2d.World;
-import com.mustacheman.game.Screens.PlayScreen;
-
-import javax.print.attribute.standard.PrinterLocation;
+import com.MainClass.game.PlayScreen;
 
 public abstract class Enemy extends Sprite {
     protected World world;

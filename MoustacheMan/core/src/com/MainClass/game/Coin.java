@@ -1,22 +1,6 @@
-package com.sprites;
+package com.MainClass.game;
 
-import com.MainClass.game.MainClass;
-import com.Scenes.Hud;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.Filter;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.utils.Array;
-import com.mustacheman.game.Screens.PlayScreen;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import sun.applet.Main;
 
 public class Coin extends InteractiveTileObject {
     boolean destroy = true;

@@ -1,12 +1,7 @@
-package com.sprites;
+package com.MainClass.game;
 
-import com.MainClass.game.MainClass;
-import com.Scenes.Hud;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.physics.box2d.World;
-import com.mustacheman.game.Screens.PlayScreen;
 
 public class Brick extends InteractiveTileObject {
 

@@ -1,7 +1,6 @@
-package com.sprites;
+package com.MainClass.game;
 
 import com.MainClass.game.MainClass;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTile;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
@@ -13,8 +12,7 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.utils.Array;
-import com.mustacheman.game.Screens.PlayScreen;
+import com.MainClass.game.PlayScreen;
 
 import java.util.ArrayList;
 

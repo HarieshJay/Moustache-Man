@@ -1,10 +1,5 @@
-package com.mustacheman.game.Screens;
+package com.MainClass.game;
 
-import com.MainClass.game.MainClass;
-import com.Scenes.GameOver;
-import com.Scenes.Hud;
-import com.Tools.B2WorldCreator;
-import com.Tools.WorldContactListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -22,9 +17,6 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.*;
-import com.sprites.Coin;
-import com.sprites.Enemy;
-import com.sprites.MoustacheMan;
 
 public class PlayScreen implements Screen{
     private OrthographicCamera gamecam;
@@ -45,7 +37,7 @@ public class PlayScreen implements Screen{
     private Music music;
     private Coin coin;
     public int currentjump;
-    private B2WorldCreator creator;
+    private lilMon.B2WorldCreator creator;
     public boolean endlevel = false;
     private GameOver gameover;
     public boolean gameoverb;
@@ -87,11 +79,11 @@ public class PlayScreen implements Screen{
         gamecam.position.set(gameport.getWorldWidth()/2, gameport.getWorldHeight()/2, 0);
         world = new World(new Vector2(0,-10 ), true);
         b2dr = new Box2DDebugRenderer();
-        creator = new B2WorldCreator(this, hud);
+        creator = new lilMon.B2WorldCreator(this, hud);
 
 
         player = new MoustacheMan(this); // Make sure world is made before players and objects are initialized. Else it will erase those objects and give a null pointer exception
-        world.setContactListener(new WorldContactListener(this));
+        world.setContactListener(new lilMon.WorldContactListener(this));
 
         manager = new AssetManager();
         manager.load("sounds/music.ogg", Music.class);

@@ -1,4 +1,4 @@
-package com.mustacheman.game.Screens;
+package com.MainClass.game;
 
 import com.badlogic.gdx.Screen;
 

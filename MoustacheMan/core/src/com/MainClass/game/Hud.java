@@ -1,4 +1,4 @@
-package com.Scenes;
+package com.MainClass.game;
 
 import com.MainClass.game.MainClass;
 import com.badlogic.gdx.Gdx;
@@ -24,6 +24,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import java.util.concurrent.CountDownLatch;
 
 import javax.swing.plaf.TextUI;
+
+
 
 
 public class Hud implements Disposable {
@@ -85,8 +87,8 @@ public class Hud implements Disposable {
         table.top();
         table.setFillParent(true);
 
-        countdownLabel = new Label(String.format("%10d", worldTimer), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        scoreLabel = new Label(String.format("%10d", score), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        countdownLabel = new Label(worldTimer.toString(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        scoreLabel = new Label(score.toString(), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         timeLabel = new Label("TIME", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         levelLabel = new Label("1-1", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         worldLabel = new Label("WORLD", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
@@ -183,7 +185,7 @@ public class Hud implements Disposable {
         timeCount += dt;
         if (timeCount >= 1) {
             worldTimer--;
-            countdownLabel.setText(String.format("%10d", worldTimer));
+            countdownLabel.setText(worldTimer.toString());
             timeCount = 0;
         }
 
@@ -194,7 +196,7 @@ public class Hud implements Disposable {
 
     public static void addscore(int value){
         score+= value;
-        scoreLabel.setText(String.format("%10d", score));
+        scoreLabel.setText(score.toString());
 
     }
 

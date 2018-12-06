@@ -1,34 +1,12 @@
-package com.mustacheman.game.Screens;
+package com.MainClass.game;
 
 import com.MainClass.game.MainClass;
+import com.MainClass.game.Menu;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.InputListener;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
-import com.badlogic.gdx.scenes.scene2d.ui.Window;
-import com.badlogic.gdx.utils.Disposable;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.mustacheman.game.Screens.PlayScreen;
-
-import java.awt.Color;
-import java.awt.Menu;
-
-import sun.applet.Main;
 
 public class MainMenu implements Screen {
 
@@ -37,7 +15,7 @@ public class MainMenu implements Screen {
     SpriteBatch batch2;
 
 
-    com.Scenes.Menu menu;
+    Menu menu;
     float width = Gdx.graphics.getWidth();
     float height = Gdx.graphics.getHeight();
 
@@ -48,7 +26,7 @@ public class MainMenu implements Screen {
         this.game = game;
         game.batch = new SpriteBatch();
         background = new Texture("cave.png");
-        menu = new com.Scenes.Menu(game, this);
+        menu = new Menu(game, this);
         batch2 = new SpriteBatch();
 
         width = Gdx.graphics.getWidth();
