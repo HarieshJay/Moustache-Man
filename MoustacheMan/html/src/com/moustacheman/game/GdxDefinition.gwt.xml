@@ -11,6 +11,11 @@
         <extend-configuration-property name="gdx.reflect.include" value="com.badlogic.gdx.graphics.g2d.TextureAtlas"/>
         <extend-configuration-property name="gdx.reflect.include" value="com.badlogic.gdx.graphics.g2d.TextureRegion"/>
         <extend-configuration-property name="gdx.reflect.include" value="com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion"/>
+	<extend-configuration-property name="gdx.reflect.include" value="com.badlogic.gdx.maps.objects.RectangleMapObject"/>
+
+
+
+
 	
 	
 </module>

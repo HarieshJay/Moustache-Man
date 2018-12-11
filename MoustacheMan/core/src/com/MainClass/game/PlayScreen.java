@@ -95,6 +95,8 @@ public class PlayScreen implements Screen{
         //music.play();
         b2dr.setDrawBodies(false);  //Set to true to stop showing debug lines
 
+        player.b2body.setGravityScale(1.25f);
+
 
 
 
