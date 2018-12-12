@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="240" height="42" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#55aaff" nextobjectid="127">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="240" height="42" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#55aaff" nextobjectid="156">
  <tileset firstgid="1" source="tiles_spritesheet.tsx"/>
  <tileset firstgid="2601" source="Objects.tsx"/>
  <tileset firstgid="3625" source="landscape.tsx"/>
@@ -26,14 +26,13 @@
   <object id="51" x="592" y="304" width="320" height="32"/>
   <object id="54" x="2160" y="464" width="320" height="32"/>
   <object id="57" x="2576" y="368" width="64" height="32"/>
-  <object id="58" x="2752" y="368" width="64" height="32"/>
+  <object id="148" x="2752.51" y="367.99" width="63.5683" height="33.1968"/>
  </objectgroup>
  <objectgroup name="Exit">
   <object id="61" x="3696" y="512" width="64" height="96"/>
  </objectgroup>
  <objectgroup name="coins">
   <object id="10" x="2592" y="320" width="32" height="32"/>
-  <object id="13" x="2768" y="320" width="32" height="32"/>
   <object id="14" x="2240" y="416" width="32" height="32"/>
   <object id="15" x="2368" y="416" width="32" height="32"/>
   <object id="19" x="224" y="400" width="32" height="32"/>
@@ -44,6 +43,7 @@
   <object id="28" x="864" y="256" width="32" height="32"/>
   <object id="29" x="1040" y="368" width="32" height="32"/>
   <object id="30" x="1152" y="496" width="32" height="32"/>
+  <object id="155" x="2768" y="320" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Borders">
   <object id="75" x="5" y="1" width="3834" height="3"/>
@@ -59,10 +59,22 @@
   <object id="120" x="2480" y="464" height="32"/>
   <object id="121" x="2576" y="368" height="32"/>
   <object id="122" x="2640" y="368" height="32"/>
-  <object id="123" x="2752" y="368" height="32"/>
-  <object id="124" x="2816" y="368" height="32"/>
   <object id="125" x="2944" y="608" height="64"/>
   <object id="126" x="3056" y="608" height="64"/>
+  <object id="131" x="190.733" y="450.85" width="5.23273" height="31.3964"/>
+  <object id="132" x="493.446" y="450.183" width="4.44782" height="31.9196"/>
+  <object id="133" x="589.233" y="308.292" width="5.66644" height="33.369"/>
+  <object id="134" x="909.148" y="305.432" width="6.29604" height="32.1098"/>
+  <object id="136" x="2157.95" y="466.119" width="3.05025" height="31.7868"/>
+  <object id="137" x="2478.91" y="466.786" width="3.05025" height="31.3052"/>
+  <object id="138" x="2573.75" y="370.449" width="3.73428" height="32.7787"/>
+  <object id="139" x="2638.69" y="370.079" width="3.73428" height="32.7787"/>
+  <object id="142" x="2942" y="610" width="4" height="64"/>
+  <object id="143" x="3053.33" y="610" width="4" height="64"/>
+  <object id="146" x="1422" y="610" width="4" height="64"/>
+  <object id="147" x="1534" y="610" width="4" height="64"/>
+  <object id="149" x="2749.68" y="370.815" width="5.65052" height="30.3715"/>
+  <object id="151" x="2812.54" y="372.934" width="7.76946" height="28.2526"/>
  </objectgroup>
  <objectgroup name="Enemy Border">
   <object id="89" x="1424.27" y="511.177" height="99.2252"/>

@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.Filter;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.MainClass.game.PlayScreen;
 
@@ -70,7 +71,7 @@ public class MoustacheMan extends Sprite {
 
 
             setRegion(getframe(dt));
-            setPosition(b2body.getPosition().x - getWidth() / 2f, b2body.getPosition().y - getHeight() / 2f + 8 / MainClass.PPM);
+            setPosition(b2body.getPosition().x - getWidth() / 2f, b2body.getPosition().y - getHeight() / 2f + 0 / MainClass.PPM);
 
 
 
@@ -100,10 +101,12 @@ public class MoustacheMan extends Sprite {
 
 
         FixtureDef fdef = new FixtureDef();
-        CircleShape shape = new CircleShape();
+        PolygonShape shape = new PolygonShape();
 
         //Create body
-        shape.setRadius( 20 /MainClass.PPM);
+        shape.setAsBox(25/MainClass.PPM, 47/MainClass.PPM);
+
+
 
         fdef.filter.categoryBits = MainClass.MAN_BIT;
 
@@ -114,8 +117,8 @@ public class MoustacheMan extends Sprite {
                 MainClass.ENEMY_HEAD_BIT;
 
 
-        shape.setPosition(new Vector2(0, -20/MainClass.PPM));
-        fdef.friction = 2.25f;
+        //shape.setPosition(new Vector2(0, -20/MainClass.PPM));
+//        fdef.friction = 2f;
 
         fdef.shape = shape;
 
@@ -123,31 +126,31 @@ public class MoustacheMan extends Sprite {
         b2body.createFixture(fdef).setUserData(this);
 
         //Create head
-        FixtureDef bodyfdef = new FixtureDef();
-        shape.setRadius(35 /MainClass.PPM);
-        shape.setPosition(new Vector2(0, 20/MainClass.PPM));
-        bodyfdef.shape = shape;
-        fdef.filter.categoryBits = MainClass.MAN_HEAD_BIT;
-        fdef.friction = 0f;
-        fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT |
-                MainClass.COIN_BIT |
-                MainClass.OBJECT_BIT |
-                MainClass.EXIT_BIT;
-        b2body.createFixture(fdef).setUserData(this);
-
-
-        //Neck
-        bodyfdef = new FixtureDef();
-        shape.setRadius(25 /MainClass.PPM);
-        shape.setPosition(new Vector2(0, -2/MainClass.PPM));
-        bodyfdef.shape = shape;
-        fdef.filter.categoryBits = MainClass.MAN_HEAD_BIT;
-        fdef.friction = 0f;
-        fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT |
-                MainClass.COIN_BIT |
-                MainClass.OBJECT_BIT |
-                MainClass.EXIT_BIT ;
-        b2body.createFixture(fdef).setUserData(this);
+//        FixtureDef bodyfdef = new FixtureDef();
+//        shape.setRadius(35 /MainClass.PPM);
+//        shape.setPosition(new Vector2(0, 20/MainClass.PPM));
+//        bodyfdef.shape = shape;
+//        fdef.filter.categoryBits = MainClass.MAN_HEAD_BIT;
+//        fdef.friction = 0f;
+//        fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT |
+//                MainClass.COIN_BIT |
+//                MainClass.OBJECT_BIT |
+//                MainClass.EXIT_BIT;
+//        b2body.createFixture(fdef).setUserData(this);
+//
+//
+//        //Neck
+//        bodyfdef = new FixtureDef();
+//        shape.setRadius(25 /MainClass.PPM);
+//        shape.setPosition(new Vector2(0, -2/MainClass.PPM));
+//        bodyfdef.shape = shape;
+//        fdef.filter.categoryBits = MainClass.MAN_HEAD_BIT;
+//        fdef.friction = 0f;
+//        fdef.filter.maskBits = MainClass.GROUND_BIT | MainClass.BRICK_BIT |
+//                MainClass.COIN_BIT |
+//                MainClass.OBJECT_BIT |
+//                MainClass.EXIT_BIT ;
+//        b2body.createFixture(fdef).setUserData(this);
 
 
 

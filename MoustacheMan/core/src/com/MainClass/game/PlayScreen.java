@@ -37,7 +37,7 @@ public class PlayScreen implements Screen{
     private Music music;
     private Coin coin;
     public int currentjump;
-    private lilMon.B2WorldCreator creator;
+    private B2WorldCreator creator;
     public boolean endlevel = false;
     private GameOver gameover;
     public boolean gameoverb;
@@ -72,24 +72,28 @@ public class PlayScreen implements Screen{
 
         mapLoader = new TmxMapLoader();
         map = mapLoader.load(level);
-        renderer = new OrthogonalTiledMapRenderer(map, 1 / MainClass.PPM);
+
+
+
+        //renderer = new OrthogonalTiledMapRenderer(map, 1 / MainClass.PPM);
+
 
 
 
         gamecam.position.set(gameport.getWorldWidth()/2, gameport.getWorldHeight()/2, 0);
         world = new World(new Vector2(0,-10 ), true);
         b2dr = new Box2DDebugRenderer();
-        creator = new lilMon.B2WorldCreator(this, hud);
+        creator = new B2WorldCreator(this, hud);
 
 
         player = new MoustacheMan(this); // Make sure world is made before players and objects are initialized. Else it will erase those objects and give a null pointer exception
-        world.setContactListener(new lilMon.WorldContactListener(this));
+        world.setContactListener(new WorldContactListener(this));
 
-        manager = new AssetManager();
-        manager.load("sounds/music.ogg", Music.class);
-        manager.finishLoading();
+//        manager = new AssetManager();
+//        manager.load("sounds/music.ogg", Music.class);
+//        manager.finishLoading();
 
-        music = manager.get("sounds/music.ogg", Music.class);
+        //music = manager.get("sounds/music.ogg", Music.class);
 
         //music.setLooping(true);
         //music.play();
@@ -123,7 +127,7 @@ public class PlayScreen implements Screen{
         if (player.dead == false ) {
 
             if ((Gdx.input.isKeyJustPressed(Input.Keys.UP) || hud.isUpPressed() && (player.b2body.getLinearVelocity().y <= 2)) && currentjump < 1) {
-                player.b2body.applyLinearImpulse(new Vector2(0, 6f), player.b2body.getWorldCenter(), true);
+                player.b2body.applyLinearImpulse(new Vector2(0, 7f), player.b2body.getWorldCenter(), true);
                 currentjump += 1;
             }
             if (((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || hud.isRightPressed()) && (player.b2body.getLinearVelocity().x <= 4))) {
@@ -220,11 +224,6 @@ public class PlayScreen implements Screen{
 
 
 
-
-
-
-
-
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
 
@@ -238,13 +237,10 @@ public class PlayScreen implements Screen{
 
         b2dr.render(world, gamecam.combined);
 
+
         if (gameoverb) {gameover.render(delta);
         gameover.gameoStage.draw();
         game.batch.setProjectionMatrix(gameover.gameoStage.getCamera().combined);}
-
-
-
-
 
 
 
